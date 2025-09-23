@@ -1,0 +1,45 @@
+rules_version = '2';
+
+// Cloud Storage security rules for MediaForge
+service firebase.storage {
+  match /b/{bucket}/o {
+    // User profile images
+    match /users/{userId}/profile/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Generated images and vectors
+    match /generations/{userId}/{generationId}/{allPaths=**} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if false; // Only server can write
+    }
+
+    // Style pack assets
+    match /style-packs/{stylePackId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only server can write
+    }
+
+    // Custom style training data
+    match /training/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Temporary uploads
+    match /temp/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Auto-delete after 24 hours via Cloud Function
+    }
+
+    // Public assets (thumbnails, examples)
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if false; // Only server can write
+    }
+
+    // Admin assets
+    match /admin/{allPaths=**} {
+      allow read, write: if false; // Only server can access
+    }
+  }
+}

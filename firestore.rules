@@ -1,0 +1,48 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Generations collection
+    match /generations/{generationId} {
+      allow read, write: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+    }
+
+    // Style packs collection
+    match /stylePacks/{stylePackId} {
+      // Public style packs are readable by all authenticated users
+      allow read: if request.auth != null &&
+        (resource.data.isPublic == true || request.auth.uid == resource.data.ownerId);
+      // Only owners can write to their style packs
+      allow write: if request.auth != null &&
+        request.auth.uid == resource.data.ownerId;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.ownerId;
+    }
+
+    // Transactions collection
+    match /transactions/{transactionId} {
+      allow read: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+      // Only server can write transactions
+      allow write: if false;
+    }
+
+    // Job queue collection (server-only access)
+    match /jobQueue/{jobId} {
+      allow read, write: if false;
+    }
+
+    // Admin-only collections
+    match /admin/{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
