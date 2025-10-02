@@ -4,11 +4,12 @@
 Fast, on-brand illustrations for blogs, social, marketing pages – with a positive, design-led tone.
 
 ## Typeface
-- **Manrope (Variable)** – single family for everything
+- **Inter** – single family for everything
   - Headlines: 700–800
   - Buttons/nav: 600
   - Body: 400–500
-- Import (no tracking changes needed): `https://fonts.googleapis.com/css2?family=Manrope:wdth,wght@100..125,200..800&display=swap`
+- Modern, highly legible UI font with excellent language support
+- No custom import needed (configured in Tailwind)
 
 ## Color palette
 ### Brand pink

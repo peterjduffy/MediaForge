@@ -72,7 +72,7 @@ export interface Transaction {
   description: string;
   status: 'pending' | 'completed' | 'failed';
   stripePaymentIntentId?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: Date;
 }
 
@@ -82,8 +82,8 @@ export interface JobQueue {
   userId: string;
   status: 'queued' | 'processing' | 'completed' | 'failed';
   priority: number;
-  payload: Record<string, any>;
-  result?: Record<string, any>;
+  payload: Record<string, unknown>;
+  result?: Record<string, unknown>;
   error?: string;
   attempts: number;
   maxAttempts: number;

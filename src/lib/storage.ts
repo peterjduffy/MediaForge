@@ -5,7 +5,6 @@ import {
   getDownloadURL,
   deleteObject,
   getMetadata,
-  updateMetadata,
   listAll,
   ListResult
 } from 'firebase/storage';
@@ -67,12 +66,19 @@ export const generateFilePath = (
   return `${bucket}/${userId}/${uniqueFileName}`;
 };
 
+type Metadata = {
+    contentType: string;
+    customMetadata: {
+        [key: string]: string;
+    };
+};
+
 // Upload file with progress tracking
 export const uploadFile = async (
   file: File,
   path: string,
   onProgress?: (progress: number) => void,
-  metadata?: any
+  metadata?: Metadata
 ): Promise<string> => {
   const storageRef = ref(storage, path);
 
@@ -115,7 +121,7 @@ export const uploadProfileImage = async (
   validateFile(file, ACCEPTED_IMAGE_TYPES);
   const path = generateFilePath('USER_UPLOADS', userId, file.name, 'profile');
 
-  const metadata = {
+  const metadata: Metadata = {
     contentType: file.type,
     customMetadata: {
       uploadedBy: userId,
@@ -137,7 +143,7 @@ export const uploadStyleReference = async (
   validateFile(file, ACCEPTED_IMAGE_TYPES);
   const path = generateFilePath('TRAINING_DATA', userId, file.name, stylePackId);
 
-  const metadata = {
+  const metadata: Metadata = {
     contentType: file.type,
     customMetadata: {
       uploadedBy: userId,
@@ -159,7 +165,7 @@ export const uploadTempFile = async (
   validateFile(file, [...ACCEPTED_IMAGE_TYPES, ...ACCEPTED_VECTOR_TYPES]);
   const path = generateFilePath('TEMP_UPLOADS', userId, file.name);
 
-  const metadata = {
+  const metadata: Metadata = {
     contentType: file.type,
     customMetadata: {
       uploadedBy: userId,
@@ -206,8 +212,7 @@ export const getUserFiles = async (userId: string, bucket: keyof typeof STORAGE_
 
 // Generate signed URL for private access (server-side only)
 export const generateSignedUrl = async (
-  path: string,
-  expirationTime: number = 3600 // 1 hour default
+  path: string
 ): Promise<string> => {
   // This would typically be done server-side with admin SDK
   // For client-side, we use getDownloadURL which provides a long-lived URL
@@ -226,7 +231,7 @@ export const uploadMultipleFiles = async (
   const uploadPromises = files.map(async (file, index) => {
     const path = generateFilePath(bucket, userId, file.name, subfolder);
 
-    const metadata = {
+    const metadata: Metadata = {
       contentType: file.type,
       customMetadata: {
         uploadedBy: userId,

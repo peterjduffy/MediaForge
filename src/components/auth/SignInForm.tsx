@@ -53,7 +53,7 @@ export const SignInForm: React.FC<SignInFormProps> = ({ onSuccess, onError }) =>
         </div>
         <h3 className="text-lg font-medium text-gray-900 mb-2">Check your email</h3>
         <p className="text-sm text-gray-600 mb-4">
-          We've sent a sign-in link to <strong>{email}</strong>
+          We&apos;ve sent a sign-in link to <strong>{email}</strong>
         </p>
         <p className="text-xs text-gray-500">
           Click the link in your email to complete sign-in. You can close this window.

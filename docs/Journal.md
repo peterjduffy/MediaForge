@@ -140,3 +140,173 @@
 - Pending for next session: review `AGENTS.md`, stage both it and this journal update, and run lint/build if planning to deploy.
 - Shutting down for the day; resume with generation interface work when back.
 
+---
+
+## 2025-09-24
+
+### Navigation Strategy & Architecture Planning
+
+#### Major Architectural Decision: Route Groups Implementation
+- **Context**: Discussed navigation strategy for MediaForge - should top nav/footer be global or different between marketing and app?
+- **Research**: Analyzed Next.js route groups best practices and IllustrationsAI app structure
+- **Decision**: Implement route groups with distinct layouts:
+  - `(marketing)/` group: Full navigation + footer for public pages
+  - `/app` route: Minimal nav (logo, credits, user menu) for focused workspace
+  - `/auth/*` routes: Minimal layout (logo only) for conversion focus
+
+#### IllustrationsAI Analysis & App Structure
+- **User Insight**: Referenced IllustrationsAI's app homepage with different sections (home, styles, gallery)
+- **MediaForge Adaptation**: Decided on single `/app` page with tabbed sections:
+  - Generate section (default) - main creation interface
+  - Styles section - browse available styles
+  - Gallery section - user's generation history
+- **Navigation**: Credits display + user menu in top bar, no footer to maximize workspace
+
+#### Content Strategy for New Product Launch
+- **Challenge**: MediaForge is a new project without social proof (testimonials, logos, user stats)
+- **Solution**: Keep comprehensive content on homepage to build trust:
+  - Hero + Features + Styles preview + Use Cases + How it Works + FAQ
+  - Defer separate pages (About, Contact, Examples) until post-launch
+  - Focus on technology credibility ("Powered by Google AI") and early access incentives
+
+#### Documentation Updates Completed
+- **Architecture.md**: Updated with route groups, navigation strategy, trust-building approach
+- **navigation-strategy.md**: New comprehensive doc covering implementation details
+- **app-structure.md**: New detailed breakdown of `/app` interface design
+- **Tasks.md**: Revised Phase 2 priorities for route group implementation
+- **CLAUDE.md**: Updated project structure to reflect route groups
+
+#### MVP Page Structure Finalized
+**Marketing Pages** (simplified for launch):
+- `/` - Comprehensive homepage (current content stays)
+- `/styles` - Full style gallery
+- `/pricing` - Pricing plans (when ready)
+- `/blog` - Content marketing
+- `/privacy`, `/terms`, `/security` - Legal compliance
+
+**App Interface**:
+- `/app` - Single page with tabbed sections (Generate, Styles, Gallery)
+
+**Auth Flow**:
+- `/auth/signin`, `/auth/verify` - Minimal layouts
+
+#### Key Insights for New Products
+- Comprehensive homepage builds trust without social proof
+- Technology partnerships provide credibility ("Powered by Google AI")
+- Early access incentives motivate signups
+- Fewer pages initially = less maintenance burden
+- Can expand pages as traction builds
+
+### Current State
+- **Phase 2**: Navigation architecture documented and planned
+- **Next Session**: Implement route group structure and navigation components
+- **Progress**: Foundation solid, ready for UI implementation
+
+### Session Impact
+This session established the complete navigation and content strategy for MediaForge's launch, balancing SaaS best practices with the realities of being a new product. The route group approach provides a scalable foundation while the comprehensive homepage strategy addresses trust-building without existing social proof.
+
+---
+
+## 2025-09-24 (Continued)
+
+### Logo Implementation Complete
+
+#### Logo Asset & Component Creation
+- **New Asset**: User uploaded `MediaForge.png` - beautiful flame design in brand pink (#FF1F8B)
+- **Reusable Component**: Created `src/components/Logo.tsx` with multiple sizes (sm, md, lg, xl)
+- **Design Alignment**: Logo perfectly matches visual identity pink color palette
+
+#### Logo Deployment Across Application
+- **Navigation**: Updated main page nav to use flame logo instead of temporary SVG
+- **Hero Section**: Replaced `Mediaforge_hero.png` with centered logo using Logo component
+- **Authentication Pages**: Added logo to both sign-in and verification pages for brand consistency
+- **Favicon**: Updated browser tab icon with MediaForge logo
+- **Code Quality**: Fixed TypeScript diagnostics, removed unused imports
+
+#### Technical Implementation
+- **Centralized Management**: Single Logo component ensures consistency across all layouts
+- **Responsive Design**: Multiple size variants (32px to 96px) for different contexts
+- **Performance**: Next.js Image optimization with priority loading for above-fold usage
+- **Accessibility**: Proper alt text and ARIA labels throughout
+
+#### Brand Consistency Achievement
+- **Marketing Layout**: Logo in navigation maintains brand presence
+- **App Interface**: Clean logo presentation for focused workspace
+- **Auth Flow**: Professional logo presentation for user onboarding
+- **Browser Tab**: Custom favicon for complete brand experience
+
+### Current State
+- **Visual Identity**: Complete logo implementation across all touchpoints
+- **Brand Consistency**: Cohesive experience from first visit to app usage
+- **Next Phase**: Ready for app interface development with established visual foundation
+
+### Impact
+MediaForge now has a professional, cohesive visual identity throughout the entire user journey. The flame logo effectively communicates the "forge" concept while maintaining the sleek, modern aesthetic established in the visual identity guide.
+
+---
+
+## 2025-09-24 (Evening)
+
+### Phase 2A Marketing Validation - COMPLETED ✅
+
+#### Route Groups Implementation Success
+- **Complete Migration**: Successfully implemented Next.js route groups architecture
+- **Marketing Group**: Created `(marketing)/` with dedicated layout (nav + footer)
+- **Component Extraction**: Built reusable `MarketingNav.tsx` and `Footer.tsx` components
+- **Page Migration**: Moved homepage content to route group while maintaining URLs
+- **Legal Pages**: Created placeholder `/privacy`, `/terms`, `/security` pages
+- **Clean Structure**: Eliminated redundant code, improved maintainability
+
+#### Functional Waitlist Implementation
+- **Client-Side Flow**: Waitlist writes directly to Firestore from the browser (no server API)
+- **Firestore Rules**: Secure write-only access for public waitlist submissions; duplicate attempts denied
+- **UX Excellence**: Loading states, success/duplicate handling, error messaging
+- **Professional Flow**: Form replacement with confirmation message on success
+- **Deployment**: Live and functional at https://mediaforge-957e4.web.app
+
+#### Hero Image Correction
+- **Visual Fix**: Replaced Logo component with actual `Mediaforge_hero.png` image
+- **UI Cleanup**: Removed unnecessary toolbar, dots, and tip text
+- **Clean Presentation**: Simple, professional hero image display
+- **Build & Deploy**: Successfully deployed corrected version
+
+#### Strategic AI Architecture Revision
+- **Reality Check**: Conducted honest assessment of technical feasibility
+- **Google-Native Decision**: Pivoted to SDXL + Imagen hybrid approach with $2000 credit budget
+- **Cost Optimization**: SDXL ($0.002/image) primary, Imagen 3 ($0.02/image) premium
+- **LoRA Integration**: Vertex AI Training for custom style fine-tuning
+- **Revenue Focus**: Payment integration prioritized before vector conversion
+- **Realistic Expectations**: "AI-optimized vectors" vs "professional vectors"
+
+### Documentation Updates (Complete Revision)
+- **Tasks.md**: Updated with Google-native phases, credit runway planning, realistic priorities
+- **Architecture.md**: Revised for SDXL + Imagen hybrid, cost management, 4-5 month budget
+- **CLAUDE.md**: Updated tech stack, key features, budget constraints
+- **Journal.md**: This comprehensive entry documenting Phase 2A completion
+
+### Technical Achievements
+- **Working Site**: Fully functional marketing site with client-side waitlist capture
+- **Clean Architecture**: Route groups provide scalable foundation
+- **Professional UX**: Polished user experience from landing to signup
+- **Cost Management**: Architected for sustainable development within credits
+- **Revenue-Focused**: Clear path to monetization before credits expire
+
+### Business Readiness
+- **User Testing Ready**: Site is live and ready for feedback/validation
+- **Technical Foundation**: Solid architecture for rapid AI integration
+- **Cost-Conscious**: Every decision optimized for $2000 runway efficiency
+- **Realistic Timeline**: 4-5 months to revenue with clear milestones
+
+### Current State
+- **Phase 2A**: Marketing Validation ✅ COMPLETE
+- **Phase 2B**: App Interface - Next priority
+- **Phase 3**: AI Integration (SDXL + Imagen) - Well-planned approach
+- **Phase 4**: Payment & Credits - Revenue before credits expire
+
+### Key Metrics to Track
+- Waitlist signups (baseline for validation)
+- Credit burn rate (when AI integration begins)
+- Time to 15-20 paying users (break-even point)
+
+### Impact
+MediaForge has transformed from a rough prototype to a professional, launch-ready marketing site with a clear technical roadmap and realistic business plan. The strategic pivot to Google-native technologies with budget consciousness positions the project for sustainable growth within the credit runway.

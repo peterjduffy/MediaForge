@@ -26,19 +26,19 @@ export const storage = getStorage(app);
 if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
   try {
     connectAuthEmulator(auth, 'http://localhost:9099');
-  } catch (error) {
+  } catch {
     // Already connected or other error
   }
 
   try {
     connectFirestoreEmulator(db, 'localhost', 8080);
-  } catch (error) {
+  } catch {
     // Already connected or other error
   }
 
   try {
     connectStorageEmulator(storage, 'localhost', 9199);
-  } catch (error) {
+  } catch {
     // Already connected or other error
   }
 }

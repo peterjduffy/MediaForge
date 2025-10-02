@@ -40,6 +40,12 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Waitlist collection (public write for signups)
+    match /waitlist/{waitlistId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
     // Admin-only collections
     match /admin/{document=**} {
       allow read, write: if false;

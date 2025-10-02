@@ -6,17 +6,14 @@ import {
   getDoc,
   getDocs,
   updateDoc,
-  deleteDoc,
   query,
   where,
   orderBy,
   limit,
-  DocumentReference,
-  QueryDocumentSnapshot,
   Timestamp
 } from 'firebase/firestore';
 import { db } from './firebase';
-import { User, Generation, StylePack, Transaction, JobQueue } from '../types';
+import { User, Generation, StylePack, Transaction } from '../types';
 
 // Collection references
 export const usersCollection = collection(db, 'users');
@@ -26,16 +23,16 @@ export const transactionsCollection = collection(db, 'transactions');
 export const jobQueueCollection = collection(db, 'jobQueue');
 
 // Helper function to convert Firestore timestamps to Date objects
-const convertTimestamps = <T>(data: any): T => {
+const convertTimestamps = <T>(data: Record<string, unknown>): T => {
   const converted = { ...data };
   Object.keys(converted).forEach(key => {
     if (converted[key] instanceof Timestamp) {
-      converted[key] = converted[key].toDate();
+      converted[key] = (converted[key] as Timestamp).toDate();
     }
     if (converted[key] && typeof converted[key] === 'object' && !Array.isArray(converted[key])) {
-      Object.keys(converted[key]).forEach(subKey => {
-        if (converted[key][subKey] instanceof Timestamp) {
-          converted[key][subKey] = converted[key][subKey].toDate();
+      Object.keys(converted[key] as Record<string, unknown>).forEach(subKey => {
+        if ((converted[key] as Record<string, unknown>)[subKey] instanceof Timestamp) {
+          (converted[key] as Record<string, unknown>)[subKey] = ((converted[key] as Record<string, unknown>)[subKey] as Timestamp).toDate();
         }
       });
     }

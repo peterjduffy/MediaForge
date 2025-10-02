@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { useAuth } from './AuthProvider';
 import { signOutUser } from '../../lib/auth';
 
@@ -46,10 +47,12 @@ export const UserMenu: React.FC = () => {
         className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-colors"
       >
         {user.photoURL ? (
-          <img
+          <Image
             src={user.photoURL}
             alt={displayName}
-            className="w-8 h-8 rounded-full"
+            width={32}
+            height={32}
+            className="rounded-full"
           />
         ) : (
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">

@@ -54,7 +54,7 @@ export const signInWithLink = async (url: string, email?: string): Promise<User>
     // Get email from parameter or localStorage
     let emailForSignIn = email;
     if (!emailForSignIn && typeof window !== 'undefined') {
-      emailForSignIn = window.localStorage.getItem('emailForSignIn');
+      emailForSignIn = window.localStorage.getItem('emailForSignIn') || undefined;
     }
 
     if (!emailForSignIn) {

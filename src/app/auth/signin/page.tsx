@@ -1,18 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { SignInForm } from '../../../components/auth/SignInForm';
+import Logo from '../../../components/Logo';
 
 export default function SignInPage() {
-  const router = useRouter();
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<string>('');
 
   const handleSuccess = () => {
     setError('');
     setSuccess('Check your email for the sign-in link!');
-    // Don't redirect immediately for email link - user needs to check email
+    // Don&apos;t redirect immediately for email link - user needs to check email
   };
 
   const handleError = (errorMessage: string) => {
@@ -23,6 +22,12 @@ export default function SignInPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+        <div className="text-center">
+          <Logo size="lg" className="mx-auto" />
+          <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+            Sign in to MediaForge
+          </h2>
+        </div>
         {error && (
           <div className="bg-red-50 border border-red-200 rounded-md p-4">
             <div className="flex">
@@ -57,7 +62,7 @@ export default function SignInPage() {
 
         <div className="text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account? Signing in will automatically create one for you.
+            Don&apos;t have an account? Signing in will automatically create one for you.
           </p>
         </div>
       </div>

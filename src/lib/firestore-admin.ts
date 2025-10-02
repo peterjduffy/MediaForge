@@ -4,30 +4,28 @@ import {
   collection,
   doc,
   addDoc,
-  setDoc,
   getDoc,
   getDocs,
   updateDoc,
-  deleteDoc,
   query,
   where,
   orderBy,
   limit,
   Timestamp
 } from 'firebase/firestore';
-import { User, Generation, StylePack, Transaction, JobQueue } from '../types';
+import { User, Generation, Transaction, JobQueue } from '../types';
 
 // Helper function to convert Firestore timestamps to Date objects
-const convertTimestamps = <T>(data: any): T => {
+const convertTimestamps = <T>(data: Record<string, unknown>): T => {
   const converted = { ...data };
   Object.keys(converted).forEach(key => {
     if (converted[key] instanceof Timestamp) {
-      converted[key] = converted[key].toDate();
+      converted[key] = (converted[key] as Timestamp).toDate();
     }
     if (converted[key] && typeof converted[key] === 'object' && !Array.isArray(converted[key])) {
-      Object.keys(converted[key]).forEach(subKey => {
-        if (converted[key][subKey] instanceof Timestamp) {
-          converted[key][subKey] = converted[key][subKey].toDate();
+      Object.keys(converted[key] as Record<string, unknown>).forEach(subKey => {
+        if ((converted[key] as Record<string, unknown>)[subKey] instanceof Timestamp) {
+          (converted[key] as Record<string, unknown>)[subKey] = ((converted[key] as Record<string, unknown>)[subKey] as Timestamp).toDate();
         }
       });
     }
@@ -126,7 +124,8 @@ export const deductCredits = async (userId: string, amount: number): Promise<boo
     amount: -amount,
     credits: amount,
     description: `Used ${amount} credits for generation`,
-    status: 'completed'
+    status: 'completed',
+    createdAt: new Date()
   });
 
   return true;
@@ -153,7 +152,8 @@ export const addCredits = async (userId: string, amount: number, description: st
     amount: amount,
     credits: amount,
     description,
-    status: 'completed'
+    status: 'completed',
+    createdAt: new Date()
   });
 };
 

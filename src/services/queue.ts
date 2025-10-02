@@ -1,5 +1,4 @@
 import { CloudTasksClient } from '@google-cloud/tasks';
-import type { JobQueue } from '@/types';
 
 const tasksClient = new CloudTasksClient();
 const project = process.env.GOOGLE_CLOUD_PROJECT || 'mediaforge-957e4';
@@ -9,7 +8,7 @@ const queue = 'generation-queue';
 export const queueService = {
   async createTask(
     taskType: 'generation' | 'training' | 'vectorization',
-    payload: Record<string, any>,
+    payload: Record<string, unknown>,
     userId: string
   ): Promise<string> {
     const parent = tasksClient.queuePath(project, location, queue);
