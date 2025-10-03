@@ -89,35 +89,41 @@ export default function HomePage() {
           <div className="grid-3" style={{marginTop:'16px'}}>
             {/* Google */}
             <div className="card">
-              <div className="tile-art" style={{
-                background: `
-                  radial-gradient(closest-side at 35% 30%, rgba(255,31,139,.08), transparent 60%),
-                  radial-gradient(closest-side at 70% 60%, rgba(72,86,106,.06), transparent 62%),
-                  #fff`
-              }}></div>
+              <Image
+                src="/Google2.png"
+                alt="Google style illustration preview"
+                width={1200}
+                height={800}
+                className="tile-art"
+                style={{ objectFit: 'cover' }}
+              />
               <strong>Google</strong>
             </div>
 
-            {/* Notion */}
+            {/* Clayframe */}
             <div className="card">
-              <div className="tile-art" style={{
-                background: `
-                  repeating-linear-gradient(90deg, rgba(14,20,32,.08) 0 1px, transparent 1px 20px),
-                  #fff`
-              }}></div>
-              <strong>Notion</strong>
+              <Image
+                src="/Clayframe.png"
+                alt="Clayframe style illustration preview"
+                width={1200}
+                height={800}
+                className="tile-art"
+                style={{ objectFit: 'cover' }}
+              />
+              <strong>Clayframe</strong>
             </div>
 
-            {/* Flat 2D */}
+            {/* SaaSthetic */}
             <div className="card">
-              <div className="tile-art" style={{
-                background: `
-                  radial-gradient(closest-side at 30% 30%, rgba(230,233,238,.6), transparent 58%),
-                  radial-gradient(closest-side at 70% 55%, rgba(247,249,252,.7), transparent 58%),
-                  radial-gradient(closest-side at 50% 82%, rgba(238,244,255,.7), transparent 58%),
-                  #fff`
-              }}></div>
-              <strong>Flat 2D</strong>
+              <Image
+                src="/SaaSthetic.png"
+                alt="SaaSthetic style illustration preview"
+                width={1200}
+                height={800}
+                className="tile-art"
+                style={{ objectFit: 'cover' }}
+              />
+              <strong>SaaSthetic</strong>
             </div>
           </div>
         </div>
