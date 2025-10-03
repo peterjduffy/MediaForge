@@ -257,7 +257,7 @@ export default function HomePage() {
             </details>
             <details>
               <summary>How often do you update your AI models?</summary>
-              <p className="muted">We ship improvements regularly and roll them out automatically. MediaForge runs a multi-model stack (Vertex and other Google models, as well as Sora and other leading models) and routes to the best model per job.</p>
+              <p className="muted">We ship improvements regularly and roll them out automatically. MediaForge runs a multi-model stack and routes to the best model per job.</p>
             </details>
             <details>
               <summary>Can my whole team use MediaForge?</summary>
@@ -266,6 +266,10 @@ export default function HomePage() {
             <details>
               <summary>What if I need changes to an illustration?</summary>
               <p className="muted">Iterate quickly by editing your prompt or tweaking style settings. Generate multiple variations and pick your favorite.</p>
+            </details>
+            <details>
+              <summary>Can&apos;t Google&apos;s Gemini or ChatGPT do this?</summary>
+              <p className="muted">They&apos;re great general-purpose AIs, but MediaForge is purpose-built for brand illustration. No prompt wrangling: pick a pre-set or saved style, and generate consistent, on-brand visuals. You get reusable styles, character consistency, team controls, and upcoming Figma/Canva plugins. We run on enterprise-grade infrastructure and are part of the Google Cloud Partner Advantage programme, so you get reliability as well as speed.</p>
             </details>
           </div>
         </div>
