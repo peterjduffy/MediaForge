@@ -62,3 +62,662 @@
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [debug] [2025-10-03T02:31:59.861Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T03:33:53.907Z] ----------------------------------------------------------------------
+[debug] [2025-10-03T03:33:53.917Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/a3jfkfzmr1h8lmk31a8fbchkg5sp12q9-firebase-tools-14.16.0/lib/node_modules/firebase-tools/lib/bin/firebase.js auth:export --project mediaforge-957e4
+[debug] [2025-10-03T03:33:53.918Z] CLI Version:   14.16.0
+[debug] [2025-10-03T03:33:53.918Z] Platform:      linux
+[debug] [2025-10-03T03:33:53.919Z] Node Version:  v20.19.1
+[debug] [2025-10-03T03:33:53.919Z] Time:          Fri Oct 03 2025 03:33:53 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-10-03T03:33:53.919Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-03T03:33:54.418Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T03:34:10.578Z] Running auto auth
+[debug] [2025-10-03T03:34:10.616Z] [iam] checking project mediaforge-957e4 for permissions ["firebase.projects.get","firebaseauth.users.get"]
+[debug] [2025-10-03T03:34:10.619Z] No OAuth tokens found
+[debug] [2025-10-03T03:34:10.623Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions [none]
+[debug] [2025-10-03T03:34:10.624Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions x-goog-quota-user=projects/mediaforge-957e4
+[debug] [2025-10-03T03:34:10.624Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebaseauth.users.get"]}
+[debug] [2025-10-03T03:34:11.318Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions 200
+[debug] [2025-10-03T03:34:11.319Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebaseauth.users.get"]}
+[error] 
+[error] Error: Must specify data file
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-03T07:45:12.751Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.756Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.774Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.775Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.795Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.800Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.807Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.809Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.816Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.817Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.831Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:12.831Z] No OAuth tokens found
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-03T07:45:13.241Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-03T07:45:39.596Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.597Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.602Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.603Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.606Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.607Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.610Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.611Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.612Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.615Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.618Z] No OAuth tokens found
+[debug] [2025-10-03T07:45:39.618Z] No OAuth tokens found
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-03T07:45:39.734Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-03T07:45:39.800Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-03T07:45:39.837Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T07:53:29.556Z] ----------------------------------------------------------------------
+[debug] [2025-10-03T07:53:29.560Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/a3jfkfzmr1h8lmk31a8fbchkg5sp12q9-firebase-tools-14.16.0/lib/node_modules/firebase-tools/lib/bin/firebase.js deploy --project mediaforge-957e4 --only hosting --non-interactive
+[debug] [2025-10-03T07:53:29.562Z] CLI Version:   14.16.0
+[debug] [2025-10-03T07:53:29.562Z] Platform:      linux
+[debug] [2025-10-03T07:53:29.563Z] Node Version:  v20.19.1
+[debug] [2025-10-03T07:53:29.563Z] Time:          Fri Oct 03 2025 07:53:29 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-10-03T07:53:29.563Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-03T07:53:29.568Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-10-03T07:53:30.504Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T07:53:30.754Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-10-03T07:53:30.755Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-10-03T07:54:40.898Z] Running auto auth
+[debug] [2025-10-03T07:54:40.927Z] [iam] checking project mediaforge-957e4 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-10-03T07:54:40.929Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:40.931Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions [none]
+[debug] [2025-10-03T07:54:40.931Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions x-goog-quota-user=projects/mediaforge-957e4
+[debug] [2025-10-03T07:54:40.931Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-03T07:54:41.554Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions 200
+[debug] [2025-10-03T07:54:41.555Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-03T07:54:41.559Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:41.562Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 [none]
+[debug] [2025-10-03T07:54:41.773Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 200
+[debug] [2025-10-03T07:54:41.774Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 {"projectId":"mediaforge-957e4","projectNumber":"261323568725","displayName":"Mediaforge","name":"projects/mediaforge-957e4","resources":{"hostingSite":"mediaforge-957e4"},"state":"ACTIVE","etag":"1_73c712e6-778e-46bc-9500-73f44377c128"}
+[info] 
+[info] === Deploying to 'mediaforge-957e4'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-10-03T07:54:41.786Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:41.786Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions [none]
+[debug] [2025-10-03T07:54:41.786Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase--project-idx"}}
+[debug] [2025-10-03T07:54:42.803Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions 200
+[debug] [2025-10-03T07:54:42.806Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions {"name":"projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase--project-idx"}}
+[info] i  hosting[mediaforge-957e4]: beginning deploy... 
+[info] i  hosting[mediaforge-957e4]: found 75 files in out 
+[debug] [2025-10-03T07:54:42.861Z] [hosting] uploading with 200 concurrency
+[debug] [2025-10-03T07:54:43.580Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.595Z] [hosting] hash cache [b3V0] stored for 75 files
+[debug] [2025-10-03T07:54:43.598Z] [hosting][hash queue][FINAL] {"max":710,"min":58,"avg":209.12,"active":0,"complete":75,"success":75,"errored":0,"retried":0,"total":75,"elapsed":734}
+[debug] [2025-10-03T07:54:43.599Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004:populateFiles [none]
+[debug] [2025-10-03T07:54:43.600Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004:populateFiles {"files":{"/window.svg":"2253803a9bd224dd3fbe414027f54ff9edbe1a38bc0980826e020165b0b35d1c","/vercel.svg":"f6d5e3a78f79382f472d99da714537458bf7616f60d251e7c98dd24977504709","/next.svg":"69fb75aede79b670cc3a774cf34561364d373632c78ed59342781868b751d105","/index.txt":"81e11f4637fc56d0785134963028241084b3e9454add051bc9d7ff43458721f0","/index.html":"7fe5db5bc9aa3ba4e5b57fda454f7f8ed20a0295e2d0bb9ac32e465e40a07357","/globe.svg":"45be2550c6161f1d10d3e58afc08d8dff018574d05f19bf2dc6aa382b8c5d6e5","/file.svg":"d4177f44c939a634e7984d267852a06c4ca557a9e49ba3c5dadabbcbf5508058","/favicon.png":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/favicon.ico":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/favicon-original.png":"e4efed1930fd83110ccc85dd902d755793021458cde9df079f07ab88ef6a0c66","/404.html":"9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e","/terms/index.txt":"a4448c2c61e8fafde4eaf999c2924d5aa34ee221cb675da3ae1385ef8c4e404d","/styles/index.txt":"7ecd03b2956ff4b6e81e3d435131cd810697b25f0c61db682b425dcb874d667f","/privacy/index.txt":"9a249cc3c2872711602ffddb7a4bbba8a4949d80b2e19af697b7a7266348d1bb","/privacy/index.html":"b5c6b30ab2fb0ee3a426d1a88248bbf71223853cf0c193be1e60c6139fb2573d","/terms/index.html":"2343815f88e7efde52afa841642d952868991c0306dc1b153c7108218523581c","/security/index.txt":"e75bc7958b4aa87b18b29473693212ae220162c3400da5884203c04da9b19bb4","/pricing/index.html":"54539f8550d1f3c705a85d5857fca4fb9d59127913e9539454659f9deef6b082","/auth/verify/index.txt":"2bdb3fedc33c7d0ffac51f419681cfafc237251ba5b3367523e9a7dab2237746","/auth/signin/index.txt":"422b8957088bf1dc325c75d43c434505d94c42fa60ba45b0df8439dea12f2c51","/auth/verify/index.html":"440d7403db550748ce5541b6b7a48be8a3072b9c96f90e82fbdfa7cc1dc49139","/_next/static/wtOj-qfikptwqdyP2I_H7/_clientMiddlewareManifest.json":"d15254cd9d142b950433cb8d1c0efb328352fa04db90c0f4d6eb2a68dead445f","/_next/static/wtOj-qfikptwqdyP2I_H7/_ssgManifest.js":"d8d8790f4e673a23bec506f00699bed8a258ac0e4965bb1ca8598172cfc0ec97","/_next/static/wtOj-qfikptwqdyP2I_H7/_buildManifest.js":"fb7c60734f0ed07b8cf6050122be8410dd52884fef892679821dfb9b55bcbcd3","/_next/static/media/favicon.0775bb94.ico":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/_next/static/media/ad66f9afd8947f86-s.7a40eb73.woff2":"85a49f18c048badcfe02e379fad4c9e9f49474ed05f94500ee59ebd181b25a4d","/pricing/index.txt":"f8c354f2239a489c39415fb6f198a6763de7860fbb9d4dfc35f1ef15d74db422","/security/index.html":"8177fa9db31d2f03b274ce7fe45c80a5df0ade5d4f0930bf0e5d8215ed0bdaac","/_next/static/media/2bbe8d2671613f1f-s.76dcb0b2.woff2":"452e9417356ae0f138dead31eec404c2777d810cfb8a1b7934f7a4a619de5992","/auth/signin/index.html":"ccddf189b547d3b14bed009a402ce96a010dfe6a655abd0065cd1b90eb14ce39","/styles/index.html":"36ef15ec9b3b82592af9d8c53ecc385e54958af450f1882e75720b88fd99c0d6","/_next/static/chunks/turbopack-470576b30783935a.js":"d4e481dcaf3c0814b6d314deef3b18ceea1c104e18e0103fa702b28476ba7e87","/Google Advantage.png":"4a00fbb86298e10a618776c742657895fc11e47cc74b3b379dd0154dadb1e50a","/_next/static/media/5476f68d60460930-s.c995e352.woff2":"6a36126035a3ba40d24f41f4be67c15be98aff88ca03ca9a9afa20b7c51797a6","/_next/static/media/2c55a0e60120577a-s.2a48534a.woff2":"72535d44c180c92b31d20cfe624fe87a34a6e7da7adc9dc9aaf275510b6d9446","/_next/static/media/9c72aa0f40e4eef8-s.18a48cbc.woff2":"9dc6b4b81f1e76d386ca312594d1b6ac7d97b0dc420fd9727dac245069fab9ea","/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2":"027fdc4d8db7a53cb76ecb17a96cee4075a04d262150fe1693666eeb2814db78","/_next/static/chunks/turbopack-23cd086085bd3239.js":"15bb77541e1ed32c2bc4ca90e6bc710ee2621d935f4eea88e0c55df5ce04a8fb","/_next/static/chunks/turbopack-105652ac5e0776e2.js":"4892473dd70e1b8fb178fc101be19df09039d807b4db3b38232c86eee0e0a40a","/_next/static/chunks/fdd9105d0dfe5dc1.js":"0ebc9aecd970af16f11b3ff2d4cecfb25306b7e6b52165d8826c2672dacf27fe","/_next/static/chunks/e60ef129113f6e24.js":"fd3e1ed90be61058348cd169e35fad1e1e898dfbc5fb0257616008d03a53c864","/_next/static/chunks/c2567d99f72906ef.js":"61f5e5a21a686c2c2bc1019657aa21ed65f96ed697db720ef504f01e13708953","/_next/static/chunks/ff1a16fafef87110.js":"beb7a0bf476e744106b1068a5b27a29e1d0a29074a9d1ec0ac7c9134f3427cc2","/_next/static/chunks/bd2dcf98c9b362f6.js":"483b5e7bc24dd0718d5208c7e398b125d915d08656c5959704b472569ae49382","/_next/static/chunks/bbf98ab36ed52a7c.css":"6b49583b95da7c1f53bb22d3b92f126443947bfb22836188f37b0f343c7e2f6a","/_next/static/chunks/7d6dd8c662ae5573.js":"e76b7336c7165e73b69b091148f0721834779633ccc988e32dcb24b078a965ef","/_next/static/chunks/89460367c0865bec.js":"4503daac798394cb17f88c558bdf63a50378925a5b344c477191dbc466c3227a","/_next/static/chunks/538cc02e54714b23.js":"dd8f910f84d437192f01292317dffa2fec0bd0def59682255cee4bb968344060","/_next/static/chunks/7a53ca6d9a2dca1f.js":"224ee225ec8d84ab39ab8b6539ecd864c57ae8e10cf49ae8806aa4e66ded8e35","/_next/static/chunks/35ebdd87242fa4f1.js":"32fcd27806a37063bde625984416a2a6f1b067df376ca4b13b7e6e7da1d2add6","/_next/static/chunks/5dbf38a244ed1dc8.js":"4d680dd1fd2f393fd63dd82f8bf917b6aacbe8cf9169c82ee42797315bdc2a23","/_next/static/chunks/1fb6a3c0989e1a0b.js":"66711e5cf621b96e81007a9a002bfdebd01d2ff1bfc1e1f406252af9bf49eb39","/_next/static/chunks/33d9c933d4bf2b2d.js":"e8b5c8639b0677e5bca1a86aa93f8494b9e76ca7794ca3cc72c2e3057f1bea18","/_next/static/chunks/17722e3ac4e00587.js":"a482d6b0f594ff6ccbb80a44e47a912d92896976aa62c1e3110a83cdfb08d81d","/_next/static/chunks/522518d740397639.js":"85b331bf1297fa1ea916a5147051780a5d41b4b442f7834aadd632341cddffba","/_next/static/chunks/3b011a266f7babed.js":"89106164f37440b525e5f742d17660f22ee74eccb1479cd28c5faa0beaa1ec5f","/404/index.html":"9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e","/_next/static/chunks/9ea5322c0c7643ae.js":"6937b5a07399e1110672985f1a80a959f1b6ded59ec14abb4208b128e6661496","/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2":"d1cad80ebae6cf0cc7386b80bf18cb229589548ca5c5d1ffaba4c5c3ea9230f8","/_next/static/chunks/a6dad97d9634a72d.js":"16c0f345b71fe8e15659e330817da31529a0b752ea1d0115262d9de75fa7c618","/hero_section.png":"3183cf943c008d7f4c807a484e83d47077a23dfd373b048cb5012323a8c61345","/_next/static/chunks/c19da6693934fea1.js":"868a8cc70ae4437896231b0ffcd3cfb1eb24d82f84197a0e8cbc2a85ee87571e","/_next/static/chunks/d3d94c2494beb057.js":"f7fc33c3d637027c91d44b5aaa76e2dc71132df4b53cb8752c82340f81595670","/_next/static/chunks/77d599af2e182a25.js":"e737980665f49bc305aa04a1d007af5d0204be827a2e5519e661aec0b57cbca2","/placeholder-brand-inputs.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-branding-applied.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-prompt-modal.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-exports.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/Mediaforge_hero.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/man at desk creating branded materials.png":"408aa86375c5cf4de93fd20b94a9b47bf12b9acc3d19536f73f6d07d649066d9","/man-at-desk.png":"408aa86375c5cf4de93fd20b94a9b47bf12b9acc3d19536f73f6d07d649066d9","/MediaForge.png":"270bcc4e640eacce1e10005ad307f81262f21e92aef24be38c15d4787c09e59b","/Create prompt.png":"a50fd1a95eaef2cd47ef653ab06fdafdf11af2b2b50cc6aa029152594a57c56b","/export.png":"2c08dd821a7bf4f5fa577f9daafb54d65d2791158d4e0119457da881b7eece54","/Brand inputs.png":"5a322103f7dea51715b2df958f250b951e85ea9c46fc81f0c78ca1f1ddbffaf1"}}
+[debug] [2025-10-03T07:54:43.877Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004:populateFiles 200
+[debug] [2025-10-03T07:54:43.880Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004:populateFiles {"uploadRequiredHashes":["e75bc7958b4aa87b18b29473693212ae220162c3400da5884203c04da9b19bb4","2bdb3fedc33c7d0ffac51f419681cfafc237251ba5b3367523e9a7dab2237746","a4448c2c61e8fafde4eaf999c2924d5aa34ee221cb675da3ae1385ef8c4e404d","54539f8550d1f3c705a85d5857fca4fb9d59127913e9539454659f9deef6b082","440d7403db550748ce5541b6b7a48be8a3072b9c96f90e82fbdfa7cc1dc49139","7fe5db5bc9aa3ba4e5b57fda454f7f8ed20a0295e2d0bb9ac32e465e40a07357","8177fa9db31d2f03b274ce7fe45c80a5df0ade5d4f0930bf0e5d8215ed0bdaac","ccddf189b547d3b14bed009a402ce96a010dfe6a655abd0065cd1b90eb14ce39","7ecd03b2956ff4b6e81e3d435131cd810697b25f0c61db682b425dcb874d667f","2343815f88e7efde52afa841642d952868991c0306dc1b153c7108218523581c","9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e","81e11f4637fc56d0785134963028241084b3e9454add051bc9d7ff43458721f0","36ef15ec9b3b82592af9d8c53ecc385e54958af450f1882e75720b88fd99c0d6","b5c6b30ab2fb0ee3a426d1a88248bbf71223853cf0c193be1e60c6139fb2573d","f8c354f2239a489c39415fb6f198a6763de7860fbb9d4dfc35f1ef15d74db422","422b8957088bf1dc325c75d43c434505d94c42fa60ba45b0df8439dea12f2c51","61f5e5a21a686c2c2bc1019657aa21ed65f96ed697db720ef504f01e13708953","9a249cc3c2872711602ffddb7a4bbba8a4949d80b2e19af697b7a7266348d1bb"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files"}
+[debug] [2025-10-03T07:54:43.882Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.890Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.896Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.896Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.897Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.898Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.900Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.904Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.905Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.906Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.906Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.907Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.908Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.909Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.909Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.910Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.910Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.911Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:43.911Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/e75bc7958b4aa87b18b29473693212ae220162c3400da5884203c04da9b19bb4 [none]
+[debug] [2025-10-03T07:54:43.911Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/e75bc7958b4aa87b18b29473693212ae220162c3400da5884203c04da9b19bb4 [stream]
+[debug] [2025-10-03T07:54:43.915Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2bdb3fedc33c7d0ffac51f419681cfafc237251ba5b3367523e9a7dab2237746 [none]
+[debug] [2025-10-03T07:54:43.916Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2bdb3fedc33c7d0ffac51f419681cfafc237251ba5b3367523e9a7dab2237746 [stream]
+[debug] [2025-10-03T07:54:43.918Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/a4448c2c61e8fafde4eaf999c2924d5aa34ee221cb675da3ae1385ef8c4e404d [none]
+[debug] [2025-10-03T07:54:43.918Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/a4448c2c61e8fafde4eaf999c2924d5aa34ee221cb675da3ae1385ef8c4e404d [stream]
+[debug] [2025-10-03T07:54:43.922Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/54539f8550d1f3c705a85d5857fca4fb9d59127913e9539454659f9deef6b082 [none]
+[debug] [2025-10-03T07:54:43.922Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/54539f8550d1f3c705a85d5857fca4fb9d59127913e9539454659f9deef6b082 [stream]
+[debug] [2025-10-03T07:54:43.925Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/440d7403db550748ce5541b6b7a48be8a3072b9c96f90e82fbdfa7cc1dc49139 [none]
+[debug] [2025-10-03T07:54:43.925Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/440d7403db550748ce5541b6b7a48be8a3072b9c96f90e82fbdfa7cc1dc49139 [stream]
+[debug] [2025-10-03T07:54:43.927Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7fe5db5bc9aa3ba4e5b57fda454f7f8ed20a0295e2d0bb9ac32e465e40a07357 [none]
+[debug] [2025-10-03T07:54:43.928Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7fe5db5bc9aa3ba4e5b57fda454f7f8ed20a0295e2d0bb9ac32e465e40a07357 [stream]
+[debug] [2025-10-03T07:54:43.930Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/8177fa9db31d2f03b274ce7fe45c80a5df0ade5d4f0930bf0e5d8215ed0bdaac [none]
+[debug] [2025-10-03T07:54:43.930Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/8177fa9db31d2f03b274ce7fe45c80a5df0ade5d4f0930bf0e5d8215ed0bdaac [stream]
+[debug] [2025-10-03T07:54:43.933Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/ccddf189b547d3b14bed009a402ce96a010dfe6a655abd0065cd1b90eb14ce39 [none]
+[debug] [2025-10-03T07:54:43.934Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/ccddf189b547d3b14bed009a402ce96a010dfe6a655abd0065cd1b90eb14ce39 [stream]
+[debug] [2025-10-03T07:54:43.936Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7ecd03b2956ff4b6e81e3d435131cd810697b25f0c61db682b425dcb874d667f [none]
+[debug] [2025-10-03T07:54:43.937Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7ecd03b2956ff4b6e81e3d435131cd810697b25f0c61db682b425dcb874d667f [stream]
+[debug] [2025-10-03T07:54:43.942Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2343815f88e7efde52afa841642d952868991c0306dc1b153c7108218523581c [none]
+[debug] [2025-10-03T07:54:43.942Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2343815f88e7efde52afa841642d952868991c0306dc1b153c7108218523581c [stream]
+[debug] [2025-10-03T07:54:43.944Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e [none]
+[debug] [2025-10-03T07:54:43.945Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e [stream]
+[debug] [2025-10-03T07:54:43.947Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/81e11f4637fc56d0785134963028241084b3e9454add051bc9d7ff43458721f0 [none]
+[debug] [2025-10-03T07:54:43.947Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/81e11f4637fc56d0785134963028241084b3e9454add051bc9d7ff43458721f0 [stream]
+[debug] [2025-10-03T07:54:43.950Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/36ef15ec9b3b82592af9d8c53ecc385e54958af450f1882e75720b88fd99c0d6 [none]
+[debug] [2025-10-03T07:54:43.950Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/36ef15ec9b3b82592af9d8c53ecc385e54958af450f1882e75720b88fd99c0d6 [stream]
+[debug] [2025-10-03T07:54:43.952Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/b5c6b30ab2fb0ee3a426d1a88248bbf71223853cf0c193be1e60c6139fb2573d [none]
+[debug] [2025-10-03T07:54:43.953Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/b5c6b30ab2fb0ee3a426d1a88248bbf71223853cf0c193be1e60c6139fb2573d [stream]
+[debug] [2025-10-03T07:54:43.955Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/f8c354f2239a489c39415fb6f198a6763de7860fbb9d4dfc35f1ef15d74db422 [none]
+[debug] [2025-10-03T07:54:43.955Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/f8c354f2239a489c39415fb6f198a6763de7860fbb9d4dfc35f1ef15d74db422 [stream]
+[debug] [2025-10-03T07:54:43.957Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/422b8957088bf1dc325c75d43c434505d94c42fa60ba45b0df8439dea12f2c51 [none]
+[debug] [2025-10-03T07:54:43.957Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/422b8957088bf1dc325c75d43c434505d94c42fa60ba45b0df8439dea12f2c51 [stream]
+[debug] [2025-10-03T07:54:43.960Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/61f5e5a21a686c2c2bc1019657aa21ed65f96ed697db720ef504f01e13708953 [none]
+[debug] [2025-10-03T07:54:43.961Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/61f5e5a21a686c2c2bc1019657aa21ed65f96ed697db720ef504f01e13708953 [stream]
+[debug] [2025-10-03T07:54:43.967Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9a249cc3c2872711602ffddb7a4bbba8a4949d80b2e19af697b7a7266348d1bb [none]
+[debug] [2025-10-03T07:54:43.967Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9a249cc3c2872711602ffddb7a4bbba8a4949d80b2e19af697b7a7266348d1bb [stream]
+[debug] [2025-10-03T07:54:43.969Z] [hosting][populate queue][FINAL] {"max":332,"min":332,"avg":332,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":390}
+[debug] [2025-10-03T07:54:43.970Z] [hosting] uploads queued: 18
+[info] i  hosting: uploading new files [0/18] (0%) 
+[debug] [2025-10-03T07:54:44.928Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2bdb3fedc33c7d0ffac51f419681cfafc237251ba5b3367523e9a7dab2237746 200
+[debug] [2025-10-03T07:54:44.929Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2bdb3fedc33c7d0ffac51f419681cfafc237251ba5b3367523e9a7dab2237746 [stream]
+[debug] [2025-10-03T07:54:44.961Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/440d7403db550748ce5541b6b7a48be8a3072b9c96f90e82fbdfa7cc1dc49139 200
+[debug] [2025-10-03T07:54:44.962Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/440d7403db550748ce5541b6b7a48be8a3072b9c96f90e82fbdfa7cc1dc49139 [stream]
+[debug] [2025-10-03T07:54:44.965Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/ccddf189b547d3b14bed009a402ce96a010dfe6a655abd0065cd1b90eb14ce39 200
+[debug] [2025-10-03T07:54:44.965Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/ccddf189b547d3b14bed009a402ce96a010dfe6a655abd0065cd1b90eb14ce39 [stream]
+[debug] [2025-10-03T07:54:44.973Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/81e11f4637fc56d0785134963028241084b3e9454add051bc9d7ff43458721f0 200
+[debug] [2025-10-03T07:54:44.974Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/81e11f4637fc56d0785134963028241084b3e9454add051bc9d7ff43458721f0 [stream]
+[debug] [2025-10-03T07:54:44.979Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7fe5db5bc9aa3ba4e5b57fda454f7f8ed20a0295e2d0bb9ac32e465e40a07357 200
+[debug] [2025-10-03T07:54:44.980Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7fe5db5bc9aa3ba4e5b57fda454f7f8ed20a0295e2d0bb9ac32e465e40a07357 [stream]
+[debug] [2025-10-03T07:54:44.985Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/b5c6b30ab2fb0ee3a426d1a88248bbf71223853cf0c193be1e60c6139fb2573d 200
+[debug] [2025-10-03T07:54:44.986Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/b5c6b30ab2fb0ee3a426d1a88248bbf71223853cf0c193be1e60c6139fb2573d [stream]
+[debug] [2025-10-03T07:54:44.990Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7ecd03b2956ff4b6e81e3d435131cd810697b25f0c61db682b425dcb874d667f 200
+[debug] [2025-10-03T07:54:44.993Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/7ecd03b2956ff4b6e81e3d435131cd810697b25f0c61db682b425dcb874d667f [stream]
+[debug] [2025-10-03T07:54:44.994Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/a4448c2c61e8fafde4eaf999c2924d5aa34ee221cb675da3ae1385ef8c4e404d 200
+[debug] [2025-10-03T07:54:44.994Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/a4448c2c61e8fafde4eaf999c2924d5aa34ee221cb675da3ae1385ef8c4e404d [stream]
+[debug] [2025-10-03T07:54:44.999Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/422b8957088bf1dc325c75d43c434505d94c42fa60ba45b0df8439dea12f2c51 200
+[debug] [2025-10-03T07:54:44.999Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/422b8957088bf1dc325c75d43c434505d94c42fa60ba45b0df8439dea12f2c51 [stream]
+[debug] [2025-10-03T07:54:45.021Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/61f5e5a21a686c2c2bc1019657aa21ed65f96ed697db720ef504f01e13708953 200
+[debug] [2025-10-03T07:54:45.022Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/61f5e5a21a686c2c2bc1019657aa21ed65f96ed697db720ef504f01e13708953 [stream]
+[debug] [2025-10-03T07:54:45.037Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/54539f8550d1f3c705a85d5857fca4fb9d59127913e9539454659f9deef6b082 200
+[debug] [2025-10-03T07:54:45.039Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/54539f8550d1f3c705a85d5857fca4fb9d59127913e9539454659f9deef6b082 [stream]
+[debug] [2025-10-03T07:54:45.152Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2343815f88e7efde52afa841642d952868991c0306dc1b153c7108218523581c 200
+[debug] [2025-10-03T07:54:45.152Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/2343815f88e7efde52afa841642d952868991c0306dc1b153c7108218523581c [stream]
+[debug] [2025-10-03T07:54:45.183Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/e75bc7958b4aa87b18b29473693212ae220162c3400da5884203c04da9b19bb4 200
+[debug] [2025-10-03T07:54:45.187Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/e75bc7958b4aa87b18b29473693212ae220162c3400da5884203c04da9b19bb4 [stream]
+[debug] [2025-10-03T07:54:45.189Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/36ef15ec9b3b82592af9d8c53ecc385e54958af450f1882e75720b88fd99c0d6 200
+[debug] [2025-10-03T07:54:45.190Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/36ef15ec9b3b82592af9d8c53ecc385e54958af450f1882e75720b88fd99c0d6 [stream]
+[debug] [2025-10-03T07:54:45.191Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/f8c354f2239a489c39415fb6f198a6763de7860fbb9d4dfc35f1ef15d74db422 200
+[debug] [2025-10-03T07:54:45.191Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/f8c354f2239a489c39415fb6f198a6763de7860fbb9d4dfc35f1ef15d74db422 [stream]
+[debug] [2025-10-03T07:54:45.204Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9a249cc3c2872711602ffddb7a4bbba8a4949d80b2e19af697b7a7266348d1bb 200
+[debug] [2025-10-03T07:54:45.206Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9a249cc3c2872711602ffddb7a4bbba8a4949d80b2e19af697b7a7266348d1bb [stream]
+[debug] [2025-10-03T07:54:45.404Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/8177fa9db31d2f03b274ce7fe45c80a5df0ade5d4f0930bf0e5d8215ed0bdaac 200
+[debug] [2025-10-03T07:54:45.405Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/8177fa9db31d2f03b274ce7fe45c80a5df0ade5d4f0930bf0e5d8215ed0bdaac [stream]
+[debug] [2025-10-03T07:54:45.569Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e 200
+[debug] [2025-10-03T07:54:45.570Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/6ecc91f415080004/files/9aeadca7e093c23a930687fd14466de9d7c12eada046190c5e0c3a7d2e7f173e [stream]
+[debug] [2025-10-03T07:54:45.570Z] [hosting][upload queue][FINAL] {"max":1664,"min":1047,"avg":1195.8888888888885,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":1689}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[mediaforge-957e4]: file upload complete 
+[debug] [2025-10-03T07:54:45.571Z] [hosting] deploy completed after 2756ms
+[debug] [2025-10-03T07:54:45.572Z] [
+  {
+    "config": {
+      "public": "out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "mediaforge-957e4"
+    },
+    "version": "projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004"
+  }
+]
+[info] i  hosting[mediaforge-957e4]: finalizing version... 
+[debug] [2025-10-03T07:54:45.581Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:45.583Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/6ecc91f415080004 updateMask=status%2Cconfig
+[debug] [2025-10-03T07:54:45.583Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/6ecc91f415080004 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-10-03T07:54:45.835Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/6ecc91f415080004 200
+[debug] [2025-10-03T07:54:45.835Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/6ecc91f415080004 {"name":"projects/261323568725/sites/mediaforge-957e4/versions/6ecc91f415080004","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase--project-idx"},"createTime":"2025-10-03T07:54:42.454861Z","createUser":{"email":"peter@mediaforge.dev"},"finalizeTime":"2025-10-03T07:54:45.752406Z","finalizeUser":{"email":"peter@mediaforge.dev"}}
+[debug] [2025-10-03T07:54:45.836Z] [hosting] finalized version for mediaforge-957e4:[object Object]
+[info] ✔  hosting[mediaforge-957e4]: version finalized 
+[info] i  hosting[mediaforge-957e4]: releasing new version... 
+[debug] [2025-10-03T07:54:45.837Z] No OAuth tokens found
+[debug] [2025-10-03T07:54:45.841Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases versionName=projects%2F261323568725%2Fsites%2Fmediaforge-957e4%2Fversions%2F6ecc91f415080004
+[debug] [2025-10-03T07:54:45.841Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases {}
+[debug] [2025-10-03T07:54:46.138Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases 200
+[debug] [2025-10-03T10:45:31.868Z] ----------------------------------------------------------------------
+[debug] [2025-10-03T10:45:31.872Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/a3jfkfzmr1h8lmk31a8fbchkg5sp12q9-firebase-tools-14.16.0/lib/node_modules/firebase-tools/lib/bin/firebase.js deploy --project mediaforge-957e4 --only hosting --non-interactive
+[debug] [2025-10-03T10:45:31.873Z] CLI Version:   14.16.0
+[debug] [2025-10-03T10:45:31.873Z] Platform:      linux
+[debug] [2025-10-03T10:45:31.874Z] Node Version:  v20.19.1
+[debug] [2025-10-03T10:45:31.874Z] Time:          Fri Oct 03 2025 10:45:31 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-10-03T10:45:31.874Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-03T10:45:32.408Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:45:41.292Z] Running auto auth
+[debug] [2025-10-03T10:45:41.365Z] [iam] checking project mediaforge-957e4 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-10-03T10:45:41.385Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:41.395Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions [none]
+[debug] [2025-10-03T10:45:41.399Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions x-goog-quota-user=projects/mediaforge-957e4
+[debug] [2025-10-03T10:45:41.399Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-03T10:45:42.226Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions 200
+[debug] [2025-10-03T10:45:42.231Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-03T10:45:42.240Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:42.242Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 [none]
+[debug] [2025-10-03T10:45:42.476Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 200
+[debug] [2025-10-03T10:45:42.477Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 {"projectId":"mediaforge-957e4","projectNumber":"261323568725","displayName":"Mediaforge","name":"projects/mediaforge-957e4","resources":{"hostingSite":"mediaforge-957e4"},"state":"ACTIVE","etag":"1_73c712e6-778e-46bc-9500-73f44377c128"}
+[info] 
+[info] === Deploying to 'mediaforge-957e4'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-10-03T10:45:42.486Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:42.487Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions [none]
+[debug] [2025-10-03T10:45:42.487Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase--project-idx"}}
+[debug] [2025-10-03T10:45:43.608Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions 200
+[debug] [2025-10-03T10:45:43.610Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions {"name":"projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase--project-idx"}}
+[info] i  hosting[mediaforge-957e4]: beginning deploy... 
+[info] i  hosting[mediaforge-957e4]: found 78 files in out 
+[debug] [2025-10-03T10:45:43.724Z] [hosting] uploading with 200 concurrency
+[debug] [2025-10-03T10:45:44.999Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.006Z] [hosting] hash cache [b3V0] stored for 78 files
+[debug] [2025-10-03T10:45:45.007Z] [hosting][hash queue][FINAL] {"max":1258,"min":96,"avg":329.42307692307685,"active":0,"complete":78,"success":78,"errored":0,"retried":0,"total":78,"elapsed":1279}
+[debug] [2025-10-03T10:45:45.012Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303:populateFiles [none]
+[debug] [2025-10-03T10:45:45.013Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303:populateFiles {"files":{"/window.svg":"2253803a9bd224dd3fbe414027f54ff9edbe1a38bc0980826e020165b0b35d1c","/vercel.svg":"f6d5e3a78f79382f472d99da714537458bf7616f60d251e7c98dd24977504709","/next.svg":"69fb75aede79b670cc3a774cf34561364d373632c78ed59342781868b751d105","/index.txt":"9a27db996ef79025db1f35cff3a54539284217f5d809999e04e114ac0b03dd2a","/globe.svg":"45be2550c6161f1d10d3e58afc08d8dff018574d05f19bf2dc6aa382b8c5d6e5","/file.svg":"d4177f44c939a634e7984d267852a06c4ca557a9e49ba3c5dadabbcbf5508058","/favicon.png":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/favicon.ico":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/index.html":"eb3ac60651ab0ed16029c6a21949718ac541ab266ed0e9173d6d364cfee21c26","/favicon-original.png":"e4efed1930fd83110ccc85dd902d755793021458cde9df079f07ab88ef6a0c66","/404.html":"4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2","/terms/index.txt":"66aaeef3f1ba580b4a5d24ee7101d9f6f9c53a496c1fdf9480843f3256fefb8c","/terms/index.html":"3585c4524ceb0960c2ad70c641d5ffb775f6a2a68fb15b785959cf08ade7c014","/styles/index.html":"3acf6ec47bd3e29a33f04fed569937917ddb20eacb8a70110a86c1ebf9321721","/security/index.txt":"cb61a83b20675fb6c876c7b6f57f10930c322b51e9e8c2422733166d41ead73f","/privacy/index.html":"8b6d3de677e42e88eaebe0b94bc22e3173478e491aaba125f9b37a0c62e20b5f","/pricing/index.txt":"105e3b36a1e9c314e7b4ab7fa6aae03fc7285c1754ac92acadc01f898e08c178","/auth/verify/index.html":"4b478f1b16541036545aab0a37252507653c557c3c55b837f41347971202d504","/auth/signin/index.txt":"c82aab79b5a712207032c38469bf56cc188300fd48a0c2235eced3d78939fd29","/auth/signin/index.html":"c04281a550a4c441808d77df913b3d7c2af3d95cb7cddabb1bed4ea32d393447","/_next/static/wiX-bW7eXuv-bBJb2OCxN/_ssgManifest.js":"d8d8790f4e673a23bec506f00699bed8a258ac0e4965bb1ca8598172cfc0ec97","/_next/static/wiX-bW7eXuv-bBJb2OCxN/_clientMiddlewareManifest.json":"d15254cd9d142b950433cb8d1c0efb328352fa04db90c0f4d6eb2a68dead445f","/_next/static/wiX-bW7eXuv-bBJb2OCxN/_buildManifest.js":"fb7c60734f0ed07b8cf6050122be8410dd52884fef892679821dfb9b55bcbcd3","/styles/index.txt":"64c891c32f511f7328d41066792d606896c2b965a62a6772465e2972e62c929b","/_next/static/media/ad66f9afd8947f86-s.7a40eb73.woff2":"85a49f18c048badcfe02e379fad4c9e9f49474ed05f94500ee59ebd181b25a4d","/privacy/index.txt":"5c23ed4aaea901095202b79e32d677617e5210087329e01cf98a0fcf295ad6ad","/pricing/index.html":"c3015edabf3c966549e4339b64f5f3a615d35618f609f47ee49e085d77210957","/security/index.html":"732d774fb0f0fa74e4652ac91065d807c6d0e4e0ef229f33c575931c2c1a4e0b","/auth/verify/index.txt":"4b50c077aba503f327c0559c1a824997c0cd9e1b2f4116c13a43538f652443f1","/_next/static/media/favicon.0775bb94.ico":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/Google Advantage.png":"4a00fbb86298e10a618776c742657895fc11e47cc74b3b379dd0154dadb1e50a","/_next/static/media/5476f68d60460930-s.c995e352.woff2":"6a36126035a3ba40d24f41f4be67c15be98aff88ca03ca9a9afa20b7c51797a6","/_next/static/media/2c55a0e60120577a-s.2a48534a.woff2":"72535d44c180c92b31d20cfe624fe87a34a6e7da7adc9dc9aaf275510b6d9446","/_next/static/media/9c72aa0f40e4eef8-s.18a48cbc.woff2":"9dc6b4b81f1e76d386ca312594d1b6ac7d97b0dc420fd9727dac245069fab9ea","/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2":"027fdc4d8db7a53cb76ecb17a96cee4075a04d262150fe1693666eeb2814db78","/_next/static/media/2bbe8d2671613f1f-s.76dcb0b2.woff2":"452e9417356ae0f138dead31eec404c2777d810cfb8a1b7934f7a4a619de5992","/_next/static/chunks/turbopack-470576b30783935a.js":"d4e481dcaf3c0814b6d314deef3b18ceea1c104e18e0103fa702b28476ba7e87","/_next/static/chunks/turbopack-23cd086085bd3239.js":"15bb77541e1ed32c2bc4ca90e6bc710ee2621d935f4eea88e0c55df5ce04a8fb","/_next/static/chunks/turbopack-105652ac5e0776e2.js":"4892473dd70e1b8fb178fc101be19df09039d807b4db3b38232c86eee0e0a40a","/_next/static/chunks/ff1a16fafef87110.js":"beb7a0bf476e744106b1068a5b27a29e1d0a29074a9d1ec0ac7c9134f3427cc2","/_next/static/chunks/fdd9105d0dfe5dc1.js":"0ebc9aecd970af16f11b3ff2d4cecfb25306b7e6b52165d8826c2672dacf27fe","/_next/static/chunks/e60ef129113f6e24.js":"fd3e1ed90be61058348cd169e35fad1e1e898dfbc5fb0257616008d03a53c864","/_next/static/chunks/bd2dcf98c9b362f6.js":"483b5e7bc24dd0718d5208c7e398b125d915d08656c5959704b472569ae49382","/_next/static/chunks/bbf98ab36ed52a7c.css":"6b49583b95da7c1f53bb22d3b92f126443947bfb22836188f37b0f343c7e2f6a","/_next/static/chunks/89460367c0865bec.js":"4503daac798394cb17f88c558bdf63a50378925a5b344c477191dbc466c3227a","/_next/static/chunks/7d6dd8c662ae5573.js":"e76b7336c7165e73b69b091148f0721834779633ccc988e32dcb24b078a965ef","/_next/static/chunks/538cc02e54714b23.js":"dd8f910f84d437192f01292317dffa2fec0bd0def59682255cee4bb968344060","/_next/static/chunks/522518d740397639.js":"85b331bf1297fa1ea916a5147051780a5d41b4b442f7834aadd632341cddffba","/_next/static/chunks/35ebdd87242fa4f1.js":"32fcd27806a37063bde625984416a2a6f1b067df376ca4b13b7e6e7da1d2add6","/_next/static/chunks/1fb6a3c0989e1a0b.js":"66711e5cf621b96e81007a9a002bfdebd01d2ff1bfc1e1f406252af9bf49eb39","/_next/static/chunks/3b011a266f7babed.js":"89106164f37440b525e5f742d17660f22ee74eccb1479cd28c5faa0beaa1ec5f","/_next/static/chunks/33d9c933d4bf2b2d.js":"e8b5c8639b0677e5bca1a86aa93f8494b9e76ca7794ca3cc72c2e3057f1bea18","/_next/static/chunks/5dbf38a244ed1dc8.js":"4d680dd1fd2f393fd63dd82f8bf917b6aacbe8cf9169c82ee42797315bdc2a23","/404/index.html":"4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2","/_next/static/chunks/7a53ca6d9a2dca1f.js":"224ee225ec8d84ab39ab8b6539ecd864c57ae8e10cf49ae8806aa4e66ded8e35","/_next/static/chunks/56f4c9ab76e8a755.js":"6005ba6f88e69662389dea4f9adafe22f22b2d8b1a664e4a061b41ed86703eed","/_next/static/chunks/17722e3ac4e00587.js":"a482d6b0f594ff6ccbb80a44e47a912d92896976aa62c1e3110a83cdfb08d81d","/_next/static/chunks/9ea5322c0c7643ae.js":"6937b5a07399e1110672985f1a80a959f1b6ded59ec14abb4208b128e6661496","/_next/static/chunks/a6dad97d9634a72d.js":"16c0f345b71fe8e15659e330817da31529a0b752ea1d0115262d9de75fa7c618","/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2":"d1cad80ebae6cf0cc7386b80bf18cb229589548ca5c5d1ffaba4c5c3ea9230f8","/_next/static/chunks/c19da6693934fea1.js":"868a8cc70ae4437896231b0ffcd3cfb1eb24d82f84197a0e8cbc2a85ee87571e","/hero_section.png":"3183cf943c008d7f4c807a484e83d47077a23dfd373b048cb5012323a8c61345","/_next/static/chunks/d3d94c2494beb057.js":"f7fc33c3d637027c91d44b5aaa76e2dc71132df4b53cb8752c82340f81595670","/_next/static/chunks/77d599af2e182a25.js":"e737980665f49bc305aa04a1d007af5d0204be827a2e5519e661aec0b57cbca2","/placeholder-prompt-modal.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/Mediaforge_hero.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-exports.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-brand-inputs.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-branding-applied.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/man at desk creating branded materials.png":"408aa86375c5cf4de93fd20b94a9b47bf12b9acc3d19536f73f6d07d649066d9","/man-at-desk.png":"408aa86375c5cf4de93fd20b94a9b47bf12b9acc3d19536f73f6d07d649066d9","/MediaForge.png":"270bcc4e640eacce1e10005ad307f81262f21e92aef24be38c15d4787c09e59b","/Create prompt.png":"a50fd1a95eaef2cd47ef653ab06fdafdf11af2b2b50cc6aa029152594a57c56b","/export.png":"2c08dd821a7bf4f5fa577f9daafb54d65d2791158d4e0119457da881b7eece54","/Google2.png":"797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a","/Clayframe.png":"5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6","/SaaSthetic.png":"2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c","/Brand inputs.png":"5a322103f7dea51715b2df958f250b951e85ea9c46fc81f0c78ca1f1ddbffaf1"}}
+[debug] [2025-10-03T10:45:45.360Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303:populateFiles 200
+[debug] [2025-10-03T10:45:45.362Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303:populateFiles {"uploadRequiredHashes":["c3015edabf3c966549e4339b64f5f3a615d35618f609f47ee49e085d77210957","5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6","9a27db996ef79025db1f35cff3a54539284217f5d809999e04e114ac0b03dd2a","66aaeef3f1ba580b4a5d24ee7101d9f6f9c53a496c1fdf9480843f3256fefb8c","5c23ed4aaea901095202b79e32d677617e5210087329e01cf98a0fcf295ad6ad","4b478f1b16541036545aab0a37252507653c557c3c55b837f41347971202d504","3acf6ec47bd3e29a33f04fed569937917ddb20eacb8a70110a86c1ebf9321721","8b6d3de677e42e88eaebe0b94bc22e3173478e491aaba125f9b37a0c62e20b5f","c04281a550a4c441808d77df913b3d7c2af3d95cb7cddabb1bed4ea32d393447","cb61a83b20675fb6c876c7b6f57f10930c322b51e9e8c2422733166d41ead73f","732d774fb0f0fa74e4652ac91065d807c6d0e4e0ef229f33c575931c2c1a4e0b","c82aab79b5a712207032c38469bf56cc188300fd48a0c2235eced3d78939fd29","6005ba6f88e69662389dea4f9adafe22f22b2d8b1a664e4a061b41ed86703eed","105e3b36a1e9c314e7b4ab7fa6aae03fc7285c1754ac92acadc01f898e08c178","eb3ac60651ab0ed16029c6a21949718ac541ab266ed0e9173d6d364cfee21c26","4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2","797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a","4b50c077aba503f327c0559c1a824997c0cd9e1b2f4116c13a43538f652443f1","3585c4524ceb0960c2ad70c641d5ffb775f6a2a68fb15b785959cf08ade7c014","2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c","64c891c32f511f7328d41066792d606896c2b965a62a6772465e2972e62c929b"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files"}
+[debug] [2025-10-03T10:45:45.368Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.371Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.374Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.377Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.379Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.380Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.380Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.381Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.382Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.382Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.383Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.383Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.384Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.385Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.390Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.391Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.392Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.392Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.393Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.394Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.394Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:45.395Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c3015edabf3c966549e4339b64f5f3a615d35618f609f47ee49e085d77210957 [none]
+[debug] [2025-10-03T10:45:45.395Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c3015edabf3c966549e4339b64f5f3a615d35618f609f47ee49e085d77210957 [stream]
+[debug] [2025-10-03T10:45:45.398Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6 [none]
+[debug] [2025-10-03T10:45:45.398Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6 [stream]
+[debug] [2025-10-03T10:45:45.405Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/9a27db996ef79025db1f35cff3a54539284217f5d809999e04e114ac0b03dd2a [none]
+[debug] [2025-10-03T10:45:45.405Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/9a27db996ef79025db1f35cff3a54539284217f5d809999e04e114ac0b03dd2a [stream]
+[debug] [2025-10-03T10:45:45.409Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/66aaeef3f1ba580b4a5d24ee7101d9f6f9c53a496c1fdf9480843f3256fefb8c [none]
+[debug] [2025-10-03T10:45:45.409Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/66aaeef3f1ba580b4a5d24ee7101d9f6f9c53a496c1fdf9480843f3256fefb8c [stream]
+[debug] [2025-10-03T10:45:45.412Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c23ed4aaea901095202b79e32d677617e5210087329e01cf98a0fcf295ad6ad [none]
+[debug] [2025-10-03T10:45:45.412Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c23ed4aaea901095202b79e32d677617e5210087329e01cf98a0fcf295ad6ad [stream]
+[debug] [2025-10-03T10:45:45.415Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b478f1b16541036545aab0a37252507653c557c3c55b837f41347971202d504 [none]
+[debug] [2025-10-03T10:45:45.416Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b478f1b16541036545aab0a37252507653c557c3c55b837f41347971202d504 [stream]
+[debug] [2025-10-03T10:45:45.419Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3acf6ec47bd3e29a33f04fed569937917ddb20eacb8a70110a86c1ebf9321721 [none]
+[debug] [2025-10-03T10:45:45.420Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3acf6ec47bd3e29a33f04fed569937917ddb20eacb8a70110a86c1ebf9321721 [stream]
+[debug] [2025-10-03T10:45:45.423Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/8b6d3de677e42e88eaebe0b94bc22e3173478e491aaba125f9b37a0c62e20b5f [none]
+[debug] [2025-10-03T10:45:45.423Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/8b6d3de677e42e88eaebe0b94bc22e3173478e491aaba125f9b37a0c62e20b5f [stream]
+[debug] [2025-10-03T10:45:45.427Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c04281a550a4c441808d77df913b3d7c2af3d95cb7cddabb1bed4ea32d393447 [none]
+[debug] [2025-10-03T10:45:45.427Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c04281a550a4c441808d77df913b3d7c2af3d95cb7cddabb1bed4ea32d393447 [stream]
+[debug] [2025-10-03T10:45:45.430Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/cb61a83b20675fb6c876c7b6f57f10930c322b51e9e8c2422733166d41ead73f [none]
+[debug] [2025-10-03T10:45:45.431Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/cb61a83b20675fb6c876c7b6f57f10930c322b51e9e8c2422733166d41ead73f [stream]
+[debug] [2025-10-03T10:45:45.434Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/732d774fb0f0fa74e4652ac91065d807c6d0e4e0ef229f33c575931c2c1a4e0b [none]
+[debug] [2025-10-03T10:45:45.435Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/732d774fb0f0fa74e4652ac91065d807c6d0e4e0ef229f33c575931c2c1a4e0b [stream]
+[debug] [2025-10-03T10:45:45.438Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c82aab79b5a712207032c38469bf56cc188300fd48a0c2235eced3d78939fd29 [none]
+[debug] [2025-10-03T10:45:45.438Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c82aab79b5a712207032c38469bf56cc188300fd48a0c2235eced3d78939fd29 [stream]
+[debug] [2025-10-03T10:45:45.442Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/6005ba6f88e69662389dea4f9adafe22f22b2d8b1a664e4a061b41ed86703eed [none]
+[debug] [2025-10-03T10:45:45.442Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/6005ba6f88e69662389dea4f9adafe22f22b2d8b1a664e4a061b41ed86703eed [stream]
+[debug] [2025-10-03T10:45:45.448Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/105e3b36a1e9c314e7b4ab7fa6aae03fc7285c1754ac92acadc01f898e08c178 [none]
+[debug] [2025-10-03T10:45:45.451Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/105e3b36a1e9c314e7b4ab7fa6aae03fc7285c1754ac92acadc01f898e08c178 [stream]
+[debug] [2025-10-03T10:45:45.461Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/eb3ac60651ab0ed16029c6a21949718ac541ab266ed0e9173d6d364cfee21c26 [none]
+[debug] [2025-10-03T10:45:45.461Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/eb3ac60651ab0ed16029c6a21949718ac541ab266ed0e9173d6d364cfee21c26 [stream]
+[debug] [2025-10-03T10:45:45.467Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2 [none]
+[debug] [2025-10-03T10:45:45.467Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2 [stream]
+[debug] [2025-10-03T10:45:45.470Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a [none]
+[debug] [2025-10-03T10:45:45.471Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a [stream]
+[debug] [2025-10-03T10:45:45.474Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b50c077aba503f327c0559c1a824997c0cd9e1b2f4116c13a43538f652443f1 [none]
+[debug] [2025-10-03T10:45:45.475Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b50c077aba503f327c0559c1a824997c0cd9e1b2f4116c13a43538f652443f1 [stream]
+[debug] [2025-10-03T10:45:45.478Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3585c4524ceb0960c2ad70c641d5ffb775f6a2a68fb15b785959cf08ade7c014 [none]
+[debug] [2025-10-03T10:45:45.478Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3585c4524ceb0960c2ad70c641d5ffb775f6a2a68fb15b785959cf08ade7c014 [stream]
+[debug] [2025-10-03T10:45:45.481Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c [none]
+[debug] [2025-10-03T10:45:45.482Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c [stream]
+[debug] [2025-10-03T10:45:45.491Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/64c891c32f511f7328d41066792d606896c2b965a62a6772465e2972e62c929b [none]
+[debug] [2025-10-03T10:45:45.491Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/64c891c32f511f7328d41066792d606896c2b965a62a6772465e2972e62c929b [stream]
+[debug] [2025-10-03T10:45:45.495Z] [hosting][populate queue][FINAL] {"max":396,"min":396,"avg":396,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":497}
+[debug] [2025-10-03T10:45:45.496Z] [hosting] uploads queued: 21
+[info] i  hosting: uploading new files [0/21] (0%) 
+[debug] [2025-10-03T10:45:46.530Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2 200
+[debug] [2025-10-03T10:45:46.534Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4fa6f681ab65ae951e5572dd559d9b6c1cbd29c6d57dc272c910fe6f0e6423c2 [stream]
+[debug] [2025-10-03T10:45:46.536Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c3015edabf3c966549e4339b64f5f3a615d35618f609f47ee49e085d77210957 200
+[debug] [2025-10-03T10:45:46.536Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c3015edabf3c966549e4339b64f5f3a615d35618f609f47ee49e085d77210957 [stream]
+[debug] [2025-10-03T10:45:46.544Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3585c4524ceb0960c2ad70c641d5ffb775f6a2a68fb15b785959cf08ade7c014 200
+[debug] [2025-10-03T10:45:46.545Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3585c4524ceb0960c2ad70c641d5ffb775f6a2a68fb15b785959cf08ade7c014 [stream]
+[debug] [2025-10-03T10:45:46.547Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/732d774fb0f0fa74e4652ac91065d807c6d0e4e0ef229f33c575931c2c1a4e0b 200
+[debug] [2025-10-03T10:45:46.547Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/732d774fb0f0fa74e4652ac91065d807c6d0e4e0ef229f33c575931c2c1a4e0b [stream]
+[debug] [2025-10-03T10:45:46.552Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/105e3b36a1e9c314e7b4ab7fa6aae03fc7285c1754ac92acadc01f898e08c178 200
+[debug] [2025-10-03T10:45:46.553Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/105e3b36a1e9c314e7b4ab7fa6aae03fc7285c1754ac92acadc01f898e08c178 [stream]
+[debug] [2025-10-03T10:45:46.561Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/cb61a83b20675fb6c876c7b6f57f10930c322b51e9e8c2422733166d41ead73f 200
+[debug] [2025-10-03T10:45:46.565Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/cb61a83b20675fb6c876c7b6f57f10930c322b51e9e8c2422733166d41ead73f [stream]
+[debug] [2025-10-03T10:45:46.570Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/eb3ac60651ab0ed16029c6a21949718ac541ab266ed0e9173d6d364cfee21c26 200
+[debug] [2025-10-03T10:45:46.575Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/eb3ac60651ab0ed16029c6a21949718ac541ab266ed0e9173d6d364cfee21c26 [stream]
+[debug] [2025-10-03T10:45:46.577Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c04281a550a4c441808d77df913b3d7c2af3d95cb7cddabb1bed4ea32d393447 200
+[debug] [2025-10-03T10:45:46.577Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c04281a550a4c441808d77df913b3d7c2af3d95cb7cddabb1bed4ea32d393447 [stream]
+[debug] [2025-10-03T10:45:46.583Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c82aab79b5a712207032c38469bf56cc188300fd48a0c2235eced3d78939fd29 200
+[debug] [2025-10-03T10:45:46.588Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/c82aab79b5a712207032c38469bf56cc188300fd48a0c2235eced3d78939fd29 [stream]
+[debug] [2025-10-03T10:45:46.589Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/66aaeef3f1ba580b4a5d24ee7101d9f6f9c53a496c1fdf9480843f3256fefb8c 200
+[debug] [2025-10-03T10:45:46.590Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/66aaeef3f1ba580b4a5d24ee7101d9f6f9c53a496c1fdf9480843f3256fefb8c [stream]
+[debug] [2025-10-03T10:45:46.598Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c23ed4aaea901095202b79e32d677617e5210087329e01cf98a0fcf295ad6ad 200
+[debug] [2025-10-03T10:45:46.601Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c23ed4aaea901095202b79e32d677617e5210087329e01cf98a0fcf295ad6ad [stream]
+[debug] [2025-10-03T10:45:46.607Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b50c077aba503f327c0559c1a824997c0cd9e1b2f4116c13a43538f652443f1 200
+[debug] [2025-10-03T10:45:46.612Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b50c077aba503f327c0559c1a824997c0cd9e1b2f4116c13a43538f652443f1 [stream]
+[debug] [2025-10-03T10:45:46.618Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/8b6d3de677e42e88eaebe0b94bc22e3173478e491aaba125f9b37a0c62e20b5f 200
+[debug] [2025-10-03T10:45:46.618Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/8b6d3de677e42e88eaebe0b94bc22e3173478e491aaba125f9b37a0c62e20b5f [stream]
+[debug] [2025-10-03T10:45:46.620Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b478f1b16541036545aab0a37252507653c557c3c55b837f41347971202d504 200
+[debug] [2025-10-03T10:45:46.620Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/4b478f1b16541036545aab0a37252507653c557c3c55b837f41347971202d504 [stream]
+[debug] [2025-10-03T10:45:46.630Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/6005ba6f88e69662389dea4f9adafe22f22b2d8b1a664e4a061b41ed86703eed 200
+[debug] [2025-10-03T10:45:46.631Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/6005ba6f88e69662389dea4f9adafe22f22b2d8b1a664e4a061b41ed86703eed [stream]
+[debug] [2025-10-03T10:45:46.758Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a 200
+[debug] [2025-10-03T10:45:46.759Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a [stream]
+[debug] [2025-10-03T10:45:46.786Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3acf6ec47bd3e29a33f04fed569937917ddb20eacb8a70110a86c1ebf9321721 200
+[debug] [2025-10-03T10:45:46.787Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/3acf6ec47bd3e29a33f04fed569937917ddb20eacb8a70110a86c1ebf9321721 [stream]
+[debug] [2025-10-03T10:45:46.792Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/9a27db996ef79025db1f35cff3a54539284217f5d809999e04e114ac0b03dd2a 200
+[debug] [2025-10-03T10:45:46.793Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/9a27db996ef79025db1f35cff3a54539284217f5d809999e04e114ac0b03dd2a [stream]
+[debug] [2025-10-03T10:45:46.817Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/64c891c32f511f7328d41066792d606896c2b965a62a6772465e2972e62c929b 200
+[debug] [2025-10-03T10:45:46.819Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/64c891c32f511f7328d41066792d606896c2b965a62a6772465e2972e62c929b [stream]
+[debug] [2025-10-03T10:45:46.987Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c 200
+[debug] [2025-10-03T10:45:46.990Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c [stream]
+[debug] [2025-10-03T10:45:47.453Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6 200
+[debug] [2025-10-03T10:45:47.453Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/658f8607709cb303/files/5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6 [stream]
+[debug] [2025-10-03T10:45:47.454Z] [hosting][upload queue][FINAL] {"max":2086,"min":1143,"avg":1298.9047619047622,"active":0,"complete":21,"success":21,"errored":0,"retried":0,"total":21,"elapsed":2091}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[mediaforge-957e4]: file upload complete 
+[debug] [2025-10-03T10:45:47.460Z] [hosting] deploy completed after 3836ms
+[debug] [2025-10-03T10:45:47.460Z] [
+  {
+    "config": {
+      "public": "out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "mediaforge-957e4"
+    },
+    "version": "projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303"
+  }
+]
+[info] i  hosting[mediaforge-957e4]: finalizing version... 
+[debug] [2025-10-03T10:45:47.469Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:47.470Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/658f8607709cb303 updateMask=status%2Cconfig
+[debug] [2025-10-03T10:45:47.470Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/658f8607709cb303 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-10-03T10:45:47.677Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/658f8607709cb303 200
+[debug] [2025-10-03T10:45:47.683Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/658f8607709cb303 {"name":"projects/261323568725/sites/mediaforge-957e4/versions/658f8607709cb303","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase--project-idx"},"createTime":"2025-10-03T10:45:43.242603Z","createUser":{"email":"peter@mediaforge.dev"},"finalizeTime":"2025-10-03T10:45:47.605978Z","finalizeUser":{"email":"peter@mediaforge.dev"}}
+[debug] [2025-10-03T10:45:47.683Z] [hosting] finalized version for mediaforge-957e4:[object Object]
+[info] ✔  hosting[mediaforge-957e4]: version finalized 
+[info] i  hosting[mediaforge-957e4]: releasing new version... 
+[debug] [2025-10-03T10:45:47.684Z] No OAuth tokens found
+[debug] [2025-10-03T10:45:47.685Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases versionName=projects%2F261323568725%2Fsites%2Fmediaforge-957e4%2Fversions%2F658f8607709cb303
+[debug] [2025-10-03T10:45:47.685Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases {}
+[debug] [2025-10-03T10:45:47.969Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases 200
+[debug] [2025-10-03T10:51:14.979Z] ----------------------------------------------------------------------
+[debug] [2025-10-03T10:51:14.982Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/a3jfkfzmr1h8lmk31a8fbchkg5sp12q9-firebase-tools-14.16.0/lib/node_modules/firebase-tools/lib/bin/firebase.js deploy --project mediaforge-957e4 --only hosting --non-interactive
+[debug] [2025-10-03T10:51:14.983Z] CLI Version:   14.16.0
+[debug] [2025-10-03T10:51:14.983Z] Platform:      linux
+[debug] [2025-10-03T10:51:14.983Z] Node Version:  v20.19.1
+[debug] [2025-10-03T10:51:14.983Z] Time:          Fri Oct 03 2025 10:51:14 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-10-03T10:51:14.984Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-03T10:51:15.502Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:15.505Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:15.505Z] [iam] checking project mediaforge-957e4 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-10-03T10:51:15.507Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:15.508Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:15.508Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:15.508Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:15.510Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions [none]
+[debug] [2025-10-03T10:51:15.511Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions x-goog-quota-user=projects/mediaforge-957e4
+[debug] [2025-10-03T10:51:15.511Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-03T10:51:15.760Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions 200
+[debug] [2025-10-03T10:51:15.761Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mediaforge-957e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-10-03T10:51:15.763Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:15.763Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:15.763Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:15.764Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:15.764Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 [none]
+[debug] [2025-10-03T10:51:15.981Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 200
+[debug] [2025-10-03T10:51:15.982Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mediaforge-957e4 {"projectId":"mediaforge-957e4","projectNumber":"261323568725","displayName":"Mediaforge","name":"projects/mediaforge-957e4","resources":{"hostingSite":"mediaforge-957e4"},"state":"ACTIVE","etag":"1_73c712e6-778e-46bc-9500-73f44377c128"}
+[info] 
+[info] === Deploying to 'mediaforge-957e4'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-10-03T10:51:15.990Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:15.990Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:15.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:15.991Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:15.992Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions [none]
+[debug] [2025-10-03T10:51:15.992Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase--project-idx"}}
+[debug] [2025-10-03T10:51:17.024Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions 200
+[debug] [2025-10-03T10:51:17.025Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions {"name":"projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase--project-idx"}}
+[info] i  hosting[mediaforge-957e4]: beginning deploy... 
+[info] i  hosting[mediaforge-957e4]: found 78 files in out 
+[debug] [2025-10-03T10:51:17.073Z] [hosting] uploading with 200 concurrency
+[debug] [2025-10-03T10:51:17.910Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:17.910Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:17.911Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:17.911Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:17.913Z] [hosting] hash cache [b3V0] stored for 78 files
+[debug] [2025-10-03T10:51:17.914Z] [hosting][hash queue][FINAL] {"max":827,"min":58,"avg":196.88461538461536,"active":0,"complete":78,"success":78,"errored":0,"retried":0,"total":78,"elapsed":839}
+[debug] [2025-10-03T10:51:17.914Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0:populateFiles [none]
+[debug] [2025-10-03T10:51:17.915Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0:populateFiles {"files":{"/window.svg":"2253803a9bd224dd3fbe414027f54ff9edbe1a38bc0980826e020165b0b35d1c","/vercel.svg":"f6d5e3a78f79382f472d99da714537458bf7616f60d251e7c98dd24977504709","/next.svg":"69fb75aede79b670cc3a774cf34561364d373632c78ed59342781868b751d105","/index.txt":"d696d120a65deabcd498632cdb5a8370e2dac5d3ac92ff83eeecd6210e346ee6","/index.html":"0d64f0e5f8b8c327e3eea8978fbc1304592b5ae2639aeac2e13caed4a56cffbd","/globe.svg":"45be2550c6161f1d10d3e58afc08d8dff018574d05f19bf2dc6aa382b8c5d6e5","/file.svg":"d4177f44c939a634e7984d267852a06c4ca557a9e49ba3c5dadabbcbf5508058","/favicon.png":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/favicon.ico":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/favicon-original.png":"e4efed1930fd83110ccc85dd902d755793021458cde9df079f07ab88ef6a0c66","/404.html":"a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a","/terms/index.txt":"37465b97db236925067c1701af32b185915f2b8c51bb8a26e4365b8db1212897","/styles/index.txt":"3c26e9569cf344b4062e661d2f96d5653415bc42ca142cfa3fbdf7fb9e0e79b0","/security/index.txt":"00934b5345161f8a27b5c8aee940fb3b2cc00e3b13956c07a7b1718d2f5952bd","/privacy/index.txt":"98f561257e7a5bbe69e4798c50aa75a0985a1ae40412e7dd0b63a0a6d91e648c","/pricing/index.html":"cb612d0598331de16c48f98085c4e1fa514a5fd5ade5cb7fd9e7f99af39d1ab8","/privacy/index.html":"245cdf02c3d4210b3ba0f27bd2884994755e358710007fb13379d0105689877e","/terms/index.html":"b911e7ad78b2e0db1fa8081033f28521eb9797de28cac4db2a10ea671c0f7057","/auth/verify/index.html":"641fd5c40f42248078e8e7c0823e54dab6085562aa86d354e761b23da39e409e","/auth/signin/index.txt":"dc305512f563bf8d305642a27e44969f642c6ee61d1a9a539dd0f6a93755b3cf","/_next/static/media/favicon.0775bb94.ico":"e7f25591a2e750fb4752e4bb4f33fe861a9c8c9a6940cc44f708eb4882b5545b","/_next/static/media/ad66f9afd8947f86-s.7a40eb73.woff2":"85a49f18c048badcfe02e379fad4c9e9f49474ed05f94500ee59ebd181b25a4d","/security/index.html":"5b8cfa27b289d1bfc408fa2236ddcde8ee4a2060bec4d8526ce1c15eadfcfdb9","/pricing/index.txt":"27b48ed816751fc9d1711246a909c705ec17d59bed4d72e5ed99dd73b15011e0","/auth/verify/index.txt":"0d9e56be91465b9d312f361e6cf243f66ba72e2c88a7346bcbc7dc2f9928c34f","/_next/static/media/2bbe8d2671613f1f-s.76dcb0b2.woff2":"452e9417356ae0f138dead31eec404c2777d810cfb8a1b7934f7a4a619de5992","/_next/static/lPLvZ1QKwKrmuysELr8Lz/_ssgManifest.js":"d8d8790f4e673a23bec506f00699bed8a258ac0e4965bb1ca8598172cfc0ec97","/styles/index.html":"e379faa0790d0e89ffc693f7b7609622c77690a8cc822a21daa2eed4b4f48151","/auth/signin/index.html":"2650ddd1bfc392bafae3724a39f61efbdc17f92c7577f03d959b1e9e58e82ad7","/Google Advantage.png":"4a00fbb86298e10a618776c742657895fc11e47cc74b3b379dd0154dadb1e50a","/_next/static/media/9c72aa0f40e4eef8-s.18a48cbc.woff2":"9dc6b4b81f1e76d386ca312594d1b6ac7d97b0dc420fd9727dac245069fab9ea","/_next/static/media/5476f68d60460930-s.c995e352.woff2":"6a36126035a3ba40d24f41f4be67c15be98aff88ca03ca9a9afa20b7c51797a6","/_next/static/media/2c55a0e60120577a-s.2a48534a.woff2":"72535d44c180c92b31d20cfe624fe87a34a6e7da7adc9dc9aaf275510b6d9446","/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2":"027fdc4d8db7a53cb76ecb17a96cee4075a04d262150fe1693666eeb2814db78","/_next/static/lPLvZ1QKwKrmuysELr8Lz/_clientMiddlewareManifest.json":"d15254cd9d142b950433cb8d1c0efb328352fa04db90c0f4d6eb2a68dead445f","/_next/static/lPLvZ1QKwKrmuysELr8Lz/_buildManifest.js":"fb7c60734f0ed07b8cf6050122be8410dd52884fef892679821dfb9b55bcbcd3","/_next/static/chunks/turbopack-470576b30783935a.js":"d4e481dcaf3c0814b6d314deef3b18ceea1c104e18e0103fa702b28476ba7e87","/_next/static/chunks/turbopack-23cd086085bd3239.js":"15bb77541e1ed32c2bc4ca90e6bc710ee2621d935f4eea88e0c55df5ce04a8fb","/_next/static/chunks/ff1a16fafef87110.js":"beb7a0bf476e744106b1068a5b27a29e1d0a29074a9d1ec0ac7c9134f3427cc2","/_next/static/chunks/fdd9105d0dfe5dc1.js":"0ebc9aecd970af16f11b3ff2d4cecfb25306b7e6b52165d8826c2672dacf27fe","/_next/static/chunks/turbopack-105652ac5e0776e2.js":"4892473dd70e1b8fb178fc101be19df09039d807b4db3b38232c86eee0e0a40a","/_next/static/chunks/e60ef129113f6e24.js":"fd3e1ed90be61058348cd169e35fad1e1e898dfbc5fb0257616008d03a53c864","/_next/static/chunks/bd2dcf98c9b362f6.js":"483b5e7bc24dd0718d5208c7e398b125d915d08656c5959704b472569ae49382","/_next/static/chunks/bbf98ab36ed52a7c.css":"6b49583b95da7c1f53bb22d3b92f126443947bfb22836188f37b0f343c7e2f6a","/_next/static/chunks/a1949b74249d3e8e.js":"3d86243a89c1b592a287274001011e1343246fba3561614682d8132240521afd","/_next/static/chunks/7d6dd8c662ae5573.js":"e76b7336c7165e73b69b091148f0721834779633ccc988e32dcb24b078a965ef","/_next/static/chunks/89460367c0865bec.js":"4503daac798394cb17f88c558bdf63a50378925a5b344c477191dbc466c3227a","/_next/static/chunks/7a53ca6d9a2dca1f.js":"224ee225ec8d84ab39ab8b6539ecd864c57ae8e10cf49ae8806aa4e66ded8e35","/_next/static/chunks/538cc02e54714b23.js":"dd8f910f84d437192f01292317dffa2fec0bd0def59682255cee4bb968344060","/_next/static/chunks/5dbf38a244ed1dc8.js":"4d680dd1fd2f393fd63dd82f8bf917b6aacbe8cf9169c82ee42797315bdc2a23","/_next/static/chunks/3b011a266f7babed.js":"89106164f37440b525e5f742d17660f22ee74eccb1479cd28c5faa0beaa1ec5f","/_next/static/chunks/1fb6a3c0989e1a0b.js":"66711e5cf621b96e81007a9a002bfdebd01d2ff1bfc1e1f406252af9bf49eb39","/_next/static/chunks/33d9c933d4bf2b2d.js":"e8b5c8639b0677e5bca1a86aa93f8494b9e76ca7794ca3cc72c2e3057f1bea18","/404/index.html":"a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a","/_next/static/chunks/17722e3ac4e00587.js":"a482d6b0f594ff6ccbb80a44e47a912d92896976aa62c1e3110a83cdfb08d81d","/_next/static/chunks/522518d740397639.js":"85b331bf1297fa1ea916a5147051780a5d41b4b442f7834aadd632341cddffba","/_next/static/chunks/35ebdd87242fa4f1.js":"32fcd27806a37063bde625984416a2a6f1b067df376ca4b13b7e6e7da1d2add6","/_next/static/chunks/9ea5322c0c7643ae.js":"6937b5a07399e1110672985f1a80a959f1b6ded59ec14abb4208b128e6661496","/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2":"d1cad80ebae6cf0cc7386b80bf18cb229589548ca5c5d1ffaba4c5c3ea9230f8","/_next/static/chunks/a6dad97d9634a72d.js":"16c0f345b71fe8e15659e330817da31529a0b752ea1d0115262d9de75fa7c618","/_next/static/chunks/c19da6693934fea1.js":"868a8cc70ae4437896231b0ffcd3cfb1eb24d82f84197a0e8cbc2a85ee87571e","/hero_section.png":"3183cf943c008d7f4c807a484e83d47077a23dfd373b048cb5012323a8c61345","/_next/static/chunks/d3d94c2494beb057.js":"f7fc33c3d637027c91d44b5aaa76e2dc71132df4b53cb8752c82340f81595670","/_next/static/chunks/77d599af2e182a25.js":"e737980665f49bc305aa04a1d007af5d0204be827a2e5519e661aec0b57cbca2","/placeholder-branding-applied.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-exports.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-brand-inputs.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/placeholder-prompt-modal.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/Mediaforge_hero.png":"a1b5520e192014cc260e6ad4db2843441297c3baa8c19bc99a441f755d57126e","/man-at-desk.png":"408aa86375c5cf4de93fd20b94a9b47bf12b9acc3d19536f73f6d07d649066d9","/man at desk creating branded materials.png":"408aa86375c5cf4de93fd20b94a9b47bf12b9acc3d19536f73f6d07d649066d9","/MediaForge.png":"270bcc4e640eacce1e10005ad307f81262f21e92aef24be38c15d4787c09e59b","/export.png":"2c08dd821a7bf4f5fa577f9daafb54d65d2791158d4e0119457da881b7eece54","/Create prompt.png":"a50fd1a95eaef2cd47ef653ab06fdafdf11af2b2b50cc6aa029152594a57c56b","/SaaSthetic.png":"2a6412dc27319696eaae4f04b2478b134126d4fec468cd86dbbf5f0369856e4c","/Google2.png":"797cf848f7c27c3082f14ad83bb8c118602273bc079a4c281515d470c1b3705a","/Clayframe.png":"5c5dd87e4a813245a401adeca4cff6a43abd9655471ea0a2f43f36f4f73b23c6","/Brand inputs.png":"5a322103f7dea51715b2df958f250b951e85ea9c46fc81f0c78ca1f1ddbffaf1"}}
+[debug] [2025-10-03T10:51:18.253Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0:populateFiles 200
+[debug] [2025-10-03T10:51:18.254Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0:populateFiles {"uploadRequiredHashes":["27b48ed816751fc9d1711246a909c705ec17d59bed4d72e5ed99dd73b15011e0","98f561257e7a5bbe69e4798c50aa75a0985a1ae40412e7dd0b63a0a6d91e648c","e379faa0790d0e89ffc693f7b7609622c77690a8cc822a21daa2eed4b4f48151","cb612d0598331de16c48f98085c4e1fa514a5fd5ade5cb7fd9e7f99af39d1ab8","641fd5c40f42248078e8e7c0823e54dab6085562aa86d354e761b23da39e409e","5b8cfa27b289d1bfc408fa2236ddcde8ee4a2060bec4d8526ce1c15eadfcfdb9","00934b5345161f8a27b5c8aee940fb3b2cc00e3b13956c07a7b1718d2f5952bd","245cdf02c3d4210b3ba0f27bd2884994755e358710007fb13379d0105689877e","2650ddd1bfc392bafae3724a39f61efbdc17f92c7577f03d959b1e9e58e82ad7","37465b97db236925067c1701af32b185915f2b8c51bb8a26e4365b8db1212897","d696d120a65deabcd498632cdb5a8370e2dac5d3ac92ff83eeecd6210e346ee6","3c26e9569cf344b4062e661d2f96d5653415bc42ca142cfa3fbdf7fb9e0e79b0","b911e7ad78b2e0db1fa8081033f28521eb9797de28cac4db2a10ea671c0f7057","0d64f0e5f8b8c327e3eea8978fbc1304592b5ae2639aeac2e13caed4a56cffbd","3d86243a89c1b592a287274001011e1343246fba3561614682d8132240521afd","dc305512f563bf8d305642a27e44969f642c6ee61d1a9a539dd0f6a93755b3cf","0d9e56be91465b9d312f361e6cf243f66ba72e2c88a7346bcbc7dc2f9928c34f","a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files"}
+[debug] [2025-10-03T10:51:18.258Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.258Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.258Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.258Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.261Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.262Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.262Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.262Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.263Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.264Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.264Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.265Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.265Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.266Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.266Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.266Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.267Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.267Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.267Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.268Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.268Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.268Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.268Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.269Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.269Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.269Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.270Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.270Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.270Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.271Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.271Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.271Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.271Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.272Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.272Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.272Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.273Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.273Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.273Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.274Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.274Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.274Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.274Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.275Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.275Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.275Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.275Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.276Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.276Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.276Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.276Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.277Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.277Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.278Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.278Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.278Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.279Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.279Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.279Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.279Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.280Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.280Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.280Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.281Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.281Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.281Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.281Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.282Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.282Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.282Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:18.283Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:18.283Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:18.283Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/27b48ed816751fc9d1711246a909c705ec17d59bed4d72e5ed99dd73b15011e0 [none]
+[debug] [2025-10-03T10:51:18.283Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/27b48ed816751fc9d1711246a909c705ec17d59bed4d72e5ed99dd73b15011e0 [stream]
+[debug] [2025-10-03T10:51:18.287Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/98f561257e7a5bbe69e4798c50aa75a0985a1ae40412e7dd0b63a0a6d91e648c [none]
+[debug] [2025-10-03T10:51:18.287Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/98f561257e7a5bbe69e4798c50aa75a0985a1ae40412e7dd0b63a0a6d91e648c [stream]
+[debug] [2025-10-03T10:51:18.289Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/e379faa0790d0e89ffc693f7b7609622c77690a8cc822a21daa2eed4b4f48151 [none]
+[debug] [2025-10-03T10:51:18.289Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/e379faa0790d0e89ffc693f7b7609622c77690a8cc822a21daa2eed4b4f48151 [stream]
+[debug] [2025-10-03T10:51:18.291Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/cb612d0598331de16c48f98085c4e1fa514a5fd5ade5cb7fd9e7f99af39d1ab8 [none]
+[debug] [2025-10-03T10:51:18.291Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/cb612d0598331de16c48f98085c4e1fa514a5fd5ade5cb7fd9e7f99af39d1ab8 [stream]
+[debug] [2025-10-03T10:51:18.294Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/641fd5c40f42248078e8e7c0823e54dab6085562aa86d354e761b23da39e409e [none]
+[debug] [2025-10-03T10:51:18.294Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/641fd5c40f42248078e8e7c0823e54dab6085562aa86d354e761b23da39e409e [stream]
+[debug] [2025-10-03T10:51:18.296Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/5b8cfa27b289d1bfc408fa2236ddcde8ee4a2060bec4d8526ce1c15eadfcfdb9 [none]
+[debug] [2025-10-03T10:51:18.296Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/5b8cfa27b289d1bfc408fa2236ddcde8ee4a2060bec4d8526ce1c15eadfcfdb9 [stream]
+[debug] [2025-10-03T10:51:18.299Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/00934b5345161f8a27b5c8aee940fb3b2cc00e3b13956c07a7b1718d2f5952bd [none]
+[debug] [2025-10-03T10:51:18.299Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/00934b5345161f8a27b5c8aee940fb3b2cc00e3b13956c07a7b1718d2f5952bd [stream]
+[debug] [2025-10-03T10:51:18.301Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/245cdf02c3d4210b3ba0f27bd2884994755e358710007fb13379d0105689877e [none]
+[debug] [2025-10-03T10:51:18.301Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/245cdf02c3d4210b3ba0f27bd2884994755e358710007fb13379d0105689877e [stream]
+[debug] [2025-10-03T10:51:18.304Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/2650ddd1bfc392bafae3724a39f61efbdc17f92c7577f03d959b1e9e58e82ad7 [none]
+[debug] [2025-10-03T10:51:18.304Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/2650ddd1bfc392bafae3724a39f61efbdc17f92c7577f03d959b1e9e58e82ad7 [stream]
+[debug] [2025-10-03T10:51:18.306Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/37465b97db236925067c1701af32b185915f2b8c51bb8a26e4365b8db1212897 [none]
+[debug] [2025-10-03T10:51:18.306Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/37465b97db236925067c1701af32b185915f2b8c51bb8a26e4365b8db1212897 [stream]
+[debug] [2025-10-03T10:51:18.308Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/d696d120a65deabcd498632cdb5a8370e2dac5d3ac92ff83eeecd6210e346ee6 [none]
+[debug] [2025-10-03T10:51:18.309Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/d696d120a65deabcd498632cdb5a8370e2dac5d3ac92ff83eeecd6210e346ee6 [stream]
+[debug] [2025-10-03T10:51:18.310Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3c26e9569cf344b4062e661d2f96d5653415bc42ca142cfa3fbdf7fb9e0e79b0 [none]
+[debug] [2025-10-03T10:51:18.311Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3c26e9569cf344b4062e661d2f96d5653415bc42ca142cfa3fbdf7fb9e0e79b0 [stream]
+[debug] [2025-10-03T10:51:18.312Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/b911e7ad78b2e0db1fa8081033f28521eb9797de28cac4db2a10ea671c0f7057 [none]
+[debug] [2025-10-03T10:51:18.313Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/b911e7ad78b2e0db1fa8081033f28521eb9797de28cac4db2a10ea671c0f7057 [stream]
+[debug] [2025-10-03T10:51:18.314Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d64f0e5f8b8c327e3eea8978fbc1304592b5ae2639aeac2e13caed4a56cffbd [none]
+[debug] [2025-10-03T10:51:18.314Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d64f0e5f8b8c327e3eea8978fbc1304592b5ae2639aeac2e13caed4a56cffbd [stream]
+[debug] [2025-10-03T10:51:18.316Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3d86243a89c1b592a287274001011e1343246fba3561614682d8132240521afd [none]
+[debug] [2025-10-03T10:51:18.317Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3d86243a89c1b592a287274001011e1343246fba3561614682d8132240521afd [stream]
+[debug] [2025-10-03T10:51:18.319Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/dc305512f563bf8d305642a27e44969f642c6ee61d1a9a539dd0f6a93755b3cf [none]
+[debug] [2025-10-03T10:51:18.319Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/dc305512f563bf8d305642a27e44969f642c6ee61d1a9a539dd0f6a93755b3cf [stream]
+[debug] [2025-10-03T10:51:18.321Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d9e56be91465b9d312f361e6cf243f66ba72e2c88a7346bcbc7dc2f9928c34f [none]
+[debug] [2025-10-03T10:51:18.321Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d9e56be91465b9d312f361e6cf243f66ba72e2c88a7346bcbc7dc2f9928c34f [stream]
+[debug] [2025-10-03T10:51:18.322Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a [none]
+[debug] [2025-10-03T10:51:18.323Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a [stream]
+[debug] [2025-10-03T10:51:18.324Z] [hosting][populate queue][FINAL] {"max":374,"min":374,"avg":374,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":415}
+[debug] [2025-10-03T10:51:18.325Z] [hosting] uploads queued: 18
+[info] i  hosting: uploading new files [0/18] (0%) 
+[debug] [2025-10-03T10:51:19.207Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d64f0e5f8b8c327e3eea8978fbc1304592b5ae2639aeac2e13caed4a56cffbd 200
+[debug] [2025-10-03T10:51:19.208Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d64f0e5f8b8c327e3eea8978fbc1304592b5ae2639aeac2e13caed4a56cffbd [stream]
+[debug] [2025-10-03T10:51:19.220Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/5b8cfa27b289d1bfc408fa2236ddcde8ee4a2060bec4d8526ce1c15eadfcfdb9 200
+[debug] [2025-10-03T10:51:19.223Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/5b8cfa27b289d1bfc408fa2236ddcde8ee4a2060bec4d8526ce1c15eadfcfdb9 [stream]
+[debug] [2025-10-03T10:51:19.231Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/cb612d0598331de16c48f98085c4e1fa514a5fd5ade5cb7fd9e7f99af39d1ab8 200
+[debug] [2025-10-03T10:51:19.231Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/cb612d0598331de16c48f98085c4e1fa514a5fd5ade5cb7fd9e7f99af39d1ab8 [stream]
+[debug] [2025-10-03T10:51:19.249Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3d86243a89c1b592a287274001011e1343246fba3561614682d8132240521afd 200
+[debug] [2025-10-03T10:51:19.250Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3d86243a89c1b592a287274001011e1343246fba3561614682d8132240521afd [stream]
+[debug] [2025-10-03T10:51:19.252Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/98f561257e7a5bbe69e4798c50aa75a0985a1ae40412e7dd0b63a0a6d91e648c 200
+[debug] [2025-10-03T10:51:19.252Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/98f561257e7a5bbe69e4798c50aa75a0985a1ae40412e7dd0b63a0a6d91e648c [stream]
+[debug] [2025-10-03T10:51:19.259Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3c26e9569cf344b4062e661d2f96d5653415bc42ca142cfa3fbdf7fb9e0e79b0 200
+[debug] [2025-10-03T10:51:19.260Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/3c26e9569cf344b4062e661d2f96d5653415bc42ca142cfa3fbdf7fb9e0e79b0 [stream]
+[debug] [2025-10-03T10:51:19.270Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/27b48ed816751fc9d1711246a909c705ec17d59bed4d72e5ed99dd73b15011e0 200
+[debug] [2025-10-03T10:51:19.270Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/27b48ed816751fc9d1711246a909c705ec17d59bed4d72e5ed99dd73b15011e0 [stream]
+[debug] [2025-10-03T10:51:19.287Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/245cdf02c3d4210b3ba0f27bd2884994755e358710007fb13379d0105689877e 200
+[debug] [2025-10-03T10:51:19.290Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/245cdf02c3d4210b3ba0f27bd2884994755e358710007fb13379d0105689877e [stream]
+[debug] [2025-10-03T10:51:19.318Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/e379faa0790d0e89ffc693f7b7609622c77690a8cc822a21daa2eed4b4f48151 200
+[debug] [2025-10-03T10:51:19.322Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/e379faa0790d0e89ffc693f7b7609622c77690a8cc822a21daa2eed4b4f48151 [stream]
+[debug] [2025-10-03T10:51:19.325Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a 200
+[debug] [2025-10-03T10:51:19.326Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/a6053a549335a4587e9a08bfffc391926c509d91a70bf158dbc79238dd07b68a [stream]
+[debug] [2025-10-03T10:51:19.343Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/2650ddd1bfc392bafae3724a39f61efbdc17f92c7577f03d959b1e9e58e82ad7 200
+[debug] [2025-10-03T10:51:19.347Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/2650ddd1bfc392bafae3724a39f61efbdc17f92c7577f03d959b1e9e58e82ad7 [stream]
+[debug] [2025-10-03T10:51:19.366Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/00934b5345161f8a27b5c8aee940fb3b2cc00e3b13956c07a7b1718d2f5952bd 200
+[debug] [2025-10-03T10:51:19.367Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/00934b5345161f8a27b5c8aee940fb3b2cc00e3b13956c07a7b1718d2f5952bd [stream]
+[debug] [2025-10-03T10:51:19.515Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/37465b97db236925067c1701af32b185915f2b8c51bb8a26e4365b8db1212897 200
+[debug] [2025-10-03T10:51:19.515Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/37465b97db236925067c1701af32b185915f2b8c51bb8a26e4365b8db1212897 [stream]
+[debug] [2025-10-03T10:51:19.555Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/d696d120a65deabcd498632cdb5a8370e2dac5d3ac92ff83eeecd6210e346ee6 200
+[debug] [2025-10-03T10:51:19.555Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/d696d120a65deabcd498632cdb5a8370e2dac5d3ac92ff83eeecd6210e346ee6 [stream]
+[debug] [2025-10-03T10:51:19.558Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/b911e7ad78b2e0db1fa8081033f28521eb9797de28cac4db2a10ea671c0f7057 200
+[debug] [2025-10-03T10:51:19.559Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/b911e7ad78b2e0db1fa8081033f28521eb9797de28cac4db2a10ea671c0f7057 [stream]
+[debug] [2025-10-03T10:51:19.560Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/dc305512f563bf8d305642a27e44969f642c6ee61d1a9a539dd0f6a93755b3cf 200
+[debug] [2025-10-03T10:51:19.560Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/dc305512f563bf8d305642a27e44969f642c6ee61d1a9a539dd0f6a93755b3cf [stream]
+[debug] [2025-10-03T10:51:19.565Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/641fd5c40f42248078e8e7c0823e54dab6085562aa86d354e761b23da39e409e 200
+[debug] [2025-10-03T10:51:19.566Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/641fd5c40f42248078e8e7c0823e54dab6085562aa86d354e761b23da39e409e [stream]
+[debug] [2025-10-03T10:51:19.575Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d9e56be91465b9d312f361e6cf243f66ba72e2c88a7346bcbc7dc2f9928c34f 200
+[debug] [2025-10-03T10:51:19.576Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mediaforge-957e4/versions/55c14713c5e3a0a0/files/0d9e56be91465b9d312f361e6cf243f66ba72e2c88a7346bcbc7dc2f9928c34f [stream]
+[debug] [2025-10-03T10:51:19.577Z] [hosting][upload queue][FINAL] {"max":1302,"min":931,"avg":1100.2777777777778,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":1323}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[mediaforge-957e4]: file upload complete 
+[debug] [2025-10-03T10:51:19.582Z] [hosting] deploy completed after 2548ms
+[debug] [2025-10-03T10:51:19.583Z] [
+  {
+    "config": {
+      "public": "out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "mediaforge-957e4"
+    },
+    "version": "projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0"
+  }
+]
+[info] i  hosting[mediaforge-957e4]: finalizing version... 
+[debug] [2025-10-03T10:51:19.590Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:19.591Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:19.591Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:19.591Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:19.593Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/55c14713c5e3a0a0 updateMask=status%2Cconfig
+[debug] [2025-10-03T10:51:19.593Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/55c14713c5e3a0a0 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-10-03T10:51:19.792Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/55c14713c5e3a0a0 200
+[debug] [2025-10-03T10:51:19.792Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/versions/55c14713c5e3a0a0 {"name":"projects/261323568725/sites/mediaforge-957e4/versions/55c14713c5e3a0a0","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase--project-idx"},"createTime":"2025-10-03T10:51:16.657319Z","createUser":{"email":"peter@mediaforge.dev"},"finalizeTime":"2025-10-03T10:51:19.710973Z","finalizeUser":{"email":"peter@mediaforge.dev"}}
+[debug] [2025-10-03T10:51:19.793Z] [hosting] finalized version for mediaforge-957e4:[object Object]
+[info] ✔  hosting[mediaforge-957e4]: version finalized 
+[info] i  hosting[mediaforge-957e4]: releasing new version... 
+[debug] [2025-10-03T10:51:19.795Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:19.795Z] No OAuth tokens found
+[debug] [2025-10-03T10:51:19.795Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-03T10:51:19.796Z] > authorizing via signed-in user (peter@mediaforge.dev)
+[debug] [2025-10-03T10:51:19.796Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases versionName=projects%2F261323568725%2Fsites%2Fmediaforge-957e4%2Fversions%2F55c14713c5e3a0a0
+[debug] [2025-10-03T10:51:19.796Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases {}
+[debug] [2025-10-03T10:51:20.128Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mediaforge-957e4/channels/live/releases 200
