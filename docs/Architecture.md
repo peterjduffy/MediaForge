@@ -32,12 +32,15 @@ visitors commit to signing up.
 
 ### Protected Routes (App Layout)
 ```
-/app/                → Main application with tabbed interface:
-                     - Generate section (default)
-                     - Styles browser
-                     - Gallery/history view
-                     - Settings (future: separate /app/settings)
-                     - Billing (future: separate /app/billing)
+/app/                → Main generation interface with:
+                     - Left panel: Style picker, prompt, settings
+                     - Right panel: Preview, recent generations
+/library             → Gallery of all generated illustrations
+                     - Grid view with search/filter/sort
+                     - Detail modal with download/copy/delete
+/styles              → Browse available styles (planned)
+/settings            → User settings (planned)
+/billing             → Billing and plan management (planned)
 ```
 
 ### Auth Routes (Minimal Layout)
@@ -152,11 +155,13 @@ components/
 │   └── UserMenu.tsx               → User dropdown menu
 ├── navigation/
 │   ├── MarketingNav.tsx           → Full navigation for public pages
-│   ├── AppNav.tsx                 → Minimal nav for app interface
+│   ├── AppNav.tsx                 → Minimal nav with credits display
 │   └── Footer.tsx                 → Marketing footer component
+├── onboarding/
+│   ├── WelcomeModal.tsx           → First-time user welcome
+│   └── SuccessModal.tsx           → First generation celebration
 ├── ui/                            → Reusable UI components
-├── generation/                    → Generation interface components
-└── gallery/                       → Gallery and history components
+└── [other components]
 ```
 
 ## User Flow
@@ -193,11 +198,13 @@ components/
 ## Integration Points
 
 ### AI Generation Pipeline (Hybrid Approach)
-- **Primary**: Vertex AI Model Garden (SDXL) - $0.002/image, 2-5s generation
-- **Premium**: Imagen 3 - $0.02/image, better quality for final exports
-- **Style Training**: Vertex AI Training for LoRA fine-tuning ($10-20/style)
-- **Processing**: Asynchronous via Cloud Tasks with cost-aware routing
-- **Storage**: LoRA weights and generated images in Cloud Storage
+- **Current State**: Mock generation using Picsum (12-15s delay simulation)
+- **Service Module**: `lib/ai-generation.ts` handles all generation logic
+- **Primary (Planned)**: Vertex AI Model Garden (SDXL) - $0.002/image
+- **Premium (Planned)**: Imagen 3 - $0.02/image, Business tier only
+- **Style Training**: LoRA fine-tuning ($0.10-0.25/style)
+- **Processing**: Async with Firestore status tracking
+- **Storage**: Currently using external URLs, will migrate to Cloud Storage
 
 ### Vector Conversion Pipeline (Phase 6+)
 - **Reality Check**: "AI-optimized vectors" not professional-grade vectors
@@ -257,4 +264,5 @@ components/
 
 *Architecture documented: 2025-09-22*
 *Updated for Google-native stack: 2025-09-24*
-*Next review: After AI integration Phase 3*
+*Updated with app implementation: 2025-10-05*
+*Next review: After real AI deployment*

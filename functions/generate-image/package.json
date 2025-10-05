@@ -1,0 +1,17 @@
+{
+  "name": "generate-image",
+  "version": "1.0.0",
+  "description": "Cloud Function for AI image generation using Vertex AI SDXL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0",
+    "firebase-admin": "^12.0.0",
+    "node-fetch": "^2.7.0"
+  }
+}

@@ -7,6 +7,8 @@
 - **Main Branch**: main
 - **Current Working Directory**: /home/user/mediaforge
 - **Reference**: https://illustrationsai.com/
+- **Live Site**: https://mediaforge-957e4.web.app
+- **Status**: Phase 3 (AI Integration) in progress - Mock generation working
 
 ## Key Commands
 ```bash
@@ -39,19 +41,21 @@ git log --oneline    # Show commit history
 │   │   │   ├── blog/           # (/blog) - content marketing
 │   │   │   └── [legal pages]   # (/privacy, /terms, /security)
 │   │   ├── app/
-│   │   │   ├── layout.tsx      # App layout (minimal nav)
-│   │   │   └── page.tsx        # Main app with tabbed sections
+│   │   │   ├── layout.tsx      # App layout (minimal nav, AppNav)
+│   │   │   └── page.tsx        # Generation interface (left/right panels)
 │   │   ├── auth/
 │   │   │   ├── layout.tsx      # Auth layout (logo only)
 │   │   │   ├── signin/         # (/auth/signin)
 │   │   │   └── verify/         # (/auth/verify)
 │   │   └── layout.tsx          # Root layout (AuthProvider)
 │   ├── components/
-│   │   ├── auth/               # Auth components
-│   │   ├── navigation/         # Nav components
-│   │   ├── generation/         # Generation interface
-│   │   └── gallery/            # Gallery components
-│   └── lib/                    # Utilities and Firebase config
+│   │   ├── auth/               # Auth components (ProtectedRoute, etc.)
+│   │   ├── navigation/         # AppNav, MarketingNav components
+│   │   ├── onboarding/         # WelcomeModal, SuccessModal
+│   │   └── [other components]
+│   ├── lib/
+│   │   ├── firebase.ts         # Firebase configuration
+│   │   └── ai-generation.ts    # AI generation service (mock + real)
 ├── public/                     # Static assets
 ├── docs/                       # Documentation
 └── [config files]
@@ -105,10 +109,18 @@ Single Next.js application with route group organization:
 4. **Service Account**: firebase-deployer@mediaforge-957e4.iam.gserviceaccount.com with Firebase Hosting Admin + Storage Admin roles
 5. **Details**: See `docs/firebase-deploy.md` for complete runbook
 
+## Current Status (2025-10-05)
+- **Completed Phases**:
+  - Phase 2B: App Interface (Generation, Library pages)
+  - Phase 2C: Onboarding Flow (60-second time to value)
+- **In Progress**: Phase 3 - AI Integration (mock generation working)
+- **Pricing**: Free: 5, Starter: $19/100, Pro: $49/300, Business: $99/700 credits
+- **Generation**: Currently using mock Picsum images (12-15 sec delay)
+- **Next Steps**: Deploy SDXL on Vertex AI for real generation
+
 ## Notes
 - Google native application leveraging Google AI tools
 - Uses Turbopack for both dev and build commands
 - Firebase debug logs present (firebase-debug.log)
-- Recent initialization with Firebase Studio
-- Visual identity is as per @Visual_identity.md
-- tasks are stored in tasks.md
+- Visual identity as per @Visual_identity.md
+- Tasks tracked in docs/Tasks.md
