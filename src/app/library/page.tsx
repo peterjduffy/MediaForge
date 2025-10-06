@@ -11,6 +11,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { collection, query, where, orderBy, limit, onSnapshot, deleteDoc, doc, getDoc } from 'firebase/firestore'
 import AppNav from '@/components/navigation/AppNav'
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute'
+import { getCreditsForPlan } from '@/lib/credits'
 
 export default function LibraryPage() {
   const [user, setUser] = useState<any>(null)
@@ -98,15 +99,6 @@ export default function LibraryPage() {
 
     return () => unsubscribe()
   }, [])
-
-  const getCreditsForPlan = (plan: string) => {
-    switch(plan) {
-      case 'starter': return 100
-      case 'pro': return 300
-      case 'business': return 700
-      default: return 5
-    }
-  }
 
   useEffect(() => {
     let filtered = [...illustrations]
@@ -197,7 +189,7 @@ export default function LibraryPage() {
   }
 
   return (
-    // <ProtectedRoute>
+    <ProtectedRoute>
       <div className="min-h-screen bg-gray-50">
         <AppNav />
 
@@ -421,6 +413,6 @@ export default function LibraryPage() {
           )}
         </div>
       </div>
-    // </ProtectedRoute>
+    </ProtectedRoute>
   )
 }

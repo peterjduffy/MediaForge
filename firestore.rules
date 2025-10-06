@@ -2,9 +2,26 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Helper function to check if user is team member
+    function isTeamMember(teamId) {
+      let team = get(/databases/$(database)/documents/teams/$(teamId));
+      return request.auth.uid in team.data.members[].userId;
+    }
+
+    // Helper function to check if user is team owner
+    function isTeamOwner(teamId) {
+      let team = get(/databases/$(database)/documents/teams/$(teamId));
+      return request.auth.uid == team.data.ownerId;
+    }
+
     // Users collection
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // User's brand styles subcollection
+      match /brands/{brandId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
     }
 
     // Generations collection
@@ -38,6 +55,65 @@ service cloud.firestore {
     // Job queue collection (server-only access)
     match /jobQueue/{jobId} {
       allow read, write: if false;
+    }
+
+    // Illustrations collection (main generation output)
+    match /illustrations/{illustrationId} {
+      // Read: owner or team member
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        (resource.data.teamId != null && isTeamMember(resource.data.teamId))
+      );
+
+      // Create: must set userId to own ID
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+
+      // Update: only owner can update
+      allow update: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+
+      // Delete: only owner can delete
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.userId;
+    }
+
+    // Teams collection
+    match /teams/{teamId} {
+      // Read: must be a team member
+      allow read: if request.auth != null && isTeamMember(teamId);
+
+      // Create: must set ownerId to own ID
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.ownerId;
+
+      // Update: only owner can update (or server for credit deductions)
+      allow update: if request.auth != null && isTeamOwner(teamId);
+
+      // Delete: only owner can delete
+      allow delete: if request.auth != null && isTeamOwner(teamId);
+    }
+
+    // Team invites collection
+    match /teamInvites/{inviteId} {
+      // Read: invited user or team owner
+      allow read: if request.auth != null && (
+        request.auth.token.email == resource.data.email ||
+        request.auth.uid == resource.data.invitedBy
+      );
+
+      // Create: must be team owner
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.invitedBy;
+
+      // Update: invited user accepting (status change only)
+      allow update: if request.auth != null &&
+        request.auth.token.email == resource.data.email &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']);
+
+      // Delete: team owner only
+      allow delete: if request.auth != null &&
+        request.auth.uid == resource.data.invitedBy;
     }
 
     // Waitlist collection (public write for signups)

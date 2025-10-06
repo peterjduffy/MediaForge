@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { X, Upload, Plus, Check, AlertCircle } from 'lucide-react'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/components/auth/AuthProvider'
 import { startBrandTraining } from '@/lib/ai-generation'
 // import { toast } from 'react-hot-toast'
 // Mock toast for now

@@ -11,6 +11,7 @@ import { doc, getDoc, updateDoc, collection, query, where, orderBy, limit, onSna
 import WelcomeModal from '@/components/onboarding/WelcomeModal'
 import SuccessModal from '@/components/onboarding/SuccessModal'
 import { generateIllustration, getUserBrands } from '@/lib/ai-generation'
+import { getCreditsForPlan } from '@/lib/credits'
 
 // Style definitions
 const styles = [
@@ -156,15 +157,6 @@ export default function AppPage() {
 
     return () => unsubscribe()
   }, [])
-
-  const getCreditsForPlan = (plan: string) => {
-    switch(plan) {
-      case 'starter': return 100
-      case 'pro': return 300
-      case 'business': return 700
-      default: return 5
-    }
-  }
 
   // Onboarding handlers
   const handleWelcomeGetStarted = () => {

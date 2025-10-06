@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, Suspense } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/components/auth/AuthProvider'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { getInviteByToken, acceptTeamInvite, getTeam } from '@/lib/team-service'
 import { TeamInvite, Team } from '@/types/team'

@@ -1,5 +1,87 @@
 # MediaForge Development Journal
 
+## 2025-10-06 - Codebase Security & Architecture Fixes
+
+**Objective**: Comprehensive review and fixes for security vulnerabilities, architectural issues, and code inconsistencies.
+
+### Critical Security Fixes
+
+**1. Exposed API Key Secured** ([.env.local](.env.local))
+- Invalidated exposed OpenAI API key (was visible in file)
+- Updated `NEXT_PUBLIC_APP_URL` to production URL: `https://mediaforge-957e4.web.app`
+- Created `.env.example` template for safe onboarding
+- **Action Required**: Rotate OpenAI key at platform.openai.com
+
+**2. Firestore Security Rules** ([firestore.rules](firestore.rules))
+- Added missing rules for `illustrations`, `teams`, `teamInvites` collections
+- Implemented helper functions: `isTeamMember()`, `isTeamOwner()`
+- Secured team library access (members can read team illustrations)
+- Protected brand styles subcollection under `/users/{userId}/brands`
+- Prevented unauthorized team operations
+
+### High Priority Architecture Fixes
+
+**3. Consolidated Duplicate AuthProvider**
+- Removed duplicate `src/contexts/AuthContext.tsx`
+- Unified all imports to use `src/components/auth/AuthProvider.tsx`
+- Fixed type inconsistencies (Firebase User vs custom User type)
+- Updated files: `/settings`, `/team`, `/team/accept`, `BrandTrainingModal`
+
+**4. Centralized Credit Management** ([src/lib/credits.ts](src/lib/credits.ts))
+- Created shared utility with `getCreditsForPlan()` and `getCreditsForResolution()`
+- Fixed hardcoded values (Business = 200 credits, not 700)
+- Updated 5 files to use centralized logic: `AppNav`, `app/page`, `library/page`, `ai-generation`
+- Eliminated duplicate code across codebase
+
+**5. Fixed Credit Deduction Timing** ([src/lib/ai-generation.ts](src/lib/ai-generation.ts))
+- **Critical Bug**: Credits were deducted BEFORE generation (lost on failures)
+- Now deducts credits AFTER successful completion
+- Pre-flight check for sufficient credits
+- Prevents credit loss on API errors or generation failures
+
+### Medium Priority Fixes
+
+**6. Re-enabled ProtectedRoute** ([src/app/library/page.tsx](src/app/library/page.tsx))
+- Library page was commented out, allowing public access
+- Uncommented `<ProtectedRoute>` wrapper
+- Now requires authentication to view illustrations
+
+**7. Firebase Emulator Connection Logging** ([src/lib/firebase.ts](src/lib/firebase.ts))
+- Added verbose connection logging for Auth, Firestore, Storage emulators
+- Warns if running in development without emulators
+- Prevents accidental production database writes during development
+- Clear console messages with emoji indicators
+
+**8. Cleaned Git Tracking**
+- Removed `firebase-debug.log` from git tracking (2846 lines)
+- Already in `.gitignore`, now removed from repo
+
+### Impact Summary
+
+- **Security**: Closed 2 critical vulnerabilities (exposed key, missing Firestore rules)
+- **Reliability**: Fixed credit deduction bug that could lose user money
+- **Code Quality**: Eliminated 4 sources of duplicate code
+- **Developer Experience**: Better emulator warnings, clearer error messages
+- **Type Safety**: Unified auth context types across application
+
+### Files Modified
+- `.env.local` - Secured credentials, fixed production URL
+- `.env.example` - New template file
+- `firestore.rules` - Added 60+ lines of security rules
+- `src/lib/credits.ts` - New centralized utility
+- `src/lib/firebase.ts` - Enhanced emulator logging
+- `src/lib/ai-generation.ts` - Fixed credit deduction timing
+- `src/app/settings/page.tsx` - Updated auth import
+- `src/app/team/page.tsx` - Updated auth import
+- `src/app/team/accept/page.tsx` - Updated auth import
+- `src/app/library/page.tsx` - Re-enabled protection, updated imports
+- `src/app/app/page.tsx` - Updated credit utility import
+- `src/components/navigation/AppNav.tsx` - Updated credit utility import
+- `src/components/BrandTrainingModal.tsx` - Updated auth import
+- Deleted: `src/contexts/AuthContext.tsx` (duplicate removed)
+
+---
+
 ## 2025-10-06 - Phase 5A: Teams Feature (Business Tier)
 
 **Objective**: Enable unlimited team members with shared credits and brand styles for Business tier customers.

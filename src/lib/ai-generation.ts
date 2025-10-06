@@ -116,15 +116,14 @@ export async function generateIllustration(
     // Calculate credits based on resolution
     const width = request.width || 1024
     const height = request.height || 1024
-    const creditsUsed = (width === 2048 || height === 2048) ? 2 : 1
+    const creditsUsed = getCreditsForResolution(width, height)
 
-    // Deduct credits (from team if applicable, otherwise user)
+    // Check if user/team has sufficient credits BEFORE generation
     if (team) {
-      const result = await deductTeamCredits(team.id, request.userId, creditsUsed)
-      if (!result.success) {
+      if (team.credits < creditsUsed) {
         return {
           success: false,
-          error: result.error || 'Failed to use team credits'
+          error: 'Insufficient team credits'
         }
       }
     }
@@ -173,6 +172,11 @@ export async function generateIllustration(
         completedAt: serverTimestamp()
       })
 
+      // ✅ Deduct credits AFTER successful generation
+      if (team) {
+        await deductTeamCredits(team.id, request.userId, creditsUsed)
+      }
+
       return {
         success: true,
         imageURL,
@@ -213,6 +217,11 @@ export async function generateIllustration(
 
       const result = await response.json()
 
+      // ✅ Deduct credits AFTER successful generation
+      if (team) {
+        await deductTeamCredits(team.id, request.userId, creditsUsed)
+      }
+
       return {
         success: true,
         imageURL: result.imageURL,
@@ -224,6 +233,9 @@ export async function generateIllustration(
   } catch (error) {
     console.error('Generation error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Failed to generate illustration'
+
+    // Mark illustration as failed (don't deduct credits)
+    // Note: illustrationId may not exist if error occurred before creation
 
     return {
       success: false,

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/components/auth/AuthProvider'
 import { useRouter } from 'next/navigation'
 import { getUserBrands, checkBrandStatus } from '@/lib/ai-generation'
 import { doc, getDoc } from 'firebase/firestore'

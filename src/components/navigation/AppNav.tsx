@@ -9,6 +9,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { ChevronDown, User, Settings, CreditCard, LogOut } from 'lucide-react'
 import Logo from '@/components/Logo'
+import { getCreditsForPlan } from '@/lib/credits'
 
 export default function AppNav() {
   const [user, setUser] = useState<any>(null)
@@ -65,15 +66,6 @@ export default function AppNav() {
 
     return () => unsubscribeAuth()
   }, [])
-
-  const getCreditsForPlan = (plan: string) => {
-    switch(plan) {
-      case 'starter': return 100
-      case 'pro': return 300
-      case 'business': return 700
-      default: return 5 // free
-    }
-  }
 
   const handleSignOut = async () => {
     await signOut(auth)
