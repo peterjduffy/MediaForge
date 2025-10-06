@@ -10,7 +10,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { doc, getDoc, updateDoc, collection, query, where, orderBy, limit, onSnapshot } from 'firebase/firestore'
 import WelcomeModal from '@/components/onboarding/WelcomeModal'
 import SuccessModal from '@/components/onboarding/SuccessModal'
-import { generateIllustration } from '@/lib/ai-generation'
+import { generateIllustration, getUserBrands } from '@/lib/ai-generation'
 
 // Style definitions
 const styles = [
@@ -77,6 +77,7 @@ const styles = [
 ]
 
 export default function AppPage() {
+  const [allStyles, setAllStyles] = useState(styles)
   const [selectedStyle, setSelectedStyle] = useState(styles[0])
   const [prompt, setPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
@@ -113,6 +114,25 @@ export default function AppPage() {
             setIsFirstGeneration(true)
           }
         }
+
+        // Load user's trained brands
+        const userBrands = await getUserBrands(firebaseUser.uid)
+        const brandStyles = userBrands.map((brand: any) => ({
+          id: `brand_${brand.id}`,
+          name: brand.name,
+          description: 'Your custom brand style',
+          thumbnail: '/styles/custom-brand-thumb.jpg', // Placeholder
+          type: 'brand',
+          brandData: brand,
+          examples: [
+            `${brand.name} style illustration`,
+            `professional content in ${brand.name} style`,
+            `branded visual for ${brand.name}`
+          ]
+        }))
+
+        // Combine preset styles with brand styles
+        setAllStyles([...brandStyles, ...styles])
 
         // Load recent generations
         const q = query(
@@ -263,7 +283,7 @@ export default function AppPage() {
             Choose Your Style
           </label>
           <div className="grid grid-cols-3 gap-3">
-            {styles.map((style) => (
+            {allStyles.map((style) => (
               <button
                 key={style.id}
                 onClick={() => setSelectedStyle(style)}

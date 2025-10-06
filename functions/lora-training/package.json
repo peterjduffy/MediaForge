@@ -1,0 +1,18 @@
+{
+  "name": "lora-training",
+  "version": "1.0.0",
+  "description": "LoRA training orchestration for MediaForge brand styles",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx functions-framework --target=trainBrand"
+  },
+  "dependencies": {
+    "@google-cloud/aiplatform": "^3.26.0",
+    "@google-cloud/functions-framework": "^3.4.0",
+    "@google-cloud/storage": "^7.15.0",
+    "@google-cloud/tasks": "^5.0.0",
+    "firebase-admin": "^12.0.0",
+    "react-hot-toast": "^2.6.0",
+    "uuid": "^9.0.0"
+  }
+}

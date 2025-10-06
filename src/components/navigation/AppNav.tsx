@@ -12,7 +12,7 @@ import Logo from '@/components/Logo'
 
 export default function AppNav() {
   const [user, setUser] = useState<any>(null)
-  const [credits, setCredits] = useState<{ used: number; total: number }>({ used: 0, total: 5 })
+  const [credits, setCredits] = useState<{ remaining: number; total: number }>({ remaining: 5, total: 5 })
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isTeam, setIsTeam] = useState(false)
 
@@ -21,25 +21,45 @@ export default function AppNav() {
       if (firebaseUser) {
         setUser(firebaseUser)
 
-        // Listen to user document for credits
+        // Listen to user document
         const userDocRef = doc(db, 'users', firebaseUser.uid)
-        const unsubscribeUser = onSnapshot(userDocRef, (doc) => {
-          if (doc.exists()) {
-            const userData = doc.data()
-            const plan = userData.subscriptionTier || 'free'
-            const creditsPerMonth = getCreditsForPlan(plan)
-            setCredits({
-              used: userData.creditsUsed || 0,
-              total: creditsPerMonth
-            })
-            setIsTeam(!!userData.teamId)
+        const unsubscribeUser = onSnapshot(userDocRef, (userDoc) => {
+          if (userDoc.exists()) {
+            const userData = userDoc.data()
+            const teamId = userData.teamId
+
+            if (teamId) {
+              // User is on a team - listen to team credits
+              setIsTeam(true)
+              const teamDocRef = doc(db, 'teams', teamId)
+              const unsubscribeTeam = onSnapshot(teamDocRef, (teamDoc) => {
+                if (teamDoc.exists()) {
+                  const teamData = teamDoc.data()
+                  setCredits({
+                    remaining: teamData.credits || 0,
+                    total: 200 // Business tier allocation
+                  })
+                }
+              })
+              // Clean up team listener when component unmounts
+              return () => unsubscribeTeam()
+            } else {
+              // User is not on a team - use personal credits
+              setIsTeam(false)
+              const plan = userData.subscriptionTier || 'free'
+              const creditsPerMonth = getCreditsForPlan(plan)
+              setCredits({
+                remaining: creditsPerMonth - (userData.creditsUsed || 0),
+                total: creditsPerMonth
+              })
+            }
           }
         })
 
         return () => unsubscribeUser()
       } else {
         setUser(null)
-        setCredits({ used: 0, total: 5 })
+        setCredits({ remaining: 5, total: 5 })
       }
     })
 
@@ -60,8 +80,7 @@ export default function AppNav() {
     window.location.href = '/'
   }
 
-  const creditsRemaining = credits.total - credits.used
-  const creditsPercentage = (creditsRemaining / credits.total) * 100
+  const creditsPercentage = (credits.remaining / credits.total) * 100
 
   return (
     <nav className="border-b border-gray-200 bg-white">
@@ -86,7 +105,7 @@ export default function AppNav() {
             <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-lg group cursor-help">
               <span className="text-2xl">💎</span>
               <span className="font-medium text-gray-700">
-                {creditsRemaining}/{credits.total}
+                {credits.remaining}/{credits.total}
               </span>
               {isTeam && <span className="text-gray-500">👥</span>}
 
@@ -96,7 +115,7 @@ export default function AppNav() {
                   {isTeam ? 'Team Credits' : 'Personal Credits'}
                 </div>
                 <div className="text-gray-300">
-                  {creditsRemaining} of {credits.total} remaining
+                  {credits.remaining} of {credits.total} remaining
                 </div>
                 <div className="text-gray-400 text-xs mt-1">
                   Resets on {new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', {

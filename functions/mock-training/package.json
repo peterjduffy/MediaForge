@@ -1,0 +1,16 @@
+{
+  "name": "mock-training",
+  "version": "1.0.0",
+  "description": "Mock brand training endpoint for MediaForge",
+  "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "start": "npx functions-framework --target=mockTrainBrand"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0",
+    "firebase-admin": "^12.0.0"
+  }
+}

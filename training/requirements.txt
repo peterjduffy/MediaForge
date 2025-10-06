@@ -1,0 +1,11 @@
+torch==2.1.0
+torchvision==0.16.0
+diffusers==0.25.0
+transformers==4.36.0
+accelerate==0.25.0
+peft==0.7.1
+safetensors==0.4.1
+google-cloud-storage==2.14.0
+google-cloud-firestore==2.14.0
+pillow==10.1.0
+numpy==1.26.2

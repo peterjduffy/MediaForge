@@ -38,8 +38,12 @@ visitors commit to signing up.
 /library             → Gallery of all generated illustrations
                      - Grid view with search/filter/sort
                      - Detail modal with download/copy/delete
-/styles              → Browse available styles (planned)
-/settings            → User settings (planned)
+                     - Team context: Shows all team illustrations
+/team                → Team management (Business tier only)
+                     - Owner: Member list, invite form, usage breakdown
+                     - Member: Team info, personal stats
+/team/accept         → Team invite acceptance page
+/settings            → User settings & brand management (live)
 /billing             → Billing and plan management (planned)
 ```
 
@@ -69,10 +73,12 @@ Uploads and processing        → Signed URLs + Cloud Run (when implemented)
 ### Backend Services (Google-Native Stack)
 - **Database**: Firestore for user data, generations, transactions
 - **Storage**: Cloud Storage with 7 specialized buckets
-- **AI Generation**: Vertex AI Model Garden (SDXL) + Imagen 3 hybrid approach
-- **Style Training**: Vertex AI Training for LoRA fine-tuning
+- **AI Generation**: Hybrid approach
+  - Imagen 3 on Cloud Run: Free tier and Business Quick Mode ($0.03/image)
+  - SDXL + LoRA on Cloud Run with GPU: Business Brand Mode ($0.01-0.02/image)
+- **Style Training**: Vertex AI Training for LoRA fine-tuning (~$1/brand, charged $29)
 - **Job Queue**: Cloud Tasks for asynchronous processing
-- **Payments**: Stripe for subscriptions and credit purchases
+- **Payments**: Stripe for subscriptions ($29/mo Business) and one-time purchases (brand training $29, credit packs $5/100)
 - **Budget**: $2000 Google Cloud credits (4-5 month runway)
 
 ### Infrastructure
@@ -84,8 +90,14 @@ Uploads and processing        → Signed URLs + Cloud Run (when implemented)
 
 ### Firestore Collections
 ```
-users/               → User profiles, credits, subscription status
-generations/         → Generated illustrations with metadata
+users/               → User profiles, credits, subscription status, teamId
+  ├── brands/        → User's trained brand styles (subcollection)
+generations/         → Generated illustrations with metadata, teamId
+teams/               → Team documents (Business tier)
+  ├── members[]      → Team members with usage tracking
+  ├── credits        → Shared credit pool (200/month)
+  ├── dailyLimitReset → Fair-use daily limit tracking
+teamInvites/         → Team invitation tokens (7-day expiry)
 stylePacks/          → Available illustration styles
 transactions/        → Credit purchases, usage tracking
 jobQueue/            → Background processing jobs
@@ -197,14 +209,31 @@ components/
 
 ## Integration Points
 
-### AI Generation Pipeline (Hybrid Approach)
-- **Current State**: Mock generation using Picsum (12-15s delay simulation)
+### AI Generation Pipeline (Transparent Model Selection)
+- **Current State**: Imagen 3 deployed on Cloud Run ($0.03/image) - Phase 3 complete
 - **Service Module**: `lib/ai-generation.ts` handles all generation logic
-- **Primary (Planned)**: Vertex AI Model Garden (SDXL) - $0.002/image
-- **Premium (Planned)**: Imagen 3 - $0.02/image, Business tier only
-- **Style Training**: LoRA fine-tuning ($0.10-0.25/style)
+- **Free Tier**: Imagen 3 only (preset styles, 1024px, $0.03/image)
+- **Business Tier**: Transparent automatic model selection
+  - Before brand training: Imagen 3 with saved brand colors/keywords ($0.03/image)
+  - After brand training: SDXL + LoRA ($0.01-0.02/image)
+  - User sees "Your Brand" style in picker, backend handles model routing
+  - No "Quick Mode" vs "Brand Mode" - seamless UX
+- **Brand Training**: Optional async LoRA fine-tuning - **Phase 4 MVP Complete** ✅
+  - **Current**: Mock training service (30-second simulation, $0 cost)
+  - **Deployed**: BrandTrainingModal, Settings page, brand management UI
+  - **Live**: https://mediaforge-957e4.web.app/settings
+  - **Production Ready**: LoRA container built, deferred until 5-10 Business users
+  - Can upload during onboarding or skip and add later from Settings
+  - Training runs in background (15-30 min in production)
+  - User can generate with presets while training
+  - Real-time status polling (5-second intervals)
+  - Toast notification when training completes
+  - Data: `users/{userId}/brands/{brandId}` with status tracking
+  - Cost: ~$1 actual, charged $29
+- **Brand Refresh**: $5 to update existing brand with new images
+- **Resolution Pricing**: 1024/1536 = 1 credit, 2048 = 2 credits
 - **Processing**: Async with Firestore status tracking
-- **Storage**: Currently using external URLs, will migrate to Cloud Storage
+- **Storage**: Cloud Storage for generated images and LoRA model weights (permanent)
 
 ### Vector Conversion Pipeline (Phase 6+)
 - **Reality Check**: "AI-optimized vectors" not professional-grade vectors
@@ -265,4 +294,5 @@ components/
 *Architecture documented: 2025-09-22*
 *Updated for Google-native stack: 2025-09-24*
 *Updated with app implementation: 2025-10-05*
-*Next review: After real AI deployment*
+*Updated with teams feature: 2025-10-06*
+*Next review: After payment integration (Phase 5B)*

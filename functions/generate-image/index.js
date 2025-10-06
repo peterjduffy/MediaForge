@@ -1,6 +1,7 @@
 const functions = require('@google-cloud/functions-framework');
 const admin = require('firebase-admin');
-const fetch = require('node-fetch');
+const {PredictionServiceClient} = require('@google-cloud/aiplatform');
+const {Storage} = require('@google-cloud/storage');
 
 // Initialize Firebase Admin
 if (!admin.apps.length) {
@@ -8,10 +9,29 @@ if (!admin.apps.length) {
 }
 
 const firestore = admin.firestore();
+const storage = new Storage();
+
+// Vertex AI configuration
+const PROJECT_ID = 'mediaforge-957e4';
+const LOCATION = 'us-central1';
+const BUCKET_NAME = 'mediaforge-957e4.firebasestorage.app';
+
+// Initialize Vertex AI client
+const predictionClient = new PredictionServiceClient({
+  apiEndpoint: `${LOCATION}-aiplatform.googleapis.com`
+});
+
+// Style-specific prompt modifiers
+const styleModifiers = {
+  google: 'clean, modern, vibrant colors, Google Material Design style, minimalist',
+  notion: 'friendly, soft colors, illustration style, warm and approachable',
+  saasthetic: 'modern SaaS aesthetic, gradient colors, sleek line art style',
+  clayframe: '3D clay render, soft lighting, playful 3D illustration style',
+  flat2d: 'flat 2D design, bold colors, geometric shapes, modern flat illustration'
+};
 
 /**
- * Mock Cloud Function to simulate image generation
- * This will be replaced with real Vertex AI integration later
+ * Cloud Function for AI image generation using Vertex AI Imagen 3
  */
 functions.http('generateImage', async (req, res) => {
   // Enable CORS
@@ -52,22 +72,98 @@ functions.http('generateImage', async (req, res) => {
       return;
     }
 
-    // Simulate generation delay (2-5 seconds)
-    const delay = Math.floor(Math.random() * 3000) + 2000;
-    await new Promise(resolve => setTimeout(resolve, delay));
+    // Build style-enhanced prompt
+    const styleModifier = styleModifiers[styleId] || '';
+    const fullPrompt = `${prompt}. ${styleModifier}`;
 
-    // Generate mock image URL using Lorem Picsum with style-based seeds
-    const styleSeed = {
-      google: 'clean',
-      notion: 'friendly',
-      saasthetic: 'line',
-      clayframe: '3d',
-      flat2d: 'flat'
+    console.log('Generating with Imagen 3:', { fullPrompt, styleId });
+
+    const startTime = Date.now();
+
+    // Call Imagen 3 via Vertex AI
+    const endpoint = `projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/imagen-3.0-generate-002`;
+
+    const instanceValue = {
+      prompt: fullPrompt,
+      sampleCount: 1,
+      aspectRatio: '1:1',
+      negativePrompt: 'blurry, low quality, distorted, text, watermark, signature',
+      personGeneration: 'allow_all'
     };
 
-    const seed = `${styleSeed[styleId] || 'default'}${Date.now()}`;
-    const imageUrl = `https://picsum.photos/seed/${seed}/1024/1024`;
-    const thumbnailUrl = `https://picsum.photos/seed/${seed}/256/256`;
+    const instance = {
+      structValue: {
+        fields: Object.keys(instanceValue).reduce((acc, key) => {
+          const value = instanceValue[key];
+          if (typeof value === 'string') {
+            acc[key] = { stringValue: value };
+          } else if (typeof value === 'number') {
+            acc[key] = { numberValue: value };
+          }
+          return acc;
+        }, {})
+      }
+    };
+
+    const parameter = {
+      structValue: {
+        fields: {
+          sampleCount: { numberValue: 1 }
+        }
+      }
+    };
+
+    const request = {
+      endpoint,
+      instances: [instance],
+      parameters: parameter
+    };
+
+    // Generate image with Imagen 3
+    const [response] = await predictionClient.predict(request);
+
+    if (!response.predictions || response.predictions.length === 0) {
+      throw new Error('No image generated');
+    }
+
+    // Extract base64 image from response
+    const prediction = response.predictions[0];
+    const imageBytes = prediction.structValue.fields.bytesBase64Encoded.stringValue;
+    const imageBuffer = Buffer.from(imageBytes, 'base64');
+
+    // Upload to Cloud Storage
+    const timestamp = Date.now();
+    const fileName = `illustrations/${userId}/${illustrationId}.png`;
+    const thumbnailFileName = `illustrations/${userId}/${illustrationId}_thumb.png`;
+
+    const file = storage.bucket(BUCKET_NAME).file(fileName);
+    await file.save(imageBuffer, {
+      contentType: 'image/png',
+      metadata: {
+        metadata: {
+          userId,
+          illustrationId,
+          styleId,
+          prompt,
+          generatedAt: new Date().toISOString()
+        }
+      }
+    });
+
+    // Make file publicly readable
+    await file.makePublic();
+
+    // Create thumbnail (for now, same image - could use Sharp library later)
+    const thumbnailFile = storage.bucket(BUCKET_NAME).file(thumbnailFileName);
+    await thumbnailFile.save(imageBuffer, {
+      contentType: 'image/png'
+    });
+    await thumbnailFile.makePublic();
+
+    const imageUrl = `https://storage.googleapis.com/${BUCKET_NAME}/${fileName}`;
+    const thumbnailUrl = `https://storage.googleapis.com/${BUCKET_NAME}/${thumbnailFileName}`;
+
+    const generationTime = Math.floor((Date.now() - startTime) / 1000);
 
     // Update Firestore
     const generationData = {
@@ -75,11 +171,11 @@ functions.http('generateImage', async (req, res) => {
       thumbnailURL: thumbnailUrl,
       status: 'completed',
       completedAt: admin.firestore.FieldValue.serverTimestamp(),
-      generationTime: Math.floor(delay / 1000),
-      modelUsed: 'mock-picsum',
+      generationTime,
+      modelUsed: 'imagen-3.0-generate-002',
       width: 1024,
       height: 1024,
-      finalPrompt: `${styleId} style: ${prompt}`
+      finalPrompt: fullPrompt
     };
 
     await firestore.collection('illustrations').doc(illustrationId).update(generationData);

@@ -29,10 +29,12 @@ export default function LibraryPage() {
       if (firebaseUser) {
         setUser(firebaseUser)
 
-        // Get user stats
+        // Get user stats and check for team
         const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid))
+        let teamId = null
         if (userDoc.exists()) {
           const userData = userDoc.data()
+          teamId = userData.teamId
           const plan = userData.subscriptionTier || 'free'
           const creditsPerMonth = getCreditsForPlan(plan)
           setStats({
@@ -41,18 +43,43 @@ export default function LibraryPage() {
           })
         }
 
-        // Load illustrations
-        const q = query(
-          collection(db, 'illustrations'),
-          where('userId', '==', firebaseUser.uid),
-          orderBy('createdAt', 'desc')
-        )
+        // Load illustrations - show team illustrations if user is on a team
+        let q
+        if (teamId) {
+          // Show all team illustrations
+          q = query(
+            collection(db, 'illustrations'),
+            where('teamId', '==', teamId),
+            orderBy('createdAt', 'desc')
+          )
+        } else {
+          // Show only user's illustrations
+          q = query(
+            collection(db, 'illustrations'),
+            where('userId', '==', firebaseUser.uid),
+            orderBy('createdAt', 'desc')
+          )
+        }
 
-        const unsubscribeIllustrations = onSnapshot(q, (snapshot) => {
-          const images = snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-          })) as any[]
+        const unsubscribeIllustrations = onSnapshot(q, async (snapshot) => {
+          const images = await Promise.all(snapshot.docs.map(async (docSnap) => {
+            const data = docSnap.data()
+            // Get creator name if different from current user
+            let creatorName = 'You'
+            if (data.userId !== firebaseUser.uid) {
+              const creatorDoc = await getDoc(doc(db, 'users', data.userId))
+              if (creatorDoc.exists()) {
+                const creatorData = creatorDoc.data()
+                creatorName = creatorData.name || creatorData.email || 'Team member'
+              }
+            }
+            return {
+              id: docSnap.id,
+              ...data,
+              creatorName
+            }
+          }))
+
           setIllustrations(images)
           setFilteredIllustrations(images)
           setStats(prev => ({ ...prev, total: images.length }))
@@ -250,6 +277,9 @@ export default function LibraryPage() {
                       </div>
                       <div className="text-white/80 text-xs">
                         {image.styleName} • {formatDate(image.createdAt)}
+                        {image.creatorName && image.creatorName !== 'You' && (
+                          <> • by {image.creatorName}</>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -307,6 +337,13 @@ export default function LibraryPage() {
                   {/* Details */}
                   <div className="w-96 p-6 overflow-y-auto">
                     <div className="space-y-4">
+                      {selectedImage.creatorName && (
+                        <div>
+                          <label className="text-sm font-medium text-gray-500">Created By</label>
+                          <div className="text-gray-900">{selectedImage.creatorName}</div>
+                        </div>
+                      )}
+
                       <div>
                         <label className="text-sm font-medium text-gray-500">Created</label>
                         <div className="text-gray-900">
