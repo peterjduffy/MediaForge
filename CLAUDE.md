@@ -3,12 +3,12 @@
 ## Project Overview
 - **Name**: MediaForge
 - **Type**: IllustrationsAI.com clone - Google native Next.js application
-- **AI Stack**: SDXL + LoRA (primary), Imagen 3 (fallback), Vertex AI Training for brand styles
+- **AI Stack**: Imagen 3 (primary for all users), SDXL + LoRA (Business tier with trained brands only), Vertex AI Training for brand styles
 - **Main Branch**: main
 - **Current Working Directory**: /home/user/mediaforge
 - **Reference**: https://illustrationsai.com/
 - **Live Site**: https://mediaforge-957e4.web.app
-- **Status**: Phase 3 complete - Imagen 3 deployed, Phase 4 next (LoRA training)
+- **Status**: Phase 5B+ complete - Pre-UAT fixes deployed (error handling, status tracking, event logging)
 
 ## Key Commands
 ```bash
@@ -63,16 +63,17 @@ git log --oneline    # Show commit history
 
 ## Key Features
 - AI-powered illustration generation with transparent model selection (Imagen 3 + SDXL with LoRA)
-- PNG/JPG output, AI-optimized vectors later (Phase 6)
-- Simple 2-tier pricing: Free (test) and Business (use)
-- Business tier includes optional async brand training ($29 value)
+- PNG/JPG output, AI-optimized vectors later (Phase 7)
+- **Simplified 2-tier pricing** (YC best practice):
+  - Free Forever: 10 credits/month (no rollover, no purchases)
+  - Business: $29/mo, 200 credits/month (use it or lose it) + 1 brand training + 1 free refresh/month + Teams
+- Business tier includes optional async brand training
   - Upload brand during onboarding or skip and add later
   - Training happens in background (15-30 min) while you generate
   - Automatically switches to trained model when ready
   - No mode selection - seamless "Your Brand" style
 - Unlimited team members with shared credits (fair-use)
 - Resolution-based pricing (1024/1536 = 1 credit, 2048 = 2 credits)
-- 30-day credit rollover
 - Pre-trained style packs for instant generation (Google, Notion, Flat 2D, etc.)
 
 ## Architecture
@@ -82,7 +83,10 @@ Single Next.js application with route group organization:
 - **Auth Routes** (`/auth/*`): Minimal layout focused on conversion
 - **Navigation Strategy**: Context-aware layouts for different user states
 - **Tech Stack**: Next.js 15.5.2, Firebase Auth, Firestore, Cloud Storage
-- **AI Pipeline**: SDXL + LoRA on Cloud Run (primary), Imagen 3 (fallback), Vertex AI Training for brands
+- **AI Pipeline**:
+  - Imagen 3 (primary) - Free tier + Business tier preset styles
+  - SDXL + LoRA (Business tier only) - Trained brand styles
+  - Vertex AI Training - Brand LoRA fine-tuning
 - **Detailed docs**: See `docs/Architecture.md`, `docs/navigation-strategy.md`, and `docs/app-structure.md`
 
 ## Dependencies
@@ -122,23 +126,34 @@ Single Next.js application with route group organization:
   - Phase 3: AI Integration - Imagen 3 deployed on Cloud Run
   - Phase 4: Brand Style Training MVP - Mock training + full UI deployed
   - Phase 5A: Teams Feature - Unlimited members with shared credits
-- **Pricing Structure** (Simple 2-Tier):
-  - Free: 10 credits on signup, then 10/month (preset styles, 1024px only)
-  - Business: $29/month, 200 credits + one-time brand training included + unlimited team members
-  - Add-ons: Extra credits $5/100, additional brands $29, brand refresh $5
+  - Phase 5B: Waitlist & UAT Setup - Gated signup at mediaforge.dev
+- **Simplified Pricing** (YC-style - "so simple a drunk person could understand it"):
+  - Free Forever: 10 credits/month (no rollover, no purchases, preset styles, 1024px only)
+  - Business: $29/mo, 200 credits/month (use it or lose it) + 1 brand + 1 refresh/month + Teams
   - Resolution pricing: 1024/1536 = 1 credit, 2048 = 2 credits
-  - 30-day credit rollover
+  - NO rollover (creates urgency)
+  - NO credit purchases (prevents gaming)
+  - NO add-ons (need multiple brands? retrain or get 2nd account)
 - **Generation**: Imagen 3 live at $0.03/image (Phase 3 complete)
 - **Brand Training**: Mock training deployed for user testing (Phase 4 MVP complete)
-  - Live: /settings page with brand management
+  - Live: [/settings](https://mediaforge-957e4.web.app/settings) page with brand management
   - Mock service: 30-second simulation
   - Production LoRA: Ready to deploy when 5-10 Business users
 - **Teams**: Full teams feature deployed (Phase 5A complete)
-  - Live: /team page with invite system
+  - Live: [/team](https://mediaforge-957e4.web.app/team) page with invite system
   - Unlimited members, shared credits (200/month)
   - Daily rate limits (500/day)
   - Team library with creator attribution
-- **Next Steps**: Phase 5B - Payment integration (Stripe) for revenue generation before credits expire
+- **Waitlist**: Live at [mediaforge.dev](https://mediaforge.dev)
+  - Modal collects email + use case + team size
+  - Stores in Firestore `waitlist` collection
+  - Manual approval for 5-10 beta users
+  - Target: 50-100 signups in Week 1-2
+- **Next Steps**:
+  1. Promote waitlist (Week 1-2)
+  2. Select & onboard 5-10 beta users (Week 3-4)
+  3. Active UAT with feedback collection (Week 4-10)
+  4. Launch Stripe payments with Founder's pricing for beta users (Week 8-10)
 
 ## Notes
 - Google native application leveraging Google AI tools
@@ -146,3 +161,7 @@ Single Next.js application with route group organization:
 - Firebase debug logs present (firebase-debug.log)
 - Visual identity as per @Visual_identity.md
 - Tasks tracked in docs/Tasks.md
+ - i like the Y Combinator approach. as we launch and grow, consider how YC would advise approaching any particular issue.
+  -   the production url is mediaforge.dev
+
+  

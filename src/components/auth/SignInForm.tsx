@@ -34,7 +34,10 @@ export const SignInForm: React.FC<SignInFormProps> = ({ onSuccess, onError }) =>
     setLoading(true);
     try {
       await signInWithGoogle();
-      onSuccess?.();
+      // Redirect to app after successful Google sign-in
+      if (typeof window !== 'undefined') {
+        window.location.href = '/app';
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Failed to sign in with Google';
       onError?.(message);

@@ -56,7 +56,7 @@ export default function SettingsPage() {
     if (!user) return
 
     try {
-      const userDoc = await getDoc(doc(db, 'users', user.uid))
+      const userDoc = await getDoc(doc(db, 'users', user.id))
       if (userDoc.exists()) {
         setUserData(userDoc.data() as UserData)
       }
@@ -71,7 +71,7 @@ export default function SettingsPage() {
     if (!user) return
 
     try {
-      const userBrands = await getUserBrands(user.uid)
+      const userBrands = await getUserBrands(user.id)
       setBrands(userBrands as Brand[])
 
       // Check for any training brands
@@ -93,7 +93,7 @@ export default function SettingsPage() {
     if (!user) return
 
     const interval = setInterval(async () => {
-      const status = await checkBrandStatus(user.uid, brandId)
+      const status = await checkBrandStatus(user.id, brandId)
 
       if (status.status === 'ready') {
         clearInterval(interval)

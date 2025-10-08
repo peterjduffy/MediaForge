@@ -86,7 +86,7 @@ export default function BrandTrainingModal({
       )
 
       const result = await startBrandTraining(
-        user.uid,
+        user.id,
         brandName,
         brandColors,
         imageUrls
@@ -266,10 +266,44 @@ export default function BrandTrainingModal({
           {/* Step 3: Training Images */}
           {step === 3 && (
             <div>
-              <h3 className="text-lg font-semibold mb-2">Upload Training Images</h3>
-              <p className="text-gray-600 mb-4">
-                Upload 10-30 images that represent your brand style. These should be high-quality examples of your brand&apos;s visual identity.
-              </p>
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Upload Training Images</h3>
+                  <p className="text-gray-600">
+                    Upload 10-30 high-quality images that represent your brand&apos;s visual style.
+                  </p>
+                </div>
+                <a
+                  href="/docs/brand-training-guide"
+                  target="_blank"
+                  className="text-sm text-purple-600 hover:text-purple-700 underline whitespace-nowrap ml-4"
+                >
+                  Full Guide →
+                </a>
+              </div>
+
+              {/* Best Practices */}
+              <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <h4 className="text-sm font-semibold text-blue-900 mb-2">✓ Good Training Images:</h4>
+                <ul className="text-sm text-blue-800 space-y-1">
+                  <li>• Clear, high-resolution (1024px+ minimum)</li>
+                  <li>• Consistent illustration style across all images</li>
+                  <li>• Variety of subjects (people, objects, scenes)</li>
+                  <li>• Clean backgrounds, minimal text</li>
+                  <li>• Your actual brand illustrations or similar style</li>
+                </ul>
+              </div>
+
+              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <h4 className="text-sm font-semibold text-red-900 mb-2">✗ Avoid:</h4>
+                <ul className="text-sm text-red-800 space-y-1">
+                  <li>• Photos (use illustrations only)</li>
+                  <li>• Screenshots with UI elements</li>
+                  <li>• Heavily watermarked images</li>
+                  <li>• Mixed styles (stick to one consistent look)</li>
+                  <li>• Low resolution or blurry images</li>
+                </ul>
+              </div>
 
               {/* Upload area */}
               <div

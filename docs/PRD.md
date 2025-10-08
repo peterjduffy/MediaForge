@@ -204,8 +204,7 @@ MediaForge includes 5 professionally curated styles available to all users:
 - **1 credit = 1 generated illustration** (at 1024px/1536px)
 - **2 credits = 1 illustration at 2048px**
 - Credits reset monthly on billing cycle date
-- **30-day rollover policy** for paid credits
-- Free tier: No rollover (use or lose)
+- **No rollover** (use it or lose it - creates urgency)
 - Business tier: Credits pooled, shared across unlimited team
 
 #### 2.5.2 Credit Display
@@ -420,7 +419,6 @@ async function selectModel(user, style) {
 - One-time brand training included ($29 value)
 - Train once, use forever
 - Unlimited team members
-- 30-day credit rollover
 - Export presets
 
 ### 6.3 Revenue Projections
@@ -456,21 +454,77 @@ async function selectModel(user, style) {
 
 ---
 
-## 8. PHASE 2 FEATURES
+## 8. FEEDBACK & SUPPORT
 
-### 8.1 Vector Export (Phase 6)
+### 8.1 WhatsApp Feedback Channel (Phase 5B - UAT Priority)
+
+**Purpose:** Capture real-time feedback from beta users with zero friction
+
+**Implementation:**
+- WhatsApp Business number (or WhatsApp link via wa.me)
+- Embedded on marketing site (footer/header)
+- Embedded in app interface (help icon or footer)
+- Direct line to founder during UAT
+
+**User Journey:**
+1. User clicks "Chat on WhatsApp" link
+2. Opens WhatsApp with pre-filled message template
+3. Sends bug report, feature request, or feedback
+4. Founder responds within hours (during beta)
+
+**Message Templates:**
+- Bug report: "I found a bug: [describe issue]"
+- Feature request: "I wish I could: [feature idea]"
+- Quality feedback: "Generation quality: [feedback]"
+- General: "Quick question: [question]"
+
+**Why WhatsApp:**
+- ✅ Users already have it installed
+- ✅ Lower friction than email or in-app chat
+- ✅ Real-time, conversational
+- ✅ Founder can respond from anywhere
+- ✅ Easy to share screenshots/images
+- ✅ Personal touch during beta
+
+**Placement:**
+- **Marketing site (mediaforge.dev):**
+  - Floating button: Bottom right corner
+  - Footer: "Questions? Chat on WhatsApp"
+  - FAQ section: "Still have questions? WhatsApp us"
+
+- **App interface (/app, /settings, /team):**
+  - Help menu dropdown
+  - Footer: Small WhatsApp icon with "Feedback?"
+  - After generation: "Love it? Hate it? Tell us on WhatsApp"
+
+**Scale Strategy:**
+- Phase 5B (Beta - 5-10 users): Founder responds directly
+- Phase 5C (Launch - 50+ users): Add co-founder or support person
+- Phase 6 (Growth - 100+ users): Migrate to proper support tool (Intercom/Crisp)
+
+**Success Metrics:**
+- % of beta users who message: Target >80%
+- Avg response time: <2 hours during business hours
+- Feedback captured: 10+ actionable insights per week
+- User satisfaction: "Wow, founder responded in 10 minutes!"
+
+---
+
+## 9. PHASE 2 FEATURES
+
+### 9.1 Vector Export (Phase 6)
 
 - SVG/EPS export
 - "AI-optimized vectors" (set expectations)
 - Premium add-on pricing
 
-### 8.2 API Access
+### 9.2 API Access
 
 - Programmatic generation
 - Webhook integrations
 - Usage-based pricing
 
-### 8.3 Advanced Brand Features
+### 9.3 Advanced Brand Features
 
 - Multiple brand profiles per account
 - Brand style versioning

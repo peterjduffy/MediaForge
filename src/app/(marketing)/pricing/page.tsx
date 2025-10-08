@@ -18,7 +18,7 @@ export default function PricingPage() {
             <ul style={{textAlign: 'left', margin: '24px 0', paddingLeft: '16px'}}>
               <li>100 illustrations per month</li>
               <li>All popular styles</li>
-              <li>SVG, PNG, JPG exports</li>
+              <li>PNG, JPG exports • Coming soon: SVG</li>
               <li>Commercial license included</li>
             </ul>
             <button className="btn btn-primary focusable" style={{width: '100%'}}>
@@ -39,7 +39,7 @@ export default function PricingPage() {
             <ul style={{textAlign: 'left', margin: '24px 0', paddingLeft: '16px'}}>
               <li>500 illustrations per month</li>
               <li>All styles + custom training</li>
-              <li>All export formats (SVG, EPS, PDF, AI)</li>
+              <li>PNG, JPG exports • Coming soon: SVG</li>
               <li>Priority generation</li>
               <li>Team collaboration</li>
             </ul>

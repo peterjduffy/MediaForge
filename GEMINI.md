@@ -148,3 +148,4 @@ The AI's workflow is iterative, transparent, and responsive to user input.
   4. **Compile & Analyze:** AI runs `npm run lint` and monitors the dev server.
   5. **Preview Check:** AI observes the browser preview for visual and runtime errors.
   6. **Remediation/Report:** If errors are found, AI attempts automatic fixes. If unsuccessful, it reports details to the user.
+  the production url is mediaforge.dev

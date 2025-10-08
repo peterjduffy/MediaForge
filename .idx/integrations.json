@@ -1,5 +1,4 @@
 {
   "firebase_hosting": {},
-  "cloud_run_deploy": {},
-  "secrets_manager": {}
+  "cloud_run_deploy": {}
 }

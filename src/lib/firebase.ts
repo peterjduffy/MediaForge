@@ -22,55 +22,19 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
-// Connect to emulators in development
+// Emulators disabled - using production Firebase
+// To enable emulators, uncomment this block and run: firebase emulators:start
+/*
 if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
-  let authConnected = false;
-  let firestoreConnected = false;
-  let storageConnected = false;
-
   try {
     connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
-    authConnected = true;
-    console.log('🔧 Connected to Auth Emulator');
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('already')) {
-      authConnected = true;
-    } else {
-      console.warn('⚠️  Failed to connect to Auth Emulator:', error);
-      console.warn('   Make sure Firebase emulators are running: firebase emulators:start');
-    }
-  }
-
-  try {
     connectFirestoreEmulator(db, 'localhost', 8080);
-    firestoreConnected = true;
-    console.log('🔧 Connected to Firestore Emulator');
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('already')) {
-      firestoreConnected = true;
-    } else {
-      console.warn('⚠️  Failed to connect to Firestore Emulator:', error);
-    }
-  }
-
-  try {
     connectStorageEmulator(storage, 'localhost', 9199);
-    storageConnected = true;
-    console.log('🔧 Connected to Storage Emulator');
+    console.log('🔧 Connected to Firebase Emulators');
   } catch (error) {
-    if (error instanceof Error && error.message.includes('already')) {
-      storageConnected = true;
-    } else {
-      console.warn('⚠️  Failed to connect to Storage Emulator:', error);
-    }
-  }
-
-  // Warn if running in development without emulators
-  if (!authConnected || !firestoreConnected || !storageConnected) {
-    console.warn('⚠️  Running in DEVELOPMENT mode but not all emulators are connected!');
-    console.warn('   This may connect to PRODUCTION Firebase. To use emulators, run:');
-    console.warn('   → firebase emulators:start');
+    console.warn('⚠️  Failed to connect to emulators:', error);
   }
 }
+*/
 
 export default app;

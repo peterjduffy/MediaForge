@@ -226,7 +226,6 @@ illustrations/{illustrationId}
 - Stripe integration for Business subscriptions ($29/mo)
 - Credit purchase system ($5/100 credits)
 - Usage tracking and billing
-- 30-day credit rollover
 - Team billing management (owner only)
 
 **Or Phase 6: Vector Conversion Pipeline**
@@ -748,7 +747,6 @@ After extensive analysis comparing LoRA vs Imagen 3 costs, finalized simple 2-ti
 - All resolutions (1024/1536 = 1 credit, 2048 = 2 credits)
 - Export presets
 - Team workspace (unlimited members, fair-use)
-- 30-day credit rollover
 
 **Add-ons:**
 - Extra credits: $5 per 100

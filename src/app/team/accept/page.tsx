@@ -5,6 +5,7 @@ import { useAuth } from '@/components/auth/AuthProvider'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { getInviteByToken, acceptTeamInvite, getTeam } from '@/lib/team-service'
 import { TeamInvite, Team } from '@/types/team'
+import { logTeamInviteAccepted } from '@/lib/events'
 
 function AcceptInvitePageContent() {
   const { user } = useAuth()
@@ -83,13 +84,16 @@ function AcceptInvitePageContent() {
       setError('')
 
       const result = await acceptTeamInvite(
-        user.uid,
+        user.id,
         user.email!,
         user.displayName || user.email!.split('@')[0],
         token!
       )
 
       if (result.success) {
+        // Log team invite accepted
+        logTeamInviteAccepted(user.id, invite.teamId).catch(console.error)
+
         router.push('/team')
       } else {
         setError(result.error || 'Failed to accept invite')

@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Features } from '@/components/marketing/Features';
 import Link from 'next/link';
+import WaitlistModal from '@/components/WaitlistModal';
 
 export default function HomePage() {
-  // No local waitlist form on the homepage; CTA links to sign-in.
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -45,13 +46,13 @@ export default function HomePage() {
               </div>
 
               <div className="hero-cta">
-                <Link href="/auth/signin" className="btn btn-primary focusable">Join the waitlist</Link>
+                <button onClick={() => setIsWaitlistOpen(true)} className="btn btn-primary focusable">Join the waitlist</button>
                 <a href="#styles" className="btn btn-ghost focusable">See styles</a>
               </div>
 
               <div className="hero-trust">
                 <div>
-                  <strong>Export:</strong> PNG, JPEG, SVG
+                  <strong>Export:</strong> PNG, JPEG • Coming soon: SVG
                 </div>
                 <div className="hero-trust-divider" />
                 <div>Royalty-free commercial license included</div>
@@ -193,7 +194,7 @@ export default function HomePage() {
                   <div className="step__dot" aria-hidden="true"></div>
                   <div className="step__body">
                     <h3 className="step__title">Set brand inputs</h3>
-                    <p className="step__text">Add logo, colours, fonts, and a few reference images.</p>
+                    <p className="step__text">Upload brand images and pick your brand colors.</p>
                   </div>
                 </li>
                 <li className="step">
@@ -214,7 +215,7 @@ export default function HomePage() {
                   <div className="step__dot" aria-hidden="true"></div>
                   <div className="step__body">
                     <h3 className="step__title">Export &amp; share</h3>
-                    <p className="step__text">Download PNG/JPEG/SVG, copy to clipboard, or push to your library.</p>
+                    <p className="step__text">Download PNG/JPEG (SVG coming soon), copy to clipboard, or push to your library.</p>
                   </div>
                 </li>
               </ul>
@@ -243,23 +244,19 @@ export default function HomePage() {
             </details>
             <details>
               <summary>What file formats can I download my illustrations in?</summary>
-              <p className="muted">PNG, JPEG, and SVG. PNG/JPEG exports are high-resolution; SVG is vector and scales cleanly. There’s no extra cost per format.</p>
+              <p className="muted">PNG and JPEG today, with high-resolution exports. SVG vector format coming soon—no extra cost when it launches.</p>
             </details>
             <details>
               <summary>Can I create and save custom AI styles?</summary>
-              <p className="muted">Absolutely. Build styles from your brand assets or reference images; they’re saved to your account and reusable across projects.</p>
-            </details>
-            <details>
-              <summary>Can I create consistent characters across multiple illustrations?</summary>
-              <p className="muted">Yes. Provide reference images to define your character and generate scenes that keep key facial features, attire, and proportions consistent. Results are typically very consistent, with small variation possible across complex poses.</p>
+              <p className="muted">Absolutely. Build styles from your brand assets or reference images; they&apos;re saved to your account and reusable across projects.</p>
             </details>
             <details>
               <summary>Does MediaForge integrate with Figma, Canva, or Adobe?</summary>
-              <p className="muted">You can export SVG/PNG and import into Figma, Canva, and Adobe apps today. Dedicated plugins and deeper integrations are in development.</p>
+              <p className="muted">You can export PNG/JPEG and import into Figma, Canva, and Adobe apps today. SVG coming soon. Dedicated plugins and deeper integrations are in development.</p>
             </details>
             <details>
               <summary>Can I vectorize existing JPEG/PNG images?</summary>
-              <p className="muted">MediaForge focuses on AI generation. You can use raster references to inspire new vector SVGs. For one-to-one raster-to-vector conversion, use dedicated tools like Illustrator’s Image Trace or similar services.</p>
+              <p className="muted">MediaForge focuses on AI generation. You can use raster references to inspire new illustrations. For one-to-one raster-to-vector conversion, use dedicated tools like Illustrator&apos;s Image Trace or similar services.</p>
             </details>
             <details>
               <summary>How often do you update your AI models?</summary>
@@ -267,7 +264,7 @@ export default function HomePage() {
             </details>
             <details>
               <summary>Can my whole team use MediaForge?</summary>
-              <p className="muted">Yes. MediaForge supports team workflows so you can share styles and keep visuals consistent across your content.</p>
+              <p className="muted">Yes. Business plans include unlimited team members with shared credits. Share styles, collaborate in a shared library, and keep visuals consistent across your content.</p>
             </details>
             <details>
               <summary>What if I need changes to an illustration?</summary>
@@ -289,12 +286,15 @@ export default function HomePage() {
             <p className="section-sub">Join the waitlist to create on-brand visuals faster than ever.</p>
           </div>
           <div style={{display:'flex', justifyContent:'center'}}>
-            <Link href="/auth/signin" className="btn btn-primary focusable" style={{padding:'18px 28px', fontSize:'18px'}}>
+            <button onClick={() => setIsWaitlistOpen(true)} className="btn btn-primary focusable" style={{padding:'18px 28px', fontSize:'18px'}}>
               Join the waitlist
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Waitlist Modal */}
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
     </>
   );
 }

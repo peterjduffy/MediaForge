@@ -5,7 +5,7 @@ service cloud.firestore {
     // Helper function to check if user is team member
     function isTeamMember(teamId) {
       let team = get(/databases/$(database)/documents/teams/$(teamId));
-      return request.auth.uid in team.data.members[].userId;
+      return request.auth.uid in team.data.memberIds;
     }
 
     // Helper function to check if user is team owner
@@ -119,6 +119,15 @@ service cloud.firestore {
     // Waitlist collection (public write for signups)
     match /waitlist/{waitlistId} {
       allow create: if true;
+      allow read, update, delete: if false;
+    }
+
+    // Events collection (UAT tracking)
+    match /events/{eventId} {
+      // Users can create events (for logging)
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+      // Only admin can read events
       allow read, update, delete: if false;
     }
 

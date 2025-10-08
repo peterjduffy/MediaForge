@@ -2,9 +2,20 @@
 
 ## Current Tasks
 
+### Phase 5B: UAT & Waitlist (Week 1-2) - IN PROGRESS
+- [x] Build waitlist modal with email + use case collection
+- [x] Deploy waitlist to mediaforge.dev (gated signup)
+- [ ] Promote waitlist (Twitter, LinkedIn, communities) - target 50-100 signups
+- [ ] Review submissions and select 5-10 beta users based on:
+  - Response time (within 24h to emails)
+  - Clear, specific use case
+  - Has team (bonus)
+  - Potential for word-of-mouth
+- [ ] Send personalized beta invites with free Business access (3 months)
+- [ ] Schedule 1:1 onboarding calls (30min each, watch them use it)
+- [ ] Set up feedback collection (weekly surveys + shared Slack/Discord)
 
-
-- [ ] A/B test waitlist conversion
+### Phase 5C: Payment Integration (Week 8-10) - NEXT PRIORITY
 
 ### Phase 2B: App Interface - Generation & Library ✅ COMPLETED
 - [x] Create /app/ route with minimal layout
@@ -83,25 +94,26 @@
 - [x] Implement team-scoped brand styles (shared across unlimited team members, fair-use)
 - [x] Add light daily rate limits per team to keep infrastructure snappy (500/day)
 
-### Phase 5b: Payment & Credits (After Teams - Revenue Before Credits Expire) - NEXT PRIORITY
-- [ ] Integrate Stripe subscriptions and one-time purchases
+### Phase 5C: Payment Integration (Week 8-10) - AFTER UAT
+- [ ] Integrate Stripe subscriptions (no one-time credit purchases)
 - [ ] Set up webhook handlers (Cloud Functions 2nd gen)
-- [ ] Implement credit system with transactional decrements and 30-day rollover
+- [ ] Implement credit system with transactional decrements (NO rollover)
 - [ ] Add usage tracking and per-image cost monitoring
 - [ ] Implement resolution-based credit pricing (1024/1536 = 1 credit, 2048 = 2 credits)
-- [ ] Build user settings page (/settings):
-  - [ ] Plan display and upgrade options
-  - [ ] Brand training access (if skipped during onboarding)
-  - [ ] Usage stats and credit history
-- [ ] Create billing dashboard (/billing) with self-serve plan changes
-- [ ] Build credit pack purchase system ($5 per 100 credits)
+- [ ] Update /settings page:
+  - [ ] Plan display and upgrade button
+  - [ ] Usage stats (credits used this month)
+  - [ ] Cancel subscription option
+- [ ] Create /billing page with self-serve plan changes
 - [ ] Build styles browser page (/styles):
   - [ ] "Preset Styles" section with 5 curated styles
   - [ ] "My Brand Styles" tab for Business tier
   - [ ] 6 thumbnail examples per style
-- [ ] Set pricing:
-  - Free: 10 credits on signup, then 10/month
-  - Business: $29/month, 200 credits/month + one-time brand training included + Teams
+- [ ] Simplified Pricing (YC-style - 2 tiers, zero add-ons):
+  - Free Forever: 10 credits/month (no rollover, no purchases)
+  - Business: $29/month, 200 credits/month + 1 brand training + 1 free refresh/month + Teams
+  - NO add-ons (if they need multiple brands, they retrain or get second account)
+- [ ] Offer beta users "Founder's Pricing": $19/month forever (or $199/year)
 
 ### Phase 7: Vector Conversion Pipeline (Post-Revenue)
 - [ ] Create Cloud Run container with VTracer (acceptable quality)
@@ -121,6 +133,7 @@
 - **Phase 3**: AI Integration - Imagen 3 deployed on Cloud Run (Completed 2025-10-05)
 - **Phase 4**: Brand Style Training MVP - Mock training + full UI (Completed 2025-10-06)
 - **Phase 5A**: Teams Feature - Unlimited members with shared credits (Completed 2025-10-06)
+- **Phase 5B**: Waitlist & UAT Setup - Gated signup at mediaforge.dev (Completed 2025-10-06)
 
 ## Phase 7: Hardening & Growth
 - [ ] Set up Firebase App Check for bot protection
@@ -185,14 +198,13 @@
   - Backend intelligently switches: Imagen 3 (before training) → SDXL + LoRA (after training)
   - User never chooses between modes - seamless experience
 - **Brand Strategy**: Optional async LoRA training during onboarding or later from Settings (Business tier only)
-- **Simple 2-Tier Pricing**: Free (test) and Business (use)
-  - Free: 10 credits on signup, then 10/month (preset styles, 1024px only)
-  - Business: $29/mo, 200 credits/month + one-time brand training included + unlimited team members
-  - Additional brand trainings: $29 each (one-time)
-  - Brand refresh: $5 (update existing brand)
-  - Credit packs: $5 per 100 credits
+- **Simplified 2-Tier Pricing** (YC best practice: "so simple a drunk person could understand it")
+  - Free Forever: 10 credits/month (no rollover, no purchases, preset styles, 1024px only)
+  - Business: $29/mo, 200 credits/month (use it or lose it) + 1 brand training + 1 free refresh/month + Teams
   - Resolution pricing: 1024/1536 = 1 credit, 2048 = 2 credits
-  - 30-day credit rollover
+  - NO credit rollover (creates urgency)
+  - NO credit purchases (prevents gaming system)
+  - NO add-ons (need multiple brands? retrain your slot or get second account)
 - **Credit Runway**: 4-5 months with $2000 Google Cloud credits, prioritize revenue
 - **Vector Reality Check**: "AI-optimized vectors" not "professional vectors" - set expectations
 - **Revenue First**: Payment integration in Phase 4, before vector conversion
@@ -211,4 +223,57 @@
 
 ---
 
-*Last updated: 2025-10-06 (Phase 5A Teams completed - Phase 5B Payments next for revenue generation)*
+## UAT Strategy (5-10 Beta Users)
+
+### Week 1-2: Waitlist Building
+- **Goal**: 50-100 signups at mediaforge.dev
+- **Channels**: Twitter, LinkedIn, Indie Hackers, Reddit (r/SaaS, r/entrepreneur)
+- **Message**: "Giving 10 early users free Business access (3 months) for feedback"
+
+### Week 3: Beta User Selection
+**Selection Criteria:**
+1. Responsive (replies to emails within 24h)
+2. Specific use case (not "just curious")
+3. Has team (bonus - tests team features)
+4. Active on social (bonus - word-of-mouth potential)
+
+**Pick 5-10 users from waitlist based on above**
+
+### Week 4-6: Active UAT
+**Onboarding (Week 4):**
+- 1:1 calls (30min each)
+- Watch them use it (don't guide too much!)
+- Record sessions (with permission)
+- Ask: "What would make this worth $29/month?"
+
+**Feedback Loop (Week 4-10):**
+- Weekly async survey (Google Form):
+  - What worked well?
+  - What frustrated you?
+  - What's missing?
+  - Would you pay $29/month? Why/why not?
+- Bi-weekly group calls (optional)
+- Shared Slack/Discord for bugs
+
+**Key Metrics to Track:**
+1. **Activation**: % who generate first image within 5min
+2. **Engagement**: Images per week (goal: 10+)
+3. **Retention**: % still active after 2 weeks, 4 weeks
+4. **Team adoption**: % who invite teammates
+5. **Brand training**: % who upload brand
+6. **Willingness to pay**: Direct ask in surveys
+
+### Week 8-10: Payment Launch
+- Deploy Stripe based on UAT feedback
+- Offer beta users "Founder's Pricing": $19/month forever (or $199/year)
+- Creates urgency, rewards early believers
+
+### Red Flags to Watch
+- No one uses brand training → Feature over-engineered
+- Everyone maxes out credits → Pricing too low
+- No one invites teammates → Not solving team problem
+- People ghost after week 1 → Core value prop broken
+
+---
+
+*Last updated: 2025-10-06 (Phase 5B Waitlist deployed - UAT recruiting next)*

@@ -12,6 +12,7 @@ import WelcomeModal from '@/components/onboarding/WelcomeModal'
 import SuccessModal from '@/components/onboarding/SuccessModal'
 import { generateIllustration, getUserBrands } from '@/lib/ai-generation'
 import { getCreditsForPlan } from '@/lib/credits'
+import { logFirstGenerationStarted, logGenerationCompleted, logGenerationFailed } from '@/lib/events'
 
 // Style definitions
 const styles = [
@@ -77,11 +78,53 @@ const styles = [
   }
 ]
 
+// Map backend errors to user-friendly messages
+function getUserFriendlyError(error: string): string {
+  const errorLower = error.toLowerCase()
+
+  // Credit-related errors
+  if (errorLower.includes('insufficient') && errorLower.includes('credit')) {
+    return "You're out of credits! Upgrade to Business for 200 credits/month at just $29."
+  }
+  if (errorLower.includes('no credits')) {
+    return "You've used all your credits for this month. Upgrade to Business to get 200 credits/month!"
+  }
+
+  // Brand training errors
+  if (errorLower.includes('brand') && errorLower.includes('not ready')) {
+    return "Your brand is still training (usually 15-30 minutes). Try a preset style while you wait!"
+  }
+  if (errorLower.includes('brand not found')) {
+    return "Brand style not found. Please select a preset style or train a new brand in Settings."
+  }
+  if (errorLower.includes('brand training not complete')) {
+    return "Your brand is still training. Try again in a few minutes or use a preset style!"
+  }
+
+  // Generation errors
+  if (errorLower.includes('generation failed')) {
+    return "Image generation failed. Please try again with a different prompt or style."
+  }
+  if (errorLower.includes('timeout')) {
+    return "Generation took too long. Please try again - our servers might be busy."
+  }
+
+  // Network/API errors
+  if (errorLower.includes('network') || errorLower.includes('fetch')) {
+    return "Network error. Please check your internet connection and try again."
+  }
+
+  // Default friendly message
+  return `Something went wrong: ${error}. Please try again or contact support if this persists.`
+}
+
 export default function AppPage() {
   const [allStyles, setAllStyles] = useState(styles)
   const [selectedStyle, setSelectedStyle] = useState(styles[0])
   const [prompt, setPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
+  const [generationStatus, setGenerationStatus] = useState<'idle' | 'queued' | 'generating' | 'completed' | 'failed'>('idle')
+  const [currentIllustrationId, setCurrentIllustrationId] = useState<string | null>(null)
   const [generatedImage, setGeneratedImage] = useState<any>(null)
   const [recentImages, setRecentImages] = useState<any[]>([])
   const [credits, setCredits] = useState({ used: 0, total: 5 })
@@ -179,6 +222,96 @@ export default function AppPage() {
     return () => unsubscribe()
   }, [])
 
+  // Real-time listener for current generation status
+  useEffect(() => {
+    if (!currentIllustrationId) return
+
+    const unsubscribe = onSnapshot(
+      doc(db, 'illustrations', currentIllustrationId),
+      (docSnapshot) => {
+        if (docSnapshot.exists()) {
+          const data = docSnapshot.data()
+          const status = data.status
+
+          // Update generation status
+          if (status === 'processing') {
+            // Show "generating" after 10 seconds for better UX
+            const startTime = data.createdAt?.toMillis() || Date.now()
+            const elapsed = Date.now() - startTime
+            setGenerationStatus(elapsed > 10000 ? 'generating' : 'queued')
+          } else if (status === 'completed') {
+            setGenerationStatus('completed')
+            setIsGenerating(false)
+
+            // Set the generated image
+            setGeneratedImage({
+              url: data.imageURL,
+              thumbnailUrl: data.thumbnailURL,
+              prompt: data.prompt,
+              styleId: data.styleId,
+              styleName: data.styleName,
+              createdAt: data.createdAt?.toDate(),
+              illustrationId: currentIllustrationId
+            })
+
+            // Update credits
+            if (user) {
+              setCredits(prev => ({ ...prev, used: prev.used + 1 }))
+            }
+
+            // Log generation completed
+            if (user) {
+              logGenerationCompleted(user.uid, currentIllustrationId, {
+                styleId: data.styleId,
+                model: data.modelUsed,
+                generationTime: data.generationTime
+              }).catch(console.error)
+            }
+
+            // Show success modal if it's the first generation
+            if (isFirstGeneration) {
+              setIsFirstGeneration(false)
+              setShowSuccessModal(true)
+
+              // Update user's onboarding status
+              updateDoc(doc(db, 'users', user.uid), {
+                onboardingCompleted: true
+              }).catch(console.error)
+            }
+
+            // Reset current illustration
+            setCurrentIllustrationId(null)
+          } else if (status === 'failed') {
+            setGenerationStatus('failed')
+            setIsGenerating(false)
+
+            // Show user-friendly error
+            const errorMessage = getUserFriendlyError(data.error || 'Generation failed')
+            alert(errorMessage)
+
+            // Log generation failure
+            if (user) {
+              logGenerationFailed(user.uid, data.error || 'Generation failed', {
+                illustrationId: currentIllustrationId
+              }).catch(console.error)
+            }
+
+            // Reset current illustration
+            setCurrentIllustrationId(null)
+          }
+        }
+      },
+      (error) => {
+        console.error('Error listening to illustration status:', error)
+        setIsGenerating(false)
+        setGenerationStatus('idle')
+        setCurrentIllustrationId(null)
+      }
+    )
+
+    return () => unsubscribe()
+  }, [currentIllustrationId, user, isFirstGeneration])
+
   // Onboarding handlers
   const handleWelcomeGetStarted = () => {
     setShowWelcomeModal(false)
@@ -214,6 +347,12 @@ export default function AppPage() {
     }
 
     setIsGenerating(true)
+    setGenerationStatus('queued')
+
+    // Log first generation event
+    if (user && isFirstGeneration) {
+      logFirstGenerationStarted(user.uid).catch(console.error)
+    }
 
     // Call the AI generation service
     const result = await generateIllustration({
@@ -223,35 +362,24 @@ export default function AppPage() {
       styleName: selectedStyle.name
     })
 
-    if (result.success && result.imageURL) {
-      // Set the generated image
-      setGeneratedImage({
-        url: result.imageURL,
-        thumbnailUrl: result.thumbnailURL,
-        prompt: prompt,
-        styleId: selectedStyle.id,
-        styleName: selectedStyle.name,
-        createdAt: new Date(),
-        illustrationId: result.illustrationId
-      })
-
-      // Update credits
-      if (user) {
-        await updateDoc(doc(db, 'users', user.id), {
-          creditsUsed: credits.used + 1
-        })
-        setCredits(prev => ({ ...prev, used: prev.used + 1 }))
-      }
-
-      // Show success modal if it's the first generation
-      if (isFirstGeneration) {
-        handleFirstGenerationSuccess()
-      }
+    if (result.success && result.illustrationId) {
+      // Start listening to real-time updates
+      setCurrentIllustrationId(result.illustrationId)
     } else {
-      alert(result.error || 'Failed to generate illustration')
-    }
+      // Handle immediate failure (before reaching backend)
+      setIsGenerating(false)
+      setGenerationStatus('idle')
+      const errorMessage = getUserFriendlyError(result.error || 'Unknown error')
+      alert(errorMessage)
 
-    setIsGenerating(false)
+      // Log generation failure
+      if (user) {
+        logGenerationFailed(user.uid, result.error || 'Unknown error', {
+          prompt,
+          styleId: selectedStyle.id
+        }).catch(console.error)
+      }
+    }
   }
 
   const handleDownload = async () => {
@@ -422,8 +550,11 @@ export default function AppPage() {
           {isGenerating ? (
             <div className="aspect-square bg-gray-100 rounded-lg flex flex-col items-center justify-center">
               <Loader2 className="w-8 h-8 animate-spin text-gray-400 mb-3" />
-              <div className="text-gray-600 font-medium">Creating your illustration...</div>
-              <div className="text-gray-500 text-sm">This usually takes 15-20 seconds</div>
+              <div className="text-gray-600 font-medium">
+                {generationStatus === 'queued' && 'Queued...'}
+                {generationStatus === 'generating' && 'Generating your illustration...'}
+              </div>
+              <div className="text-gray-500 text-sm">Usually takes 15-20 seconds</div>
             </div>
           ) : generatedImage ? (
             <div>

@@ -12,12 +12,15 @@ import {
 import { auth } from './firebase';
 import { createUser, getUser } from './firestore-collections';
 import { User } from '../types';
+import { logUserSignup } from './events';
 
 // Configure email link sign-in
 const actionCodeSettings: ActionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be in the authorized domains list in the Firebase Console.
-  url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000/auth/verify',
+  url: typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/auth/verify'
+    : 'https://mediaforge.dev/auth/verify',
   // This must be true.
   handleCodeInApp: true,
   // Optional: Configure additional state
@@ -105,6 +108,7 @@ const ensureUserRecord = async (firebaseUser: FirebaseUser): Promise<User> => {
   try {
     // Check if user already exists
     let user = await getUser(firebaseUser.uid);
+    const isNewUser = !user;
 
     if (!user) {
       // Create new user record
@@ -119,6 +123,11 @@ const ensureUserRecord = async (firebaseUser: FirebaseUser): Promise<User> => {
 
       await createUser(firebaseUser.uid, userData);
       user = await getUser(firebaseUser.uid);
+
+      // Log user signup event
+      if (firebaseUser.email) {
+        logUserSignup(firebaseUser.uid, firebaseUser.email).catch(console.error);
+      }
     }
 
     if (!user) {

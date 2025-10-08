@@ -9,6 +9,7 @@ import {
   removeMember
 } from '@/lib/team-service'
 import { Team } from '@/types/team'
+import { logTeamInviteSent } from '@/lib/events'
 
 export default function TeamPage() {
   const { user, loading: authLoading } = useAuth()
@@ -23,7 +24,7 @@ export default function TeamPage() {
   const loadTeamData = async () => {
     try {
       setLoading(true)
-      const userTeam = await getUserTeam(user!.uid)
+      const userTeam = await getUserTeam(user!.id)
 
       if (!userTeam) {
         setError('You are not part of a team')
@@ -70,7 +71,10 @@ export default function TeamPage() {
 
     try {
       setInviteLoading(true)
-      const invite = await createTeamInvite(team!.id, inviteEmail, user!.uid)
+      const invite = await createTeamInvite(team!.id, inviteEmail, user!.id)
+
+      // Log team invite event
+      logTeamInviteSent(user!.id, team!.id, inviteEmail).catch(console.error)
 
       // In production, send email with invite link
       const inviteLink = `${window.location.origin}/team/accept?token=${invite.token}`
@@ -94,7 +98,7 @@ export default function TeamPage() {
     if (!confirm('Are you sure you want to remove this member?')) return
 
     try {
-      const result = await removeMember(team!.id, user!.uid, memberUserId)
+      const result = await removeMember(team!.id, user!.id, memberUserId)
       if (result.success) {
         await loadTeamData()
       } else {
@@ -136,8 +140,8 @@ export default function TeamPage() {
     )
   }
 
-  const isOwner = team.ownerId === user?.uid
-  const currentMember = team.members.find(m => m.userId === user?.uid)
+  const isOwner = team.ownerId === user?.id
+  const currentMember = team.members.find(m => m.userId === user?.id)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -247,7 +251,7 @@ export default function TeamPage() {
                       <div>
                         <div className="text-sm font-medium text-gray-900">
                           {member.name}
-                          {member.userId === user?.uid && (
+                          {member.userId === user?.id && (
                             <span className="ml-2 text-xs text-gray-500">(You)</span>
                           )}
                         </div>

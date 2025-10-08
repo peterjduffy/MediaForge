@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="muted" style={{display:'flex', alignItems:'center', gap:'12px'}}>
           <span>MediaForge is proud to be a member of the Google Cloud Partner Advantage programme</span>
           <Image
-            src="/Google Advantage.png"
+            src="/Google%20Advantage.png"
             alt="Google Cloud Partner Advantage"
             width={180}
-            height={60}
+            height={44}
             style={{height:'auto'}}
           />
         </div>

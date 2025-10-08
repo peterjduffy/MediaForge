@@ -2,6 +2,7 @@ import { db, auth } from './firebase'
 import { doc, addDoc, collection, updateDoc, serverTimestamp, getDoc, query, where, getDocs } from 'firebase/firestore'
 import { getIdToken } from 'firebase/auth'
 import { getUserTeam, deductTeamCredits } from './team-service'
+import { getCreditsForResolution } from './credits'
 
 interface GenerationRequest {
   userId: string
@@ -101,6 +102,8 @@ async function selectGenerationModel(userId: string, styleId: string): Promise<{
 export async function generateIllustration(
   request: GenerationRequest
 ): Promise<GenerationResponse> {
+  let illustrationId: string | undefined
+
   try {
     // Check if user is part of a team
     const team = await getUserTeam(request.userId)
@@ -142,11 +145,11 @@ export async function generateIllustration(
       width,
       height,
       modelToUse: model,
-      brandId: brandData?.id
+      brandId: brandData?.id || null
     }
 
     const docRef = await addDoc(collection(db, 'illustrations'), illustrationData)
-    const illustrationId = docRef.id
+    illustrationId = docRef.id
 
     if (MOCK_GENERATION) {
       // Mock generation with picsum
@@ -234,12 +237,23 @@ export async function generateIllustration(
     console.error('Generation error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Failed to generate illustration'
 
-    // Mark illustration as failed (don't deduct credits)
-    // Note: illustrationId may not exist if error occurred before creation
+    // Update illustration status to failed if it was created
+    if (illustrationId) {
+      try {
+        await updateDoc(doc(db, 'illustrations', illustrationId), {
+          status: 'failed',
+          error: errorMessage,
+          failedAt: serverTimestamp()
+        })
+      } catch (updateError) {
+        console.error('Failed to update illustration status:', updateError)
+      }
+    }
 
     return {
       success: false,
-      error: errorMessage
+      error: errorMessage,
+      illustrationId
     }
   }
 }

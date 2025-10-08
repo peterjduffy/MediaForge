@@ -204,8 +204,6 @@ app.post('/generate', async (req, res) => {
     };
 
     await firestore
-      .collection('users')
-      .doc(userId)
       .collection('illustrations')
       .doc(illustrationId)
       .update(generationData);
@@ -229,8 +227,6 @@ app.post('/generate', async (req, res) => {
     // Update Firestore with error
     if (req.body.userId && req.body.illustrationId) {
       await firestore
-        .collection('users')
-        .doc(req.body.userId)
         .collection('illustrations')
         .doc(req.body.illustrationId)
         .update({
