@@ -19,7 +19,7 @@ const styles = [
     id: 'google',
     name: 'Google',
     description: 'Clean, modern illustrations',
-    thumbnail: '/styles/google-thumb.jpg',
+    thumbnail: '/styles/google-thumb.png',
     type: 'preset',
     examples: [
       'a team collaborating around a whiteboard',
@@ -31,7 +31,7 @@ const styles = [
     id: 'notion',
     name: 'Notion',
     description: 'Friendly, approachable style',
-    thumbnail: '/styles/notion-thumb.jpg',
+    thumbnail: '/styles/notion-thumb.png',
     type: 'preset',
     examples: [
       'person organizing tasks on desktop',
@@ -43,7 +43,7 @@ const styles = [
     id: 'saasthetic',
     name: 'SaaSthetic',
     description: 'Professional line art',
-    thumbnail: '/styles/saasthetic-thumb.jpg',
+    thumbnail: '/styles/saasthetic-thumb.png',
     type: 'preset',
     examples: [
       'professional business meeting',
@@ -55,7 +55,7 @@ const styles = [
     id: 'clayframe',
     name: 'Clayframe',
     description: '3D rendered style',
-    thumbnail: '/styles/clayframe-thumb.jpg',
+    thumbnail: '/styles/clayframe-thumb.png',
     type: 'preset',
     examples: [
       '3D character celebrating success',
@@ -67,7 +67,7 @@ const styles = [
     id: 'flat2d',
     name: 'Flat 2D',
     description: 'Simple, minimalist design',
-    thumbnail: '/styles/flat2d-thumb.jpg',
+    thumbnail: '/styles/flat2d-thumb.png',
     type: 'preset',
     examples: [
       'simple icon of person at computer',
@@ -98,60 +98,81 @@ export default function AppPage() {
       if (firebaseUser) {
         setUser(firebaseUser)
 
-        // Get user's credit info
-        const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid))
-        if (userDoc.exists()) {
-          const userData = userDoc.data()
-          const plan = userData.subscriptionTier || 'free'
-          const creditsPerMonth = getCreditsForPlan(plan)
-          setCredits({
-            used: userData.creditsUsed || 0,
-            total: creditsPerMonth
-          })
+        try {
+          // Get user's credit info
+          const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid))
+          if (userDoc.exists()) {
+            const userData = userDoc.data()
+            const plan = userData.subscriptionTier || 'free'
+            const creditsPerMonth = getCreditsForPlan(plan)
+            setCredits({
+              used: userData.creditsUsed || 0,
+              total: creditsPerMonth
+            })
 
-          // Check if user has completed onboarding
-          if (!userData.onboardingCompleted && userData.creditsUsed === 0) {
+            // Check if user has completed onboarding
+            if (!userData.onboardingCompleted && userData.creditsUsed === 0) {
+              setShowWelcomeModal(true)
+              setIsFirstGeneration(true)
+            }
+          } else {
+            // User document doesn't exist - this is a new user
+            // Show welcome modal
             setShowWelcomeModal(true)
             setIsFirstGeneration(true)
           }
+        } catch (error) {
+          console.error('Error fetching user data:', error)
+          alert('Failed to fetch user data. Please check your internet connection and try refreshing the page.')
+          return
         }
 
-        // Load user's trained brands
-        const userBrands = await getUserBrands(firebaseUser.uid)
-        const brandStyles = userBrands.map((brand: any) => ({
-          id: `brand_${brand.id}`,
-          name: brand.name,
-          description: 'Your custom brand style',
-          thumbnail: '/styles/custom-brand-thumb.jpg', // Placeholder
-          type: 'brand',
-          brandData: brand,
-          examples: [
-            `${brand.name} style illustration`,
-            `professional content in ${brand.name} style`,
-            `branded visual for ${brand.name}`
-          ]
-        }))
-
-        // Combine preset styles with brand styles
-        setAllStyles([...brandStyles, ...styles])
-
-        // Load recent generations
-        const q = query(
-          collection(db, 'illustrations'),
-          where('userId', '==', firebaseUser.uid),
-          orderBy('createdAt', 'desc'),
-          limit(3)
-        )
-
-        const unsubscribeImages = onSnapshot(q, (snapshot) => {
-          const images = snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
+        try {
+          // Load user's trained brands
+          const userBrands = await getUserBrands(firebaseUser.uid)
+          const brandStyles = userBrands.map((brand: any) => ({
+            id: `brand_${brand.id}`,
+            name: brand.name,
+            description: 'Your custom brand style',
+            thumbnail: '/styles/custom-brand-thumb.jpg', // Placeholder
+            type: 'brand',
+            brandData: brand,
+            examples: [
+              `${brand.name} style illustration`,
+              `professional content in ${brand.name} style`,
+              `branded visual for ${brand.name}`
+            ]
           }))
-          setRecentImages(images)
-        })
 
-        return () => unsubscribeImages()
+          // Combine preset styles with brand styles
+          setAllStyles([...brandStyles, ...styles])
+        } catch (error) {
+          console.error('Error loading brands:', error)
+          // Continue with just preset styles
+        }
+
+        try {
+          // Load recent generations
+          const q = query(
+            collection(db, 'illustrations'),
+            where('userId', '==', firebaseUser.uid),
+            orderBy('createdAt', 'desc'),
+            limit(3)
+          )
+
+          const unsubscribeImages = onSnapshot(q, (snapshot) => {
+            const images = snapshot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+            }))
+            setRecentImages(images)
+          })
+
+          return () => unsubscribeImages()
+        } catch (error) {
+          console.error('Error loading recent generations:', error)
+          // Continue without recent images
+        }
       }
     })
 
@@ -175,7 +196,7 @@ export default function AppPage() {
 
     // Update user's onboarding status
     if (user) {
-      updateDoc(doc(db, 'users', user.uid), {
+      updateDoc(doc(db, 'users', user.id), {
         onboardingCompleted: true
       })
     }
@@ -216,7 +237,7 @@ export default function AppPage() {
 
       // Update credits
       if (user) {
-        await updateDoc(doc(db, 'users', user.uid), {
+        await updateDoc(doc(db, 'users', user.id), {
           creditsUsed: credits.used + 1
         })
         setCredits(prev => ({ ...prev, used: prev.used + 1 }))
@@ -285,7 +306,13 @@ export default function AppPage() {
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
-                <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded mb-2" />
+                <div className="aspect-square bg-gray-100 rounded mb-2 overflow-hidden">
+                  <img
+                    src={style.thumbnail}
+                    alt={style.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="text-xs font-medium">{style.name}</div>
                 <div className="text-xs text-gray-500">{style.type === 'preset' ? 'Preset' : 'Your Brand'}</div>
               </button>

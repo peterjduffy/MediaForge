@@ -15,6 +15,22 @@ const firestore = admin.firestore();
 const storage = new Storage();
 
 const app = express();
+
+// CORS middleware - enable for all origins
+app.use((req, res, next) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.status(204).send('');
+    return;
+  }
+
+  next();
+});
+
 app.use(express.json());
 
 const PROJECT_ID = 'mediaforge-957e4';
