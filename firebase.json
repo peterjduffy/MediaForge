@@ -1,34 +1,49 @@
 {
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
   "hosting": {
-    "public": "out",
+    "source": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/api/**",
+        "run": {
+          "serviceId": "api-gateway",
+          "region": "us-central1"
+        }
       }
     ]
   },
-  "storage": {
-    "rules": "storage.rules"
-  },
   "functions": [
     {
-      "source": "functions/waitlist-notify",
-      "codebase": "waitlist-notify",
+      "source": "functions/generate-image",
+      "codebase": "generate-image",
       "ignore": [
         "node_modules",
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix functions/generate-image install"
+      ]
+    },
+    {
+      "source": "functions/sdxl-lora",
+      "codebase": "sdxl-lora",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix functions/sdxl-lora install"
       ]
     }
   ]

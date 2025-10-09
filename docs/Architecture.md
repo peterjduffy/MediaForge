@@ -71,14 +71,16 @@ Uploads and processing        → Signed URLs + Cloud Run (when implemented)
 - **State Management**: React Context for auth, local state for UI
 
 ### Backend Services (Google-Native Stack)
-- **Database**: Firestore for user data, generations, transactions
+- **Database**: Firestore for user data, jobs, generations, transactions
 - **Storage**: Cloud Storage with 7 specialized buckets
-- **AI Generation**: Hybrid approach
-  - Imagen 3 on Cloud Run: Free tier and Business Quick Mode ($0.03/image)
-  - SDXL + LoRA on Cloud Run with GPU: Business Brand Mode ($0.01-0.02/image)
-- **Style Training**: Vertex AI Training for LoRA fine-tuning (~$1/brand, charged $29)
-- **Job Queue**: Cloud Tasks for asynchronous processing
-- **Payments**: Stripe for subscriptions ($29/mo Business) and one-time purchases (brand training $29, credit packs $5/100)
+- **API Gateway**: Lightweight Cloud Run service for job creation (<500ms response)
+- **Job Queue**: Cloud Pub/Sub for async processing (required for 15-30 min operations)
+- **AI Generation Workers**: Private Cloud Run services
+  - Imagen 3 Worker: Free tier + Business tier preset styles ($0.03/image)
+  - SDXL + LoRA Worker: Business tier trained brand styles ($0.01-0.02/image)
+  - Auto-scaling based on queue depth
+- **Brand Training**: Vertex AI Training for LoRA fine-tuning (~$1/brand, charged $29)
+- **Payments**: Stripe for subscriptions ($29/mo Business)
 - **Budget**: $2000 Google Cloud credits (4-5 month runway)
 
 ### Infrastructure
@@ -209,31 +211,88 @@ components/
 
 ## Integration Points
 
-### AI Generation Pipeline (Transparent Model Selection)
-- **Current State**: Imagen 3 deployed on Cloud Run ($0.03/image) - Phase 3 complete
-- **Service Module**: `lib/ai-generation.ts` handles all generation logic
+### AI Generation Pipeline (Async Queue Architecture)
+
+**Architecture Decision**: Queue-based async processing is REQUIRED (not optional) because:
+- Brand training takes 15-30 minutes (no HTTP request can wait that long)
+- Image generation with cold starts can exceed 60 seconds
+- Network timeouts are hard limits that affect single users, not just scale
+- Frontend already built with real-time Firestore listeners
+
+#### Architecture Components
+
+**1. API Gateway (Lightweight Cloud Run)**
+- Endpoint: `https://api-gateway-[hash].run.app`
+- Role: Receive requests, authenticate, create job, return jobId immediately
+- Response time: <500ms
+- No AI processing here - just job creation
+
+**2. Job Queue (Cloud Pub/Sub)**
+- Topic: `image-generation-jobs`
+- Subscription: `image-generation-workers`
+- Handles: Request buffering, retry logic, rate limiting
+- Dead letter queue for failed jobs
+
+**3. Image Generation Worker (Private Cloud Run)**
+- Endpoint: Private (only triggered by Pub/Sub)
+- Role: Process jobs, call AI models, update Firestore
+- Concurrent instances: Auto-scale based on queue depth
+- Timeout: 60 minutes (for brand training)
+
+**4. Real-time Status Updates (Firestore)**
+- Collection: `illustrations` or `brands`
+- Status field: `queued → processing → completed/failed`
+- Frontend listens via `onSnapshot()` for instant updates
+
+#### Flow Diagram
+
+```
+Frontend                API Gateway           Pub/Sub Queue         Worker Service
+   |                         |                      |                      |
+   |--POST /generate-------->|                      |                      |
+   |                         |--Create job--------->|                      |
+   |                         |  (Firestore)         |                      |
+   |<--{jobId, status}-------|                      |                      |
+   |                         |                      |                      |
+   |--Listen to Firestore--->|                      |                      |
+   |  (onSnapshot)           |                      |                      |
+   |                         |                      |--Trigger------------>|
+   |                         |                      |                      |--Call Imagen3/SDXL
+   |                         |                      |                      |--Update Firestore
+   |<--Status update---------|                      |                      |  (status: completed)
+   |  (real-time)            |                      |                      |
+```
+
+#### Model Selection (Transparent to User)
+
 - **Free Tier**: Imagen 3 only (preset styles, 1024px, $0.03/image)
-- **Business Tier**: Transparent automatic model selection
-  - Before brand training: Imagen 3 with saved brand colors/keywords ($0.03/image)
-  - After brand training: SDXL + LoRA ($0.01-0.02/image)
-  - User sees "Your Brand" style in picker, backend handles model routing
-  - No "Quick Mode" vs "Brand Mode" - seamless UX
-- **Brand Training**: Optional async LoRA fine-tuning - **Phase 4 MVP Complete** ✅
-  - **Current**: Mock training service (30-second simulation, $0 cost)
-  - **Deployed**: BrandTrainingModal, Settings page, brand management UI
-  - **Live**: https://mediaforge-957e4.web.app/settings
-  - **Production Ready**: LoRA container built, deferred until 5-10 Business users
-  - Can upload during onboarding or skip and add later from Settings
-  - Training runs in background (15-30 min in production)
-  - User can generate with presets while training
-  - Real-time status polling (5-second intervals)
-  - Toast notification when training completes
-  - Data: `users/{userId}/brands/{brandId}` with status tracking
-  - Cost: ~$1 actual, charged $29
-- **Brand Refresh**: $5 to update existing brand with new images
+- **Business Tier**: Automatic model routing
+  - Preset styles → Imagen 3 ($0.03/image)
+  - Trained brand styles → SDXL + LoRA ($0.01-0.02/image)
+  - User sees "Your Brand" in picker, backend routes to correct model
+  - No mode selection - seamless UX
+
+#### Brand Training Pipeline
+
+- **Current**: Mock training (30-second simulation, $0 cost)
+- **Production**: Vertex AI Training with LoRA fine-tuning
+- **Duration**: 15-30 minutes (requires async architecture)
+- **Flow**:
+  1. User uploads 5-20 brand images
+  2. API Gateway creates training job → Pub/Sub
+  3. Worker processes: Upload to GCS, call Vertex AI Training
+  4. Status updates: `preparing → queued → training → ready/failed`
+  5. Frontend shows real-time progress via Firestore listener
+- **Data**: `users/{userId}/brands/{brandId}` with status tracking
+- **Cost**: ~$1 actual (Vertex AI Training), charged $29
+
+#### Implementation Details
+
 - **Resolution Pricing**: 1024/1536 = 1 credit, 2048 = 2 credits
-- **Processing**: Async with Firestore status tracking
-- **Storage**: Cloud Storage for generated images and LoRA model weights (permanent)
+- **Retry Logic**: 3 attempts with exponential backoff
+- **Error Handling**: Dead letter queue + Firestore error logging
+- **Storage**: Cloud Storage for generated images and LoRA weights (permanent)
+- **Monitoring**: Cloud Logging + Firestore events collection
 
 ### Vector Conversion Pipeline (Phase 6+)
 - **Reality Check**: "AI-optimized vectors" not professional-grade vectors

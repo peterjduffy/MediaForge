@@ -119,7 +119,7 @@ Single Next.js application with route group organization:
 4. **Service Account**: firebase-deployer@mediaforge-957e4.iam.gserviceaccount.com with Firebase Hosting Admin + Storage Admin roles
 5. **Details**: See `docs/firebase-deploy.md` for complete runbook
 
-## Current Status (2025-10-06)
+## Current Status (2025-10-08)
 - **Completed Phases**:
   - Phase 2B: App Interface (Generation, Library pages)
   - Phase 2C: Onboarding Flow (60-second time to value)
@@ -127,6 +127,15 @@ Single Next.js application with route group organization:
   - Phase 4: Brand Style Training MVP - Mock training + full UI deployed
   - Phase 5A: Teams Feature - Unlimited members with shared credits
   - Phase 5B: Waitlist & UAT Setup - Gated signup at mediaforge.dev
+  - Phase 5B+: Pre-UAT Critical Fixes
+    - User-friendly error messages
+    - Real-time generation status tracking
+    - Event logging for UAT metrics
+- **In Progress**:
+  - Phase 5C: Async Architecture Migration (REQUIRED before UAT)
+    - Why: Brand training = 15-30 minutes (HTTP timeout = 60 seconds)
+    - Components: API Gateway + Pub/Sub Queue + Worker Services
+    - See `docs/Architecture.md` for detailed design
 - **Simplified Pricing** (YC-style - "so simple a drunk person could understand it"):
   - Free Forever: 10 credits/month (no rollover, no purchases, preset styles, 1024px only)
   - Business: $29/mo, 200 credits/month (use it or lose it) + 1 brand + 1 refresh/month + Teams
@@ -150,10 +159,12 @@ Single Next.js application with route group organization:
   - Manual approval for 5-10 beta users
   - Target: 50-100 signups in Week 1-2
 - **Next Steps**:
-  1. Promote waitlist (Week 1-2)
-  2. Select & onboard 5-10 beta users (Week 3-4)
-  3. Active UAT with feedback collection (Week 4-10)
-  4. Launch Stripe payments with Founder's pricing for beta users (Week 8-10)
+  1. **BLOCKER**: Migrate to async architecture (API Gateway + Pub/Sub + Workers)
+  2. Deploy and test async flow end-to-end
+  3. Promote waitlist (Week 1-2)
+  4. Select & onboard 5-10 beta users (Week 3-4)
+  5. Active UAT with feedback collection (Week 4-10)
+  6. Launch Stripe payments with Founder's pricing for beta users (Week 8-10)
 
 ## Notes
 - Google native application leveraging Google AI tools

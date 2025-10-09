@@ -1,5 +1,5 @@
 import { db, auth } from './firebase'
-import { doc, addDoc, collection, updateDoc, serverTimestamp, getDoc, query, where, getDocs } from 'firebase/firestore'
+import { doc, collection, updateDoc, serverTimestamp, getDoc, query, where, getDocs } from 'firebase/firestore'
 import { getIdToken } from 'firebase/auth'
 import { getUserTeam, deductTeamCredits } from './team-service'
 import { getCreditsForResolution } from './credits'
@@ -33,68 +33,13 @@ interface BrandData {
 // Toggle between mock and real generation
 const MOCK_GENERATION = false
 
-// Service endpoints
-const IMAGEN3_ENDPOINT = 'https://generateimage-261323568725.us-central1.run.app'
-const SDXL_ENDPOINT = 'https://sdxl-lora-service.us-central1.run.app' // Will be deployed
+// Service endpoints - ASYNC ARCHITECTURE (Phase 5C)
+// Using Firebase Hosting rewrite to proxy to private Cloud Run service
+// This avoids CORS issues and org policy restrictions
+const API_GATEWAY_ENDPOINT = '/api'
 
-/**
- * Check if user has a trained brand for the given style
- */
-async function getUserBrand(userId: string, styleId: string): Promise<BrandData | null> {
-  try {
-    // Check if this is a brand style (starts with 'brand_')
-    if (!styleId.startsWith('brand_')) {
-      return null
-    }
-
-    const brandId = styleId.replace('brand_', '')
-    const brandRef = doc(db, 'users', userId, 'brands', brandId)
-    const brandDoc = await getDoc(brandRef)
-
-    if (!brandDoc.exists()) {
-      return null
-    }
-
-    return brandDoc.data() as BrandData
-  } catch (error) {
-    console.error('Error fetching brand:', error)
-    return null
-  }
-}
-
-/**
- * Determine which model to use based on user tier and brand training status
- */
-async function selectGenerationModel(userId: string, styleId: string): Promise<{
-  endpoint: string
-  model: 'imagen3' | 'sdxl-lora'
-  brandData?: BrandData
-}> {
-  // Check if user has Business tier (would be in user profile)
-  const userDoc = await getDoc(doc(db, 'users', userId))
-  const userData = userDoc.data()
-  const isBusinessTier = userData?.tier === 'business' || userData?.subscription?.plan === 'business'
-
-  // Free tier always uses Imagen 3
-  if (!isBusinessTier) {
-    return { endpoint: IMAGEN3_ENDPOINT, model: 'imagen3' }
-  }
-
-  // Business tier: check if brand is trained
-  const brand = await getUserBrand(userId, styleId)
-
-  if (brand && brand.status === 'ready' && brand.loraModelPath) {
-    // Use SDXL + LoRA for trained brands
-    return {
-      endpoint: SDXL_ENDPOINT,
-      model: 'sdxl-lora',
-      brandData: brand
-    }
-  }
-
-  // Default to Imagen 3
-  return { endpoint: IMAGEN3_ENDPOINT, model: 'imagen3' }
-}
+// Model selection is now handled by the API Gateway and Worker
+// Frontend just submits jobs and listens to Firestore for status updates
 
 /**
  * Generate an illustration using AI with transparent model selection
@@ -107,14 +52,6 @@ export async function generateIllustration(
   try {
     // Check if user is part of a team
     const team = await getUserTeam(request.userId)
-
-    // Determine which model to use (transparent to user)
-    const { endpoint, model, brandData } = await selectGenerationModel(
-      request.userId,
-      request.styleId
-    )
-
-    console.log(`Using ${model} for generation`, { styleId: request.styleId, brandData })
 
     // Calculate credits based on resolution
     const width = request.width || 1024
@@ -131,129 +68,77 @@ export async function generateIllustration(
       }
     }
 
-    // Create illustration document in Firestore first
-    const illustrationData = {
-      userId: request.userId,
-      teamId: team?.id || null,
-      prompt: request.prompt,
-      styleId: request.styleId,
-      styleName: request.styleName,
-      status: 'processing',
-      createdAt: serverTimestamp(),
-      finalPrompt: `${request.styleName} style: ${request.prompt}`,
-      creditsUsed,
-      width,
-      height,
-      modelToUse: model,
-      brandId: brandData?.id || null
-    }
-
-    const docRef = await addDoc(collection(db, 'illustrations'), illustrationData)
-    illustrationId = docRef.id
+    // NOTE: Illustration document is now created by API Gateway with 'queued' status
+    // We don't create it here anymore - the gateway handles that
 
     if (MOCK_GENERATION) {
-      // Mock generation with picsum
-      const delay = Math.floor(Math.random() * 3000) + 12000 // 12-15 seconds
-
-      // Simulate processing delay
-      await new Promise(resolve => setTimeout(resolve, delay))
-
-      // Generate mock URLs
-      const seed = `${request.styleId}${Date.now()}`
-      const imageURL = `https://picsum.photos/seed/${seed}/1024/1024`
-      const thumbnailURL = `https://picsum.photos/seed/${seed}/256/256`
-
-      // Update illustration with generated data
-      await updateDoc(doc(db, 'illustrations', illustrationId), {
-        status: 'completed',
-        imageURL,
-        thumbnailURL,
-        generationTime: Math.floor(delay / 1000),
-        modelUsed: 'mock-picsum',
-        width: 1024,
-        height: 1024,
-        completedAt: serverTimestamp()
-      })
-
-      // ✅ Deduct credits AFTER successful generation
-      if (team) {
-        await deductTeamCredits(team.id, request.userId, creditsUsed)
-      }
-
-      return {
-        success: true,
-        imageURL,
-        thumbnailURL,
-        generationTime: Math.floor(delay / 1000),
-        illustrationId
-      }
+      // Mock mode not supported with async architecture
+      // Use the real async flow for testing
+      throw new Error('Mock generation not supported in async architecture. Set MOCK_GENERATION = false')
     } else {
-      // Real generation with transparent model selection
-      const requestBody = model === 'sdxl-lora' ? {
-        // SDXL + LoRA request
-        userId: request.userId,
-        illustrationId,
-        prompt: request.prompt,
-        brandId: brandData?.id,
-        width,
-        height
-      } : {
-        // Imagen 3 request
-        userId: request.userId,
-        prompt: request.prompt,
-        styleId: request.styleId,
-        illustrationId
+      // NEW ASYNC ARCHITECTURE: Call API Gateway to queue job
+      // The gateway returns immediately with jobId, Firestore listeners handle status updates
+
+      // Get Firebase Auth token for authenticated request
+      const currentUser = auth.currentUser
+      if (!currentUser) {
+        console.error('No authenticated user found')
+        throw new Error('User not authenticated')
       }
+
+      console.log('Getting auth token for user:', currentUser.uid)
+      const idToken = await getIdToken(currentUser)
+      console.log('Auth token obtained, length:', idToken?.length)
+
+      const endpoint = `${API_GATEWAY_ENDPOINT}/generate`
+      console.log('Calling API Gateway:', endpoint)
 
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${idToken}`
         },
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify({
+          userId: request.userId,
+          prompt: request.prompt,
+          styleId: request.styleId,
+          styleName: request.styleName,
+          width,
+          height
+        })
       })
+
+      console.log('API Gateway response status:', response.status, response.statusText)
 
       if (!response.ok) {
         const error = await response.json()
-        throw new Error(error.details || 'Generation failed')
+        console.error('API Gateway error response:', error)
+        throw new Error(error.error || 'Failed to queue generation job')
       }
 
       const result = await response.json()
+      console.log('API Gateway success response:', result)
 
-      // ✅ Deduct credits AFTER successful generation
-      if (team) {
-        await deductTeamCredits(team.id, request.userId, creditsUsed)
-      }
-
+      // Return immediately - the worker will process async and update Firestore
+      // Frontend listeners will pick up the status changes (queued → processing → completed)
       return {
         success: true,
-        imageURL: result.imageURL,
-        thumbnailURL: result.thumbnailURL,
-        generationTime: result.generationTime,
-        illustrationId
+        illustrationId: result.illustrationId
       }
     }
   } catch (error) {
     console.error('Generation error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Failed to generate illustration'
 
-    // Update illustration status to failed if it was created
-    if (illustrationId) {
-      try {
-        await updateDoc(doc(db, 'illustrations', illustrationId), {
-          status: 'failed',
-          error: errorMessage,
-          failedAt: serverTimestamp()
-        })
-      } catch (updateError) {
-        console.error('Failed to update illustration status:', updateError)
-      }
-    }
+    // Note: We don't update Firestore here because:
+    // 1. The API Gateway creates the illustration document, not the frontend
+    // 2. If the request fails before reaching the gateway, there's no illustrationId
+    // 3. The gateway/worker will handle status updates for queued jobs
 
     return {
       success: false,
-      error: errorMessage,
-      illustrationId
+      error: errorMessage
     }
   }
 }
@@ -292,20 +177,17 @@ export async function startBrandTraining(
       }
     }
 
-    // Generate brand ID
-    const brandId = `brand_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-
-    // Call mock training endpoint on Cloud Run
-    const trainingEndpoint = 'https://mock-training-261323568725.us-central1.run.app'
+    // NEW ASYNC ARCHITECTURE: Call API Gateway to queue training job
 
     // Get Firebase Auth token for authenticated request
     const currentUser = auth.currentUser
-    let idToken = ''
-    if (currentUser) {
-      idToken = await getIdToken(currentUser)
+    if (!currentUser) {
+      throw new Error('User not authenticated')
     }
 
-    const response = await fetch(trainingEndpoint, {
+    const idToken = await getIdToken(currentUser)
+
+    const response = await fetch(`${API_GATEWAY_ENDPOINT}/train-brand`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -313,7 +195,6 @@ export async function startBrandTraining(
       },
       body: JSON.stringify({
         userId,
-        brandId,
         brandName,
         brandColors,
         trainingImages
@@ -325,11 +206,11 @@ export async function startBrandTraining(
       throw new Error(error.error || 'Failed to start training')
     }
 
-    await response.json()
+    const result = await response.json()
 
     return {
       success: true,
-      brandId
+      brandId: result.brandId
     }
   } catch (error) {
     console.error('Brand training error:', error)

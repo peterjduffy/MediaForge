@@ -1,0 +1,19 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "Worker service for processing image generation and brand training jobs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^12.0.0",
+    "@google-cloud/pubsub": "^4.0.0",
+    "@google-cloud/aiplatform": "^3.0.0",
+    "@google-cloud/storage": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

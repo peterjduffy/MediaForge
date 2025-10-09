@@ -1,0 +1,18 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "Lightweight API Gateway for MediaForge job creation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.0.0",
+    "@google-cloud/pubsub": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

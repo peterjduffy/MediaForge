@@ -2,20 +2,58 @@
 
 ## Current Tasks
 
-### Phase 5B: UAT & Waitlist (Week 1-2) - IN PROGRESS
+### Phase 5B: UAT & Waitlist ✅ COMPLETED (2025-10-08)
 - [x] Build waitlist modal with email + use case collection
 - [x] Deploy waitlist to mediaforge.dev (gated signup)
-- [ ] Promote waitlist (Twitter, LinkedIn, communities) - target 50-100 signups
-- [ ] Review submissions and select 5-10 beta users based on:
-  - Response time (within 24h to emails)
-  - Clear, specific use case
-  - Has team (bonus)
-  - Potential for word-of-mouth
+- [x] Pre-UAT Critical Fixes:
+  - [x] User-friendly error messages (credit errors, brand training, network issues)
+  - [x] Real-time generation status tracking (queued → generating → completed/failed)
+  - [x] Event logging system (user_signup, generation_completed, team_invite_sent, etc.)
+  - [x] Updated Firestore rules for events collection
+- [ ] Promote waitlist (Twitter, LinkedIn, communities) - target 50-100 signups **[BLOCKED BY PHASE 5C]**
+- [ ] Review submissions and select 5-10 beta users
 - [ ] Send personalized beta invites with free Business access (3 months)
 - [ ] Schedule 1:1 onboarding calls (30min each, watch them use it)
 - [ ] Set up feedback collection (weekly surveys + shared Slack/Discord)
 
-### Phase 5C: Payment Integration (Week 8-10) - NEXT PRIORITY
+### Phase 5C: Async Architecture Migration - **BLOCKER** (Est: 2-3 days)
+**Critical Issue**: Brand training = 15-30 minutes. HTTP timeout = 60 seconds. Current architecture fundamentally broken.
+
+**Implementation Tasks:**
+- [ ] Set up Pub/Sub infrastructure (topic + subscription + dead letter queue)
+- [ ] Build API Gateway service (Cloud Run):
+  - [ ] Create Node.js/Express service
+  - [ ] Implement `/generate` endpoint (create job → Pub/Sub → return jobId)
+  - [ ] Implement `/train-brand` endpoint (same pattern)
+  - [ ] Add Firebase Auth middleware
+  - [ ] Configure CORS for frontend
+  - [ ] Deploy to Cloud Run with min instances = 0
+- [ ] Build Worker service (Cloud Run):
+  - [ ] Refactor `functions/generate-image` to Pub/Sub trigger
+  - [ ] Refactor `functions/mock-training` to Pub/Sub trigger
+  - [ ] Update Firestore status: queued → processing → completed/failed
+  - [ ] Implement retry logic (3 attempts with exponential backoff)
+  - [ ] Configure timeout (60 minutes for training)
+  - [ ] Deploy as private service (no public endpoint)
+- [ ] Update frontend:
+  - [ ] Modify `lib/ai-generation.ts` to call API Gateway instead of workers directly
+  - [ ] Verify existing Firestore listeners work with new job pattern
+  - [ ] Test with existing error handling (should just work)
+- [ ] Testing & Deployment:
+  - [ ] Test mock generation (15-20 seconds)
+  - [ ] Test brand training mock (30 seconds)
+  - [ ] Verify real-time status updates in UI
+  - [ ] Test error scenarios (insufficient credits, network errors)
+  - [ ] Load test with 5 concurrent generations
+  - [ ] Deploy to production
+- [ ] Documentation:
+  - [x] Architecture.md updated with async design
+  - [x] CLAUDE.md updated with blocker status
+  - [ ] Create async-deployment.md runbook
+
+**See `docs/Architecture.md` for detailed design.**
+
+### Phase 5D: Payment Integration (Week 8-10) - AFTER UAT
 
 ### Phase 2B: App Interface - Generation & Library ✅ COMPLETED
 - [x] Create /app/ route with minimal layout

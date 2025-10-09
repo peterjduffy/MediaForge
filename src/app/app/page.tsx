@@ -354,27 +354,46 @@ export default function AppPage() {
       logFirstGenerationStarted(user.uid).catch(console.error)
     }
 
-    // Call the AI generation service
-    const result = await generateIllustration({
-      userId: user?.uid || 'anonymous',
-      prompt: prompt,
-      styleId: selectedStyle.id,
-      styleName: selectedStyle.name
-    })
+    try {
+      // Debug logging
+      console.log('Starting generation:', {
+        userId: user?.uid,
+        prompt: prompt.substring(0, 50),
+        styleId: selectedStyle.id
+      })
 
-    if (result.success && result.illustrationId) {
-      // Start listening to real-time updates
-      setCurrentIllustrationId(result.illustrationId)
-    } else {
-      // Handle immediate failure (before reaching backend)
+      // Call the AI generation service
+      const result = await generateIllustration({
+        userId: user?.uid || 'anonymous',
+        prompt: prompt,
+        styleId: selectedStyle.id,
+        styleName: selectedStyle.name
+      })
+
+      console.log('Generation result:', result)
+
+      if (result.success && result.illustrationId) {
+        // Start listening to real-time updates via Firestore
+        // The listener (lines 226-313) will handle status updates
+        setCurrentIllustrationId(result.illustrationId)
+      } else {
+        throw new Error(result.error || 'Unknown error')
+      }
+    } catch (error) {
+      // Handle any errors during generation request
+      console.error('Generation error caught:', error)
+
       setIsGenerating(false)
       setGenerationStatus('idle')
-      const errorMessage = getUserFriendlyError(result.error || 'Unknown error')
+
+      const errorMessage = getUserFriendlyError(
+        error instanceof Error ? error.message : 'Unknown error'
+      )
       alert(errorMessage)
 
       // Log generation failure
       if (user) {
-        logGenerationFailed(user.uid, result.error || 'Unknown error', {
+        logGenerationFailed(user.uid, error instanceof Error ? error.message : 'Unknown error', {
           prompt,
           styleId: selectedStyle.id
         }).catch(console.error)
